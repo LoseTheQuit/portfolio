@@ -34,7 +34,7 @@
     <div class="clearFloat"></div>
 
     <div class="row">
-        <div class="col-md-6 col-xs-12 tweetCardShell" ng-repeat="tweet in twitterData.data">
+        <div class="col-md-6 col-xs-12 tweetCardShell userDataTweetCard" ng-repeat="tweet in twitterData.data">
             <div class="tweetCard addSomeMarginBottom">
                 <div class="cardImage" style="background: url(&quot;{{tweet.user.profile_background_image_url}}&quot;); background-size: cover;">
                     <!-- cardImage-->
@@ -55,7 +55,7 @@
                         <p>{{data.text}}</p>
                         <p>Retweet count: {{tweet.retweet_count}}</p>
                         <p>{{tweet.created_at}}</p>
-                        <a class="cardLink" href="{{tweets.user.url}">{{tweet.user.url}}</a>
+                        <a class="cardLink" href="{{tweet.user.url}">{{tweet.user.url}}</a>
 
                     </div>
                 </div>
@@ -63,9 +63,8 @@
         </div>
     </div>
 
-
     <div class="row">
-        <div class="col-md-6 col-xs-12 tweetCardShell" ng-repeat="tweet in twitterData.data.statuses">
+        <div class="col-md-6 col-xs-12 tweetCardShell" ng-repeat="tweet in twitterData.data">
             <div class="tweetCard addSomeMarginBottom">
                 <div class="cardImage" style="background: url(&quot;{{tweet.user.profile_background_image_url}}&quot;); background-size: cover;">
                     <!--                    cardImage-->
@@ -100,4 +99,5 @@
             </div>
         </div>
     </div>
+
 </div>

@@ -18,7 +18,7 @@ angular.module("mainModule")
             console.log(params);
 
             $http({
-                url: '/searchTwitterQuery',
+                url: '/searchTweetsQuery',
                 method: "POST",
                 data: params
             })
@@ -40,7 +40,7 @@ angular.module("mainModule")
 
             .then(callback);
 
-            console.log('q: ' + params.q)
+            // console.log('q: ' + params.q)
 
         };
 

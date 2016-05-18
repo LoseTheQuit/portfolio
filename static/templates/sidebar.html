@@ -118,7 +118,7 @@
         min-height: auto;
         /*        */
         width: 80%;
-        height: 50px;
+        height: auto;
         cursor: pointer;
         line-height: 50px;
         display: block;
@@ -195,13 +195,15 @@
                             <div class="dropdown">
                                 <img class="socialIconSideBar" src="../img/svg/twitter.svg">
                                 <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#" role="button">
-                                    <span>Twitter V2</span>
+                                    <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
                                     <b class="caret"></b>
                                 </a>
+
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                                    <li>{{data}}</li>
                                     <li role="presentation">
-                                        <a ng-href={{data}} role="menuitem">hashtag</a>
+                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
+                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
+                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -209,16 +211,6 @@
 
                     </center>
 
-
-                    <!--
-                    <center>
-                        <a class="sideBarGhostButton" ng-href="/views/werkspayce.html/spotify-login">
-                            <center>
-                                spotify login
-                            </center>
-                        </a>
-                    </center>
-                    -->
                 </div>
             </ul>
         </div>
@@ -293,41 +285,18 @@
 
         }
 
-        // setInterval(function () {
-        //     sidebarResize();
-        // }, 500);
-
         setTimeout(function () {
             sidebarResize();
         }, 1000);
+        setTimeout(function () {
+            sidebarResize();
+        }, 1500);
+        setTimeout(function () {
+            sidebarResize();
+        }, 2000);
 
         $(window).resize(function () {
-
             sidebarResize();
-
         });
-        $("ul li a").click(function () {
-            $(this).parent().next().toggle("fast");
-        });
-
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-
     });
 </script>

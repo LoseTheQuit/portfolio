@@ -3,11 +3,12 @@
 console.log("OUTSIDE alloyController");
 
 angular.module("mainModule")
-    .controller('alloyController', function ($scope, instagramService, twitterService, alloy) {
+    .controller('alloyController', function ($scope, instagramService, twitterService, sidebarService, alloy) {
 
         console.log("INSIDE alloyController");
 
         $scope.windowInfoWithToken = instagramService.getWindowInfo();
+        $scope.getTwitterDropDownNumberIndex = sidebarService.getTwitterDropDownNumberIndex();
 
         $scope.getIgandTwitterApiData = function () {
 
@@ -18,17 +19,7 @@ angular.module("mainModule")
 
             });
 
-            alloy.getTwitterAndInstagramDataByTags({
 
-                q: $scope.inputSearchTweetsAndInstagramQuery,
-                count: 20
-
-            }, function (response) {
-
-                var tweets = response.data;
-                console.log(tweets);
-                $scope.twitterData = tweets;
-            });
 
             alloy.getSpotifyDATA({
 
@@ -48,6 +39,29 @@ angular.module("mainModule")
 
             });
 
+            //            alloy.getTwitterAndInstagramDataByTags({
+            //
+            //                q: $scope.inputSearchTweetsAndInstagramQuery,
+            //                count: 20
+            //
+            //            }, function (response) {
+            //
+            //                var tweets = response.data;
+            //                console.log(tweets);
+            //                $scope.twitterData = tweets;
+            //            });
+
+            sidebarService.getTwitterData($scope.inputSearchTweetsAndInstagramQuery, function (response) {
+
+                // for user timelines   var tweets = response;
+                // for tags var tweets = response.data;
+                var tweets = response;
+                console.log(tweets);
+                $scope.twitterData = tweets;
+
+            });
+
+
         };
 
         $scope.tagQuery = function (instaQuery) {
@@ -62,6 +76,7 @@ angular.module("mainModule")
         };
 
         $scope.hideThisDiv = false;
+
         $scope.customOverFlow = function (value) {
 
             if ($scope.hideThisDiv) {

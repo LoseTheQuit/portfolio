@@ -283,17 +283,26 @@ app.post('/spotify-input-query', function (req, res) {
 
 
 
-app.post('/twitter', function (req, res) {
+app.post('/userTimeLineQuery', function (req, res) {
 
     console.log('\n');
-    console.log('TWITTER - INCOMING POST REQUEST - TWITTER'.white.bgBlue);
-
-    twitterClient.get('statuses/user_timeline', {
-        screen_name: 'nodejs',
-        count: '50'
-    }, function (error, tweets, response) {
+    console.log('START *** INCOMING INPUT GET REQUEST - search-tweets-query *** START'.white.bgBlue);
+    console.log(req.body);
+    console.log(req.body);
+    console.log(req.body);
+    console.log(req.body);
+    console.log('INCOMING INPUT GET REQUEST - search-tweets-query'.white.bgBlue);
+    console.log('\n');
+    twitterClient.get('statuses/user_timeline', req.body, function (error, tweets, response) {
 
         if (!error) {
+            //   console.log(tweets);
+            for (var key in tweets) {
+
+                console.log('KEY: ' + key)
+                console.log('KEY: ' + tweets[key])
+
+            }
             res.json(tweets);
         } else {
             res.json(error);
@@ -304,11 +313,14 @@ app.post('/twitter', function (req, res) {
 
 });
 
-app.post('/searchTwitterQuery', function (req, res) {
+app.post('/searchTweetsQuery', function (req, res) {
     console.log('TWITTER - INPUTQUERY - START - TWITTER'.white.bgBlue);
 
     console.log('\n');
     console.log('INCOMING INPUT GET REQUEST - search-tweets-query'.white.bgBlue);
+    console.log(req.body);
+    console.log(req.body);
+    console.log(req.body);
     console.log(req.body);
     console.log('INCOMING INPUT GET REQUEST - search-tweets-query'.white.bgBlue);
     console.log('\n');
@@ -318,11 +330,13 @@ app.post('/searchTwitterQuery', function (req, res) {
         if (!error) {
             //console.log(tweets);
             console.log('***** tweets *** SENT *** tweets *****'.white.bgBlue);
+            console.log(tweets);
             res.json(tweets);
         } else {
             res.json(error);
             console.log(error);
         }
+
         console.log('\n');
         console.log('TWITTER - INPUTQUERY - END - TWITTER'.white.bgBlue);
     });

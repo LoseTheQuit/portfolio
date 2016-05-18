@@ -3,8 +3,35 @@
 console.log("OUTSIDE sidebarController");
 
 angular.module("mainModule")
-    .controller('sidebarController', function ($scope, instagramService, twitterService, alloy) {
+    .controller('sidebarController', function ($scope, sidebarService) {
         console.log("INSIDE sidebarController");
 
-        $scope.twitterMenuOptions = ['Mark', 'Tom', 'Travis'], ['Mark', 'Tom', 'Travis'], ['Mark', 'Tom', 'Travis'];
+        $scope.getTwitterDropDownNumber = 1;
+
+
+
+        $scope.getTwitterDropDownText = function (menuOptionNumber) {
+
+            sidebarService.setTwitterDropDownNumberIndex(menuOptionNumber);
+
+            $scope.getTwitterDropDownNumber = menuOptionNumber;
+
+            switch (menuOptionNumber) {
+
+            case 1:
+                return 'user timeline';
+                break;
+            case 2:
+                return 'search tweets'
+                break;
+            case 3:
+                return 'coming soon'
+                break;
+            default:
+
+            }
+
+        };
+
+
     });

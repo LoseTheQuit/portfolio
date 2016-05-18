@@ -9,12 +9,11 @@ angular.module("mainModule")
 
         this.getTwitter = function (callback) {
 
-
             $http({
-                url: '/twitter',
+                url: '/userTimeLineQuery',
                 method: "POST",
                 data: {
-                    screen_name: 'nodejs',
+                    screen_name: 'djenvy',
                     count: 10
                 }
             })

@@ -6,6 +6,7 @@
         height: 90%;
         box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
         transition: all linear .25s;
+        z-index: 1;
     }
     
     .sidebar:hover {
@@ -19,7 +20,7 @@
     }
     
     .inputBox {
-        width: 50%;
+        width: 68%;
         height: 40px;
         color: #000;
         padding: 10px;
@@ -38,32 +39,11 @@
     .inputBox input[type="text"].focus {
         border: solid 1px rgba(0, 0, 0, .50);
     }
-    /*
-    
-    .sideBarGhostButton {
-        width: 80%;
-        height: 100%;
-        cursor: pointer;
-        line-height: 50px;
-        display: block;
-        margin-bottom: 25px;
-        margin-top: 25px;
-        color: #fff;
-        border: 1px solid #fff;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
-        text-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-        background: rgba(0, 0, 0, .5);
-    }
-    
-    .sideBarGhostButton:hover {
-        text-decoration: none;
-        color: #fff;
-        transition: all linear .50s;
-        background: rgba(0, 0, 0, .5);
-    }
-    */
     
     @media (min-width: 990px) {
+        .container {
+            width: 95%;
+        }
         .sidebar.affix-top {
             position: static;
             /*   margin-top: 30px;  */
@@ -74,9 +54,30 @@
             top: 5%;
             width: 228px;
         }
+        .socialDataWrapper {
+            position: static;
+            margin-top: 0px;
+            z-index: -1;
+        }
+        .displayFlex {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .searchIconSideBar {
+            width: 15%;
+            margin: 15px;
+        }
+        .socialIconSideBar {
+            width: 15%;
+            margin: 10px;
+        }
     }
     
     @media (max-width: 1200px) {
+        .container {
+            width: 100%;
+        }
         .sidebar.affix-top {
             position: relative;
             margin-top: 30px;
@@ -91,33 +92,29 @@
         .custom-dropdown .open {
             margin: 0 auto;
         }
+        .socialDataWrapper {
+            position: static;
+            margin-top: 250px;
+            z-index: -1;
+        }
+        .displayFlex {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .searchIconSideBar {
+            width: 10%;
+            margin: 15px;
+        }
+        .socialIconSideBar {
+            width: 10%;
+            margin: 10px;
+        }
     }
     
     .beaker {
         width: 100%;
         height: 100%;
-    }
-    
-    .displayFlex {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .searchIconSideBar {
-        width: 15%;
-        margin: 15px;
-    }
-    
-    .socialIconSideBar {
-        width: 15%;
-        margin: 10px;
-    }
-    
-    .primaryDropDownText {
-        /* display: inline-block; */
-        margin: 10px;
-        white-space: nowrap;
     }
     /*--***** DROPDOWN STYLES *****--*/
     /*--***** DROPDOWN STYLES *****--*/
@@ -126,15 +123,15 @@
     /*--***** DROPDOWN STYLES *****--*/
     
     .custom-dropdown {
-        width: auto;
+        margin: 0 auto;
+        width: 90%;
         height: auto;
         min-height: auto;
-        cursor: pointer;
         line-height: 50px;
         display: block;
         margin-bottom: 25px;
         margin-top: 25px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
         text-shadow: 0 1px 3px rgba(0, 0, 0, .25);
         background: rgba(0, 45, 114, .07);
         border: 1px solid rgba(0, 163, 224, .37);
@@ -142,6 +139,7 @@
     }
     
     .custom-dropdown:hover {
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
         text-decoration: none;
         color: #fff;
         transition: all linear .50s;
@@ -177,6 +175,8 @@
     .custom-dropdown .open li a {
         margin: 0 auto;
         color: #428bca;
+        cursor: pointer;
+        width: 100%;
     }
     
     .custom-dropdown .open {
@@ -186,52 +186,57 @@
         background: #428bca;
         */
     }
+    
+    .primaryDropDownText {
+        /* display: inline-block; */
+        margin: 10px;
+        white-space: nowrap;
+        cursor: pointer;
+    }
 </style>
-
+<!-- -->
 <div class="container" ng-hide="!hideThisDiv">
-    <div class="row">
-        <div id="leftCol">
-            <ul class="nav nav-stacked sidebar" id="sidebar">
-                <div class="beaker displayFlex">
 
+    <div class="leftCol">
+        <ul class="nav nav-stacked sidebar" id="sidebar">
+            <div class="beaker displayFlex">
+
+                <div class="custom-dropdown">
                     <center>
-
-                        <img class="searchIconSideBar" src="../img/svg/search.svg">
-                        <input class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
-
-                    </center>
-
-                    <center>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="custom-dropdown">
-                                <div class="dropdown">
-
-                                    <img class="socialIconSideBar" src="../img/svg/twitter.svg">
-
-                                    <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#" role="button">
-                                        <span class="primaryDropDownText">
-                                        <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
-                                        <b class="caret"></b>
-                                        </span>
-
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                                        <li role="presentation">
-                                            <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
-                                            <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
-                                            <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                            <img class="searchIconSideBar" src="../img/svg/search.svg">
+                            <input class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
                         </div>
                     </center>
-
                 </div>
-            </ul>
-        </div>
+
+                <div class="custom-dropdown">
+                    <center>
+                        <div class="dropdown">
+                            <img class="socialIconSideBar" src="../img/svg/twitter.svg">
+                            <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#" role="button">
+                                <span class="primaryDropDownText">
+                                        <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
+                                <b class="caret"></b>
+                                </span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                                <li role="presentation">
+                                    <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
+                                    <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
+                                    <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </ul>
     </div>
 </div>
+
 
 <script>
     $(function () {
@@ -251,18 +256,19 @@
         var navHeight = $('.navbar').outerHeight(true) + 10;
 
         $body.scrollspy({
-            target: '#leftCol',
+            target: '.leftCol',
             offset: navHeight
         });
 
         var instaCardWidth = $('.igCard').width();
         var tweetCardWidth = $('.cardImage').width();
+        var theWhiteLineWidth = $('.theWhiteLine').width();
 
         function sidebarResize() {
 
             instaCardWidth = $('.igCard').width();
             tweetCardWidth = $('.cardImage').width();
-
+            theWhiteLineWidth = $('.theWhiteLine').width();
 
             if ($('.tweetCardShell').css('padding-right') !== undefined) {
 
@@ -278,15 +284,35 @@
 
                 $('.sidebar').css('position', 'fixed');
 
-                if (tweetCardWidth <= 101)
+                $('.sidebar').css({
+                    transition: 'all linear .25s'
+                });
+
+                $('.sidebar').css('height', '90%');
+
+                if (tweetCardWidth <= 101) {
                     $('.sidebar').css('width', 300 - 75);
-                else
+                } else {
                     $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2));
+                }
 
             } else {
 
-                $('.sidebar').css('position', 'relative');
-                $('.sidebar').css('width', '100%');
+                $('.sidebar').hover(function () {
+                    $('.sidebar').css({
+                        transition: 'all linear .25s'
+                    });
+                });
+
+                $('.sidebar').css({
+                    transition: 'all linear .007s'
+                });
+
+                $('.sidebar').css('position', 'fixed');
+                $('.sidebar').css('height', 'auto');
+                $('.sidebar').css('width', theWhiteLineWidth + 'px');
+
+
 
             }
 
@@ -301,6 +327,7 @@
 
         }
 
+
         setTimeout(function () {
             sidebarResize();
         }, 1000);
@@ -314,5 +341,6 @@
         $(window).resize(function () {
             sidebarResize();
         });
+
     });
 </script>

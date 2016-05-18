@@ -8,8 +8,6 @@ angular.module("mainModule")
 
         $scope.getTwitterDropDownNumber = 1;
 
-
-
         $scope.getTwitterDropDownText = function (menuOptionNumber) {
 
             sidebarService.setTwitterDropDownNumberIndex(menuOptionNumber);

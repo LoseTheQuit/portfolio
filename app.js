@@ -158,13 +158,8 @@ app.get('/views/werkspayce.html/spotify-callback', function (req, res) {
     // after checking the state parameter
 
     var code = req.query.code || null;
-    console.log('code: ' + code);
-
     var state = req.query.state || null;
-    console.log('state: ' + state);
-
     var storedState = req.cookies ? req.cookies[stateKey] : null;
-    console.log('storedState: ' + storedState);
 
     if (state === null || state !== storedState) {
 
@@ -296,19 +291,15 @@ app.post('/userTimeLineQuery', function (req, res) {
     twitterClient.get('statuses/user_timeline', req.body, function (error, tweets, response) {
 
         if (!error) {
-            //   console.log(tweets);
-            for (var key in tweets) {
-
-                console.log('KEY: ' + key)
-                console.log('KEY: ' + tweets[key])
-
-            }
             res.json(tweets);
+            console.log('***** tweets *** SENT *** tweets *****'.white.bgBlue);
         } else {
             res.json(error);
             console.log(error);
         }
 
+        console.log('\n');
+        console.log('** TWITTER - END - userTimeLineQuery - END - TWITTER **'.white.bgBlue);
     });
 
 });
@@ -328,17 +319,15 @@ app.post('/searchTweetsQuery', function (req, res) {
     twitterClient.get('search/tweets', req.body, function (error, tweets, response) {
 
         if (!error) {
-            //console.log(tweets);
-            console.log('***** tweets *** SENT *** tweets *****'.white.bgBlue);
-            console.log(tweets);
             res.json(tweets);
+            console.log('***** tweets *** SENT *** tweets *****'.white.bgBlue);
         } else {
             res.json(error);
             console.log(error);
         }
 
         console.log('\n');
-        console.log('TWITTER - INPUTQUERY - END - TWITTER'.white.bgBlue);
+        console.log('** TWITTER - END - searchTweetsQuery - END - TWITTER **'.white.bgBlue);
     });
 
 });

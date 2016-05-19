@@ -15,7 +15,6 @@ let fs = require('fs'),
     client = new Client();
 
 // swap dev/production data
-var ignitionSwitch = true;
 
 var instagramAccessCode = 'FOR-TEMPORARY-USE-ONLY';
 var spotifyAccessToken = 'FOR-TEMPORARY-USE-ONLY';
@@ -24,6 +23,8 @@ let instagram_client_secret = 'FOR-TEMPORARY-USE-ONLY';
 let instagram_redirect_uri = 'FOR-TEMPORARY-USE-ONLY';
 let instagramApiURL = 'FOR-TEMPORARY-USE-ONLY';
 let spotify_redirect_uri = 'FOR-TEMPORARY-USE-ONLY';
+
+var ignitionSwitch = true;
 
 if (ignitionSwitch) {
 
@@ -35,13 +36,15 @@ if (ignitionSwitch) {
 
 } else {
 
-    instagram_client_id = "b23670e220f14f1c89c11f627c9f9953";
-    instagram_client_secret = "dd78c7ffbadd4a10a49f24675356c4d2";
-    instagram_redirect_uri = 'https://losethequit.herokuapp.com/views/werkspayce.html';
+    instagram_client_id = 'd0f6230a40954cb2823768aa53910a5e';
+    instagram_client_secret = 'bfb29d9f5ee94a46a675f771e9013477';
+    instagram_redirect_uri = 'http://localhost:5000/views/werkspayce.html';
     instagramApiURL = 'http://www.instagram.com/oauth/authorize?client_id=d0f6230a40954cb2823768aa53910a5e&redirect_uri=http://localhost:5000/views/werkspayce.html&response_type=code&scope=basic+public_content+follower_list+comments+relationships+likes';
     spotify_redirect_uri = 'http://localhost:5000/views/werkspayce.html/spotify-callback';
 
 }
+
+// spotify_redirect_uri = 'http://localhost:5000/views/werkspayce.html/spotify-callback';
 
 var twitterClient = new Twitter({
 
@@ -54,8 +57,6 @@ var twitterClient = new Twitter({
 
 var spotify_client_id = '099060b613284cc0af0210f5199dcb0c'; // Your client id
 var spotify_client_secret = '42c98e7bfcf6426dbf25888204456dce'; // Your secret
-
-
 
 var generateRandomString = function (length) {
 
@@ -338,11 +339,8 @@ app.post('/searchTweetsQuery', function (req, res) {
 });
 
 app.get('/instagram-login', function (req, res) {
-
-
     res.redirect(instagramApiURL);
     res.end();
-
 });
 
 app.post('/ig', function (req, res, next) {

@@ -111,26 +111,22 @@
         }
     }
     
-    @media (min-width:1200px) {
-        .navbar-collapse {
-            width: auto;
-            border-top: 0;
-            box-shadow: none
-        }
-        .navbar-collapse.collapse {
-            display: block!important;
-            height: auto!important;
-            padding-bottom: 0;
-            overflow: visible!important
+    @media (max-width:1200px) {
+        .navbar-nav {
+            float: none;
+            margin: 0;
+            margin: 0 auto;
+            margin: 7.5px 15px;
         }
         .navbar-collapse.in {
             overflow-y: visible
         }
-        .navbar-fixed-bottom .navbar-collapse,
-        .navbar-fixed-top .navbar-collapse,
-        .navbar-static-top .navbar-collapse {
-            padding-right: 0;
-            padding-left: 0
+        .navbar-nav li {
+            float: none;
+        }
+        .navbar-nav li a {
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
     }
     
@@ -143,6 +139,50 @@
     /*--***** DROPDOWN STYLES *****--*/
     /*--***** DROPDOWN STYLES *****--*/
     /*--***** DROPDOWN STYLES *****--*/
+    
+    .dropdown button,
+    .dropdown button:hover,
+    .dropdown button:active,
+    .dropdown button:focus {
+        position: relative;
+        background-color: transparent;
+        color: #fff;
+        overflow: hidden;
+        padding: 0px;
+        border: 0px;
+    }
+    
+    .btn-primary:active:hover,
+    .btn-primary.active:hover:active,
+    .open > .dropdown-toggle.btn-primary:hover,
+    .btn-primary:active:focus,
+    .btn-primary.active:focus,
+    .open > .dropdown-toggle.btn-primary:focus,
+    .btn-primary:active.focus,
+    .btn-primary.active.focus,
+    .open > .dropdown-toggle.btn-primary.focus {
+        position: relative;
+        background-color: transparent;
+        color: #fff;
+        overflow: hidden;
+        padding: 0px;
+        border: 0px;
+    }
+    
+    .dropdown:focus button {
+        position: relative;
+        background-color: transparent;
+        color: #fff;
+        overflow: hidden;
+        border-radius: 0px;
+        padding: 0px;
+    }
+    
+    .btn-primary {}
+    
+    .dropdown-menu a {
+        color: rgba(255, 255, 255, .95);
+    }
     
     .custom-dropdown {
         /* margin: 0 auto; */
@@ -201,14 +241,6 @@
         width: 100%;
     }
     
-    .custom-dropdown .open {
-        /*
-        color: #428bca;
-        color: #fff;
-        background: #428bca;
-        */
-    }
-    
     .primaryDropDownText {
         /* display: inline-block; */
         margin: 10px;
@@ -221,6 +253,11 @@
         flex-direction: column;
         justify-content: flex-end;
     }
+    
+    .customDropDownButtonWrapper {
+        width: 50%;
+        margin: 0 auto;
+    }
 </style>
 <!-- -->
 <div class="container" ng-hide="!hideThisDiv">
@@ -230,8 +267,9 @@
             <div class="beaker displayFlex">
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                     <div class="custom-dropdown">
+
                         <center>
-                            <div class="redvsblue">fedorblue</div>
+
                             <img class="searchIconSideBar" src="../img/svg/search.svg">
                             <input class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
 
@@ -244,11 +282,17 @@
 
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li role="presentation">
-
+                                    <li role="">
+                                        <!--presentation-->
                                         <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                <span class="caret"></span></button>
+                                            <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                <img class="socialIconSideBar" src="../img/svg/twitter.svg">
+                                                <span class="primaryDropDownText">  
+                                        <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
+                                                <b class="caret"></b>
+                                                </span>
+                                            </button>
+
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
@@ -261,32 +305,55 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <center>
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <img class="socialIconSideBar" src="../img/svg/instagram.svg">
+                                                    <span class="primaryDropDownText">  
+                                        <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
+                                                    <b class="caret"></b>
+                                                    </span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </center>
                                         <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                <span class="caret"></span></button>
+                                            <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                <img class="socialIconSideBar" src="../img/svg/instagram.svg">
+                                                <span class="primaryDropDownText">
+                                                <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
+                                                </span> <b class="caret"></b>
+                                            </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
+                                                <li>
+                                                    <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
+                                                </li>
+                                                <li>
+                                                    <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
+                                                </li>
+                                                <li>
+                                                    <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
+                                                </li>
                                             </ul>
                                         </div>
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                            </ul>
-                                        </div>
-
                                     </li>
                                 </ul>
                             </div>
-
                         </center>
+
                     </div>
                 </div>
+                <!--
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 hideThisDiv">
                     <div class="custom-dropdown">
                         <center>
@@ -311,6 +378,7 @@
                         </center>
                     </div>
                 </div>
+-->
 
                 <!--
                 <div class="displayFlexBottom">
@@ -333,7 +401,7 @@
         var stickyLine = document.querySelector('.stickyLine');
         var stickyLinePosition = stickyLine.getBoundingClientRect().top;
 
-        // console.log(stickyLinePosition)
+        console.log(stickyLinePosition)
 
         $('.sidebar').affix({
             offset: {
@@ -372,7 +440,7 @@
             if (($(window).width() + 17) > 1200) {
 
                 $('.hideThisDiv').css('display', 'block');
-                $('.showButton').css('display', 'none');
+
 
                 $('.sidebar').css('position', 'fixed');
 
@@ -391,7 +459,7 @@
             } else {
 
                 $('.hideThisDiv').css('display', 'none');
-                $('.showButton').css('display', 'block');
+
 
                 $('.sidebar').hover(function () {
                     $('.sidebar').css({
@@ -436,7 +504,6 @@
             sidebarResize();
         });
 
-        //
         //        $(window).bind('scroll', function () {
         //            if ($(window).scrollTop() > 100) {
         //                $('.socialDataWrapper').hide();

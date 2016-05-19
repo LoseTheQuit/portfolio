@@ -39,18 +39,6 @@ angular.module("mainModule")
 
             });
 
-            //            alloy.getTwitterAndInstagramDataByTags({
-            //
-            //                q: $scope.inputSearchTweetsAndInstagramQuery,
-            //                count: 20
-            //
-            //            }, function (response) {
-            //
-            //                var tweets = response.data;
-            //                console.log(tweets);
-            //                $scope.twitterData = tweets;
-            //            });
-
             sidebarService.getTwitterData($scope.inputSearchTweetsAndInstagramQuery, function (response) {
 
                 // for user timelines   var tweets = response;
@@ -70,8 +58,6 @@ angular.module("mainModule")
             });
 
         };
-
-        $scope.searchTweetsObject = {};
 
         $scope.tagQuery = function (instaQuery) {
 
@@ -135,7 +121,6 @@ angular.module("mainModule")
             });
 
         };
-
 
         twitterService.getTwitter(function (response) {
 

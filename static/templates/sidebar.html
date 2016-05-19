@@ -20,7 +20,7 @@
     }
     
     .inputBox {
-        width: 68%;
+        width: 50%;
         height: 40px;
         color: #000;
         padding: 10px;
@@ -46,7 +46,6 @@
         }
         .sidebar.affix-top {
             position: static;
-            /*   margin-top: 30px;  */
             width: 228px;
         }
         .sidebar.affix {
@@ -85,7 +84,7 @@
         }
         .sidebar.affix {
             position: relative;
-            top: 5%;
+            top: 0%;
             width: 100%;
             margin-top: 50px;
         }
@@ -94,7 +93,7 @@
         }
         .socialDataWrapper {
             position: static;
-            margin-top: 250px;
+            margin-top: 200px;
             z-index: -1;
         }
         .displayFlex {
@@ -123,8 +122,8 @@
     /*--***** DROPDOWN STYLES *****--*/
     
     .custom-dropdown {
-        margin: 0 auto;
-        width: 90%;
+        /* margin: 0 auto; */
+        width: 100%;
         height: auto;
         min-height: auto;
         line-height: 50px;
@@ -193,6 +192,12 @@
         white-space: nowrap;
         cursor: pointer;
     }
+    
+    .displayFlexBottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
 </style>
 <!-- -->
 <div class="container" ng-hide="!hideThisDiv">
@@ -200,39 +205,51 @@
     <div class="leftCol">
         <ul class="nav nav-stacked sidebar" id="sidebar">
             <div class="beaker displayFlex">
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <div class="custom-dropdown">
+                        <center>
 
-                <div class="custom-dropdown">
-                    <center>
-                        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                             <img class="searchIconSideBar" src="../img/svg/search.svg">
                             <input class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
-                        </div>
-                    </center>
-                </div>
 
-                <div class="custom-dropdown">
-                    <center>
-                        <div class="dropdown">
-                            <img class="socialIconSideBar" src="../img/svg/twitter.svg">
-                            <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#" role="button">
-                                <span class="primaryDropDownText">
+                        </center>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <div class="custom-dropdown">
+                        <center>
+                            <div class="dropdown">
+                                <img class="socialIconSideBar" src="../img/svg/twitter.svg">
+                                <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#" role="button">
+                                    <span class="primaryDropDownText">
                                         <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
-                                <b class="caret"></b>
-                                </span>
-                            </a>
+                                    <b class="caret"></b>
+                                    </span>
+                                </a>
 
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                                <li role="presentation">
-                                    <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
-                                    <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
-                                    <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
-                                </li>
-                            </ul>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                                    <li role="presentation">
+                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
+                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
+                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
+                                    </li>
+                                </ul>
 
-                        </div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+                <!--
+                <div class="displayFlexBottom">
+                    <center>
+                        <h1 class="headLine">werkspayce</h1>
                     </center>
                 </div>
+-->
             </div>
+
+
         </ul>
     </div>
 </div>
@@ -289,7 +306,7 @@
                 });
 
                 $('.sidebar').css('height', '90%');
-
+                $('.sidebar.affix').css('top', '5%');
                 if (tweetCardWidth <= 101) {
                     $('.sidebar').css('width', 300 - 75);
                 } else {
@@ -303,16 +320,15 @@
                         transition: 'all linear .25s'
                     });
                 });
-
+                $('.sidebar.affix').css('top', '0%');
                 $('.sidebar').css({
                     transition: 'all linear .007s'
                 });
 
                 $('.sidebar').css('position', 'fixed');
+
                 $('.sidebar').css('height', 'auto');
                 $('.sidebar').css('width', theWhiteLineWidth + 'px');
-
-
 
             }
 
@@ -341,6 +357,15 @@
         $(window).resize(function () {
             sidebarResize();
         });
+
+        //
+        //        $(window).bind('scroll', function () {
+        //            if ($(window).scrollTop() > 100) {
+        //                $('.socialDataWrapper').hide();
+        //            } else {
+        //                $('.socialDataWrapper').show();
+        //            }
+        //        });
 
     });
 </script>

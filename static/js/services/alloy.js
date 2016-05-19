@@ -12,23 +12,6 @@ angular.module("mainModule")
 
         };
 
-
-        this.getTwitterAndInstagramDataByTags = function (params, callback) {
-            console.log("success from getTwitterAndInstagramDataByTags");
-            console.log(params);
-
-            $http({
-                url: '/searchTweetsQuery',
-                method: "POST",
-                data: params
-            })
-
-            .then(callback);
-
-            console.log('q: ' + params.q)
-
-        };
-
         this.getSpotify = function (params, callback) {
             console.log("success from getSpotify");
             console.log(params);
@@ -41,18 +24,6 @@ angular.module("mainModule")
             .then(callback);
 
             // console.log('q: ' + params.q)
-
-        };
-
-        this.getAuthorizeSpotify = function (callback) {
-            console.log("success from getSpotify");
-
-            $http({
-                url: '/authorize-spotify',
-                method: "GET"
-            })
-
-            .then(callback);
 
         };
 

@@ -24,7 +24,7 @@ let instagram_redirect_uri = 'FOR-TEMPORARY-USE-ONLY';
 let instagramApiURL = 'FOR-TEMPORARY-USE-ONLY';
 let spotify_redirect_uri = 'FOR-TEMPORARY-USE-ONLY';
 
-var ignitionSwitch = true;
+var ignitionSwitch = false;
 
 if (ignitionSwitch) {
 

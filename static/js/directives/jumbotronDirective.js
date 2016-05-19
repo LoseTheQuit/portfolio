@@ -1,11 +1,10 @@
 'use strict';
 
-console.log("OUTSIDE initDirective");
+console.log("OUTSIDE jumbotron");
 
 angular.module("mainModule")
     .directive('jumbotron', function () {
-
-        console.log("INSIDE initDirective");
+        console.log("INSIDE jumbotron");
 
         return {
 

@@ -111,6 +111,36 @@
         }
     }
     
+    .redvsblue {
+        color: red;
+    }
+    
+    @media (min-width:1200px) {
+        .redvsblue {
+            color: blue;
+        }
+        .navbar-collapse {
+            width: auto;
+            border-top: 0;
+            box-shadow: none
+        }
+        .navbar-collapse.collapse {
+            display: block!important;
+            height: auto!important;
+            padding-bottom: 0;
+            overflow: visible!important
+        }
+        .navbar-collapse.in {
+            overflow-y: visible
+        }
+        .navbar-fixed-bottom .navbar-collapse,
+        .navbar-fixed-top .navbar-collapse,
+        .navbar-static-top .navbar-collapse {
+            padding-right: 0;
+            padding-left: 0
+        }
+    }
+    
     .beaker {
         width: 100%;
         height: 100%;
@@ -208,14 +238,63 @@
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                     <div class="custom-dropdown">
                         <center>
-
+                            <div class="redvsblue">fedorblue</div>
                             <img class="searchIconSideBar" src="../img/svg/search.svg">
                             <input class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+
+                            <button type="button" class="navbar-toggle collapsed showButton" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li role="presentation">
+
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
+                                                </li>
+                                                <li>
+                                                    <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
+                                                </li>
+                                                <li>
+                                                    <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">HTML</a></li>
+                                                <li><a href="#">CSS</a></li>
+                                                <li><a href="#">JavaScript</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">HTML</a></li>
+                                                <li><a href="#">CSS</a></li>
+                                                <li><a href="#">JavaScript</a></li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
 
                         </center>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 hideThisDiv">
                     <div class="custom-dropdown">
                         <center>
                             <div class="dropdown">
@@ -299,6 +378,9 @@
 
             if (($(window).width() + 17) > 1200) {
 
+                $('.hideThisDiv').css('display', 'block');
+                $('.showButton').css('display', 'none');
+
                 $('.sidebar').css('position', 'fixed');
 
                 $('.sidebar').css({
@@ -314,6 +396,9 @@
                 }
 
             } else {
+
+                $('.hideThisDiv').css('display', 'none');
+                $('.showButton').css('display', 'block');
 
                 $('.sidebar').hover(function () {
                     $('.sidebar').css({

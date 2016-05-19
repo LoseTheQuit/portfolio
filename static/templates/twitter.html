@@ -44,6 +44,12 @@
                         <!-- <div ng-bind-html="inputText | linky"></div>-->
                         <div class="tweetCardSpacer"></div>
                         <div class="igCardHeaderMargin"></div>
+                        <div class="col-xs-3 col-md-4 col-lg-4">
+                            <img class="injectedImage" ng-src="{{tweet.user.profile_image_url}}">
+                        </div>
+                        <div class="col-xs-9 col-md-8 col-lg-8">
+                            <p class="screenName">{{tweet.user.username}}</p>
+                        </div>
 
                         <p class="screenName">{{tweet.user.name}}</p>
                         <p>{{tweet.user.location}}</p>
@@ -55,8 +61,7 @@
                         <p>{{data.text}}</p>
                         <p>Retweet count: {{tweet.retweet_count}}</p>
                         <p>{{tweet.created_at}}</p>
-                        <a class="cardLink" href="{{tweet.user.url}">{{tweet.user.url}}</a>
-
+                        <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
                     </div>
                 </div>
             </div>
@@ -75,10 +80,10 @@
                         <div class="igCardHeaderMargin"></div>
 
                         <div class="col-xs-3 col-md-4 col-lg-4">
-                            <!-- <img class="injectedImage" ng-src="{{data.user.profile_image_url}}"> -->
+                            <img class="injectedImage" ng-src="{{tweet.user.profile_image_url}}">
                         </div>
                         <div class="col-xs-9 col-md-8 col-lg-8">
-                            <!-- <p class="screenName">{{data.user.username}}</p> -->
+                            <p class="screenName">{{tweet.user.username}}</p>
                         </div>
 
                         <p class="screenName">{{tweet.user.name}}</p>
@@ -93,7 +98,6 @@
                         <p>Retweet count: {{tweet.retweet_count}}</p>
                         <p>{{tweet.created_at}}</p>
                         <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
-
                     </div>
                 </div>
             </div>

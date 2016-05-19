@@ -20,8 +20,9 @@
     }
     
     .inputBox {
-        width: 50%;
-        height: 40px;
+        width: 70%;
+        width: 55%;
+        height: 30px;
         color: #000;
         padding: 10px;
         border: solid 1px rgba(0, 0, 0, .25);
@@ -30,7 +31,6 @@
         margin-bottom: 10px;
         vertical-align: middle;
         margin: 0 auto;
-        /* margin-top: 120px; */
         display: inline;
         /* float: right; */
     }
@@ -71,11 +71,17 @@
             width: 15%;
             margin: 10px;
         }
+        .inputBox {
+            width: 40%;
+        }
     }
     
     @media (max-width: 1200px) {
         .container {
             width: 100%;
+        }
+        .sideBarContainer {
+            width: 95%;
         }
         .sidebar.affix-top {
             position: relative;
@@ -108,6 +114,9 @@
         .socialIconSideBar {
             width: 10%;
             margin: 10px;
+        }
+        .inputBox {
+            width: 70%;
         }
     }
     
@@ -152,23 +161,6 @@
         border: 0px;
     }
     
-    .btn-primary:active:hover,
-    .btn-primary.active:hover:active,
-    .open > .dropdown-toggle.btn-primary:hover,
-    .btn-primary:active:focus,
-    .btn-primary.active:focus,
-    .open > .dropdown-toggle.btn-primary:focus,
-    .btn-primary:active.focus,
-    .btn-primary.active.focus,
-    .open > .dropdown-toggle.btn-primary.focus {
-        position: relative;
-        background-color: transparent;
-        color: #fff;
-        overflow: hidden;
-        padding: 0px;
-        border: 0px;
-    }
-    
     .dropdown:focus button {
         position: relative;
         background-color: transparent;
@@ -177,8 +169,6 @@
         border-radius: 0px;
         padding: 0px;
     }
-    
-    .btn-primary {}
     
     .dropdown-menu a {
         color: rgba(255, 255, 255, .95);
@@ -255,14 +245,26 @@
     }
     
     .customDropDownButtonWrapper {
-        width: 50%;
         margin: 0 auto;
     }
+    
+    .dropup,
+    .dropdown li {
+        margin: 0 auto;
+    }
+    
+    .showButton {
+        margin-right: 2%;
+    }
+    
+    .searchIconSideBarContainer {
+        display: inline;
+    }
 </style>
-<!-- -->
-<div class="container" ng-hide="!hideThisDiv">
 
+<div class="container" ng-hide="!hideThisDiv">
     <div class="leftCol">
+
         <ul class="nav nav-stacked sidebar" id="sidebar">
             <div class="beaker displayFlex">
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
@@ -270,10 +272,15 @@
 
                         <center>
 
-                            <img class="searchIconSideBar" src="../img/svg/search.svg">
+
+                            <div class="searchIconSideBarContainer">
+                                <img class="searchIconSideBar" src="../img/svg/search.svg">
+                            </div>
+
+
                             <input class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
 
-                            <button type="button" class="navbar-toggle collapsed showButton" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -282,30 +289,39 @@
 
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li role="">
-                                        <!--presentation-->
-                                        <div class="dropdown">
-                                            <button class="dropdown-toggle" type="button" data-toggle="dropdown">
-                                                <img class="socialIconSideBar" src="../img/svg/twitter.svg">
-                                                <span class="primaryDropDownText">  
+                                    <center>
+                                        <li role="presentation" class=" ">
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <img class="socialIconSideBar" src="../img/svg/twitter.svg">
+                                                    <span class="primaryDropDownText">  
                                         <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
-                                                <b class="caret"></b>
-                                                </span>
-                                            </button>
+                                                    <b class="caret"></b>
+                                                    </span>
+                                                </button>
 
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
-                                                </li>
-                                                <li>
-                                                    <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
-                                                </li>
-                                                <li>
-                                                    <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <center>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                            </a>
+                                                        </center>
+                                                    </li>
+                                                    <li>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                            </a>
+                                                        </center>
+                                                    </li>
+                                                    <li>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
+                                                        </center>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
                                             <div class="dropdown">
                                                 <button class="dropdown-toggle" type="button" data-toggle="dropdown">
                                                     <img class="socialIconSideBar" src="../img/svg/instagram.svg">
@@ -316,43 +332,66 @@
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                            </a>
+                                                        </center>
                                                     </li>
                                                     <li>
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                            </a>
+                                                        </center>
                                                     </li>
                                                     <li>
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
+                                                        </center>
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </center>
-                                        <div class="dropdown">
-                                            <button class="dropdown-toggle" type="button" data-toggle="dropdown">
-                                                <img class="socialIconSideBar" src="../img/svg/instagram.svg">
-                                                <span class="primaryDropDownText">
+
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <img class="socialIconSideBar" src="../img/svg/instagram.svg">
+                                                    <span class="primaryDropDownText">
                                                 <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
-                                                </span> <b class="caret"></b>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
-                                                </li>
-                                                <li>
-                                                    <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
-                                                </li>
-                                                <li>
-                                                    <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                                    </span> <b class="caret"></b>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                            </a>
+                                                        </center>
+                                                    </li>
+                                                    <li>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                            </a>
+                                                        </center>
+                                                    </li>
+                                                    <li>
+                                                        <center>
+                                                            <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
+                                                        </center>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </li>
+                                    </center>
                                 </ul>
+
                             </div>
+
                         </center>
 
                     </div>
                 </div>
+
                 <!--
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 hideThisDiv">
                     <div class="custom-dropdown">
@@ -378,7 +417,7 @@
                         </center>
                     </div>
                 </div>
--->
+                -->
 
                 <!--
                 <div class="displayFlexBottom">
@@ -386,10 +425,9 @@
                         <h1 class="headLine">werkspayce</h1>
                     </center>
                 </div>
--->
+                -->
+
             </div>
-
-
         </ul>
     </div>
 </div>

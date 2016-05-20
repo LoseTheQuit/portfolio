@@ -40,6 +40,16 @@
         border: solid 1px rgba(0, 0, 0, .50);
     }
     
+    input,
+    input:before,
+    input:after {
+        -webkit-user-select: initial;
+        -khtml-user-select: initial;
+        -moz-user-select: initial;
+        -ms-user-select: initial;
+        user-select: initial;
+    }
+    
     @media (min-width: 990px) {
         .container {
             width: 95%;
@@ -204,7 +214,7 @@
     }
     
     .custom-dropdown a {
-        color: rgba(255, 255, 255, .95);
+        color: transparent;
     }
     
     .custom-dropdown .active a,
@@ -231,8 +241,9 @@
     }
     
     .custom-dropdown .open li a {
+        transition: all linear .50s;
         margin: 0 auto;
-        color: #428bca;
+        color: #fff;
         cursor: pointer;
         width: 100%;
     }
@@ -259,12 +270,22 @@
         margin: 0 auto;
     }
     
+    .dropup,
+    .dropdown {
+        margin: 0 auto;
+        position: relative;
+    }
+    
     .showButton {
         margin-right: 2%;
     }
     
     .searchIconSideBarContainer {
         display: inline;
+    }
+    
+    .sideBarHeadLine {
+        display: block;
     }
 </style>
 
@@ -284,7 +305,7 @@
                             </div>
 
 
-                            <input class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                            <input ng-model-options='{ debounce: 200 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
 
                             <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                 <span class="sr-only">Toggle navigation</span>
@@ -360,10 +381,12 @@
 
                                             <div class="dropdown">
                                                 <button class="dropdown-toggle" type="button" data-toggle="dropdown">
-                                                    <img class="socialIconSideBar" src="../img/svg/instagram.svg">
+                                                    <img class="socialIconSideBar" src="../img/svg/soundcloud.svg">
                                                     <span class="primaryDropDownText">
                                                 <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
-                                                    </span> <b class="caret"></b>
+                                                    <b class="caret"></b>
+                                                    </span>
+
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li>
@@ -396,6 +419,15 @@
                         </center>
 
                     </div>
+
+                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                        <div class="displayFlexBottom">
+                            <center>
+                                <h1 class="sideBarHeadLine">werkspayce</h1>
+                            </center>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!--
@@ -425,13 +457,8 @@
                 </div>
                 -->
 
-                <!--
-                <div class="displayFlexBottom">
-                    <center>
-                        <h1 class="headLine">werkspayce</h1>
-                    </center>
-                </div>
-                -->
+
+
 
             </div>
         </ul>
@@ -446,90 +473,7 @@
         var stickyLinePosition = stickyLine.getBoundingClientRect().top;
 
         console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
-        console.log(stickyLinePosition)
+
 
         $('.sidebar').affix({
             offset: {
@@ -626,7 +570,7 @@
         }, 1500);
         setTimeout(function () {
             sidebarResize();
-        }, 2000);
+        }, 5000);
 
         $(window).resize(function () {
             sidebarResize();

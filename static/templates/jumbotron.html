@@ -127,7 +127,21 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer">
-                        <p class="footerContent">alpha 1.0.8</p>
+
+                        <p id="demo" style="color: white;"></p>
+
+
+                        <!-- <button onclick="clearInterval(edge)">Stop time</button> -->
+
+                        <script>
+                            var edge = setInterval(myTimer, 1000);
+
+                            function myTimer() {
+                                var d = new Date();
+                                document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+                            }
+                        </script>
+                        <p class="footerContent">alpha 1.0.9</p>
                     </div>
                     <div class="clearFloat"></div>
                 </div>

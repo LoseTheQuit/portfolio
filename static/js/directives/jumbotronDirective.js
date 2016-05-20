@@ -2,6 +2,7 @@
 
 console.log("OUTSIDE jumbotron");
 
+
 angular.module("mainModule")
     .directive('jumbotron', function () {
         console.log("INSIDE jumbotron");

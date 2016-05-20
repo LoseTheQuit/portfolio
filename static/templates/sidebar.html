@@ -23,6 +23,7 @@
         width: 70%;
         width: 55%;
         height: 40px;
+        height: 45px;
         color: #000;
         padding: 10px;
         border: solid 1px rgba(0, 0, 0, .25);
@@ -95,14 +96,14 @@
         }
         .sidebar.affix-top {
             position: relative;
-            margin-top: 30px;
+            margin-top: 15px;
             width: 100%;
         }
         .sidebar.affix {
             position: relative;
             top: 0%;
             width: 100%;
-            margin-top: 50px;
+            margin-top: 15px;
         }
         .custom-dropdown .open {
             margin: 0 auto;
@@ -130,12 +131,6 @@
         }
     }
     
-    @media (max-width: 400px) {
-        .inputBox {
-            width: 40%;
-        }
-    }
-    
     @media (max-width:1200px) {
         .navbar-nav {
             float: none;
@@ -155,12 +150,52 @@
         }
     }
     
+    @media (max-width: 400px) {
+        .inputBox {
+            width: 40%;
+        }
+    }
+    
+    @media (max-width: 1400px) {
+        .sideBarHeadLine {
+            font-size: 10px;
+            width: 100%;
+            display: block;
+            display: inline-block;
+            white-space: inherit;
+            /*
+        white-space: normal;
+        white-space: pre;
+        white-space: pre-line;
+        white-space: pre-wrap;
+        white-space: initial;
+        white-space: nowrap;
+*/
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .sideBarHeadLine {
+            font-size: 24px;
+            width: 100%;
+            display: block;
+            display: inline-block;
+            white-space: inherit;
+            /*
+        white-space: normal;
+        white-space: pre;
+        white-space: pre-line;
+        white-space: pre-wrap;
+        white-space: initial;
+        white-space: nowrap;
+*/
+        }
+    }
+    
     .beaker {
         width: 100%;
         height: 100%;
     }
-    /*--***** DROPDOWN STYLES *****--*/
-    /*--***** DROPDOWN STYLES *****--*/
     /*--***** DROPDOWN STYLES *****--*/
     /*--***** DROPDOWN STYLES *****--*/
     /*--***** DROPDOWN STYLES *****--*/
@@ -203,7 +238,6 @@
         text-shadow: 0 1px 3px rgba(0, 0, 0, .25);
         background: rgba(0, 45, 114, .07);
         border: 1px solid rgba(0, 163, 224, .37);
-        /* border-radius: 7px; */
     }
     
     .custom-dropdown:hover {
@@ -249,8 +283,8 @@
     }
     
     .primaryDropDownText {
-        /* display: inline-block; */
-        margin: 10px;
+        display: inline-block;
+        /* margin: 10px; */
         white-space: nowrap;
         cursor: pointer;
     }
@@ -283,13 +317,32 @@
     .searchIconSideBarContainer {
         display: inline;
     }
-    
+    /*
     .sideBarHeadLine {
+        font-size: 24px; 
+        width: 100%;
         display: block;
+        display: inline-block;
+        white-space: inherit;
+        
+        white-space: normal;
+        white-space: pre;
+        white-space: pre-line;
+        white-space: pre-wrap;
+        white-space: initial;
+        white-space: nowrap;
+
+    }
+*/
+    
+    .customCenter {
+        display: block;
+        text-align: -webkit-center;
     }
 </style>
 
 <div class="container" ng-hide="!hideThisDiv">
+
     <div class="leftCol">
 
         <ul class="nav nav-stacked sidebar" id="sidebar">
@@ -299,16 +352,14 @@
 
                         <center>
 
-
                             <div class="searchIconSideBarContainer">
                                 <img class="searchIconSideBar" src="../img/svg/search.svg">
                             </div>
 
-
-                            <input ng-model-options='{ debounce: 200 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                            <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
 
                             <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
+                                <span class="sr-only">LTQ</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -328,23 +379,17 @@
                                                 </button>
 
                                                 <ul class="dropdown-menu">
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
-                                                            </a>
-                                                        </center>
-                                                    </li>
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
-                                                            </a>
-                                                        </center>
-                                                    </li>
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
                                                         </a>
-                                                        </center>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -358,23 +403,17 @@
                                                     </span>
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
-                                                            </a>
-                                                        </center>
-                                                    </li>
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
-                                                            </a>
-                                                        </center>
-                                                    </li>
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
                                                         </a>
-                                                        </center>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -389,23 +428,17 @@
 
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
-                                                            </a>
-                                                        </center>
-                                                    </li>
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
-                                                            </a>
-                                                        </center>
-                                                    </li>
-                                                    <li>
-                                                        <center>
-                                                            <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
                                                         </a>
-                                                        </center>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -423,7 +456,9 @@
                     <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                         <div class="displayFlexBottom">
                             <center>
-                                <h1 class="sideBarHeadLine">werkspayce</h1>
+                                <h1 class="sideBarHeadLine">
+                                <span>werkspayce</span> 
+                                </h1>
                             </center>
                         </div>
                     </div>
@@ -465,7 +500,6 @@
     </div>
 </div>
 
-
 <script>
     $(function () {
 
@@ -492,6 +526,17 @@
         var instaCardWidth = $('.igCard').width();
         var tweetCardWidth = $('.cardImage').width();
         var theWhiteLineWidth = $('.theWhiteLine').width();
+        var sideBarUnderlayHeight = $('.sidebar').height();
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
+        console.log(sideBarUnderlayHeight)
 
         function sidebarResize() {
 
@@ -512,7 +557,7 @@
             if (($(window).width() + 17) > 1200) {
 
                 $('.hideThisDiv').css('display', 'block');
-
+                $('.sideBarUnderlay').css('height', '0px');
 
                 $('.sidebar').css('position', 'fixed');
 
@@ -547,6 +592,8 @@
 
                 $('.sidebar').css('height', 'auto');
                 $('.sidebar').css('width', theWhiteLineWidth + 'px');
+                $('.sidebar').css('background', 'rgba(0, 0, 0, .87)');
+
 
             }
 

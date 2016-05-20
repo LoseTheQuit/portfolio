@@ -316,14 +316,8 @@
         font-size: 24px; 
         width: 100%;
         display: block;
-        display: block;
-        display: block;
-        display: block;
-        display: block;
-        display: block;
         display: inline-block;
         white-space: inherit;
-        
         white-space: normal;
         white-space: pre;
         white-space: pre-line;
@@ -451,6 +445,31 @@
                         </center>
 
                     </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="swipeController" ng-controller="alloyController" ng-cloak layout="row">
+                            <div flex>
+                                <div class="demo-swipe" md-swipe-left="onSwipeLeft()">
+                                    <span class="no-select">Swipe me to the left</span>
+                                    <md-icon md-font-icon="android" aria-label="android"></md-icon>
+                                </div>
+                                <md-divider></md-divider>
+                                <div class="demo-swipe" md-swipe-right="onSwipeRight()">
+                                    <span class="no-select">Swipe me to the right</span>
+                                </div>
+                            </div>
+                            <md-divider></md-divider>
+                            <div flex layout="row">
+                                <div flex layout="row" layout-align="center center" class="demo-swipe" md-swipe-up="onSwipeUp()">
+                                    <span class="no-select">Swipe me up</span>
+                                </div>
+                                <md-divider></md-divider>
+                                <div flex layout="row" layout-align="center center" class="demo-swipe" md-swipe-down="onSwipeDown()">
+                                    <span class="no-select">Swipe me down</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                         <div class="displayFlexBottom">
@@ -463,36 +482,6 @@
                     </div>
 
                 </div>
-
-                <!--
-                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 hideThisDiv">
-                    <div class="custom-dropdown">
-                        <center>
-                            <div class="dropdown">
-                                <img class="socialIconSideBar" src="../img/svg/twitter.svg">
-                                <a class="dropdown-toggle" id="drop1" data-toggle="dropdown" href="#" role="button">
-                                    <span class="primaryDropDownText">
-                                        <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
-                                    <b class="caret"></b>
-                                    </span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                                    <li role="presentation">
-                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span></a>
-                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span></a>
-                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span></a>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </center>
-                    </div>
-                </div>
-                -->
-
-
-
 
             </div>
         </ul>
@@ -525,19 +514,8 @@
         var instaCardWidth = $('.igCard').width();
         var tweetCardWidth = $('.cardImage').width();
         var theWhiteLineWidth = $('.theWhiteLine').width();
-        var sideBarUnderlayHeight = $('.sidebar').height();
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
-        console.log(sideBarUnderlayHeight)
 
-        function sidebarResize() {
+        function sideBarResize() {
 
             instaCardWidth = $('.igCard').width();
             tweetCardWidth = $('.cardImage').width();
@@ -556,16 +534,27 @@
             if (($(window).width() + 17) > 1200) {
 
                 $('.hideThisDiv').css('display', 'block');
-                $('.sideBarUnderlay').css('height', '0px');
-
-                $('.sidebar').css('position', 'fixed');
 
                 $('.sidebar').css({
-                    transition: 'all linear .25s'
+                    "background": 'rgba(0, 0, 0, .5)',
+                    "transition": 'all linear .25s',
+                    "height": '90%',
+                    "top": '5%',
+                    "position": "fixed"
                 });
 
-                $('.sidebar').css('height', '90%');
-                $('.sidebar.affix').css('top', '5%');
+                $('.swipeController').css('display', 'none');
+                // $('.sidebar').css('background', ' rgba(0, 0, 0, .5)');
+
+                // $('.sidebar').css('position', 'fixed');
+
+                // $('.sidebar').css({
+                // transition: 'all linear .25s'
+                // });
+
+                // $('.sidebar').css('height', '90%');
+                //  $('.sidebar.affix').css('top', '5%');
+
                 if (tweetCardWidth <= 101) {
                     $('.sidebar').css('width', 300 - 75);
                 } else {
@@ -575,23 +564,33 @@
             } else {
 
                 $('.hideThisDiv').css('display', 'none');
-
+                $('.swipeController').css('display', 'block');
 
                 $('.sidebar').hover(function () {
                     $('.sidebar').css({
                         transition: 'all linear .25s'
                     });
                 });
-                $('.sidebar.affix').css('top', '0%');
+
                 $('.sidebar').css({
-                    transition: 'all linear .007s'
+                    "background": 'rgba(0, 0, 0, .87)',
+                    "transition": 'all linear .25s',
+                    "height": 'auto',
+                    "width": theWhiteLineWidth + 'px',
+                    "top": '5%',
+                    "position": "fixed"
                 });
 
-                $('.sidebar').css('position', 'fixed');
+                // $('.sidebar.affix').css('top', '0%');
+                // $('.sidebar').css({
+                //    transition: 'all linear .007s'
+                // });
 
-                $('.sidebar').css('height', 'auto');
-                $('.sidebar').css('width', theWhiteLineWidth + 'px');
-                $('.sidebar').css('background', 'rgba(0, 0, 0, .87)');
+                // $('.sidebar').css('position', 'fixed');
+
+                // $('.sidebar').css('height', 'auto');
+                // $('.sidebar').css('width', theWhiteLineWidth + 'px');
+                // $('.sidebar').css('background', 'rgba(0, 0, 0, .87)');
 
 
             }
@@ -609,26 +608,18 @@
 
 
         setTimeout(function () {
-            sidebarResize();
+            sideBarResize();
         }, 1000);
         setTimeout(function () {
-            sidebarResize();
+            sideBarResize();
         }, 1500);
         setTimeout(function () {
-            sidebarResize();
+            sideBarResize();
         }, 5000);
 
         $(window).resize(function () {
-            sidebarResize();
+            sideBarResize();
         });
-
-        //        $(window).bind('scroll', function () {
-        //            if ($(window).scrollTop() > 100) {
-        //                $('.socialDataWrapper').hide();
-        //            } else {
-        //                $('.socialDataWrapper').show();
-        //            }
-        //        });
 
     });
 </script>

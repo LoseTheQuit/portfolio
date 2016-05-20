@@ -96,14 +96,14 @@
         }
         .sidebar.affix-top {
             position: relative;
-            margin-top: 15px;
+            margin-top: -20px;
             width: 100%;
         }
         .sidebar.affix {
             position: relative;
             top: 0%;
             width: 100%;
-            margin-top: 15px;
+            margin-top: -20px;
         }
         .custom-dropdown .open {
             margin: 0 auto;
@@ -332,6 +332,12 @@
         display: block;
         text-align: -webkit-center;
     }
+    
+    .demo-swipe {
+        margin: 0 auto;
+        width: 30%;
+        font-size: 14px;
+    }
 </style>
 
 <div class="container" ng-hide="!hideThisDiv">
@@ -446,7 +452,7 @@
 
                     </div>
                     <div class="col-lg-12 col-md-12">
-                        <div class="swipeController" ng-controller="alloyController" ng-cloak layout="row">
+                        <div class="swipeController" ng-cloak layout="row">
                             <div flex>
                                 <div class="demo-swipe" md-swipe-left="onSwipeLeft()">
                                     <span class="no-select">Swipe me to the left</span>
@@ -458,15 +464,7 @@
                                 </div>
                             </div>
                             <md-divider></md-divider>
-                            <div flex layout="row">
-                                <div flex layout="row" layout-align="center center" class="demo-swipe" md-swipe-up="onSwipeUp()">
-                                    <span class="no-select">Swipe me up</span>
-                                </div>
-                                <md-divider></md-divider>
-                                <div flex layout="row" layout-align="center center" class="demo-swipe" md-swipe-down="onSwipeDown()">
-                                    <span class="no-select">Swipe me down</span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -535,6 +533,13 @@
 
                 $('.hideThisDiv').css('display', 'block');
 
+                $('.hideThisDiv').css('display', 'block');
+
+                $('.row').css({
+                    "margin-right": '-15px',
+                    "margin-left": '-15px'
+                });
+
                 $('.sidebar').css({
                     "background": 'rgba(0, 0, 0, .5)',
                     "transition": 'all linear .25s',
@@ -558,12 +563,16 @@
                 if (tweetCardWidth <= 101) {
                     $('.sidebar').css('width', 300 - 75);
                 } else {
-                    $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2));
+                    $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2.5));
                 }
 
             } else {
 
                 $('.hideThisDiv').css('display', 'none');
+                $('.row').css({
+                    "margin-right": '-27px',
+                    "margin-left": '-27px'
+                });
                 $('.swipeController').css('display', 'block');
 
                 $('.sidebar').hover(function () {

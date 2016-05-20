@@ -13,13 +13,6 @@ angular.module("mainModule")
         $scope.onSwipeRight = function (ev) {
             alert('You swiped right!!');
         };
-        $scope.onSwipeUp = function (ev) {
-            alert('You swiped up!!');
-        };
-        $scope.onSwipeDown = function (ev) {
-            alert('You swiped down!!');
-        };
-
 
 
         $scope.windowInfoWithToken = instagramService.getWindowInfo();

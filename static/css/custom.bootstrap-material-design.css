@@ -1618,7 +1618,7 @@ output {
 }
 
 .label.label-primary {
-    background-color: #009688;
+    background-color: #00a3e0;
 }
 
 .label.label-success {
@@ -1698,11 +1698,17 @@ fieldset[disabled] .form-group .form-control {
     color: #fff;
 }
 
+
+/*********  
+THIS IS WHERE YOU CHANGE THE IMPUT RIPPLE COLOR
+**********/
+
 .form-group.label-static label.control-label,
 .form-group.label-placeholder label.control-label,
 .form-group.label-floating label.control-label {
     position: absolute;
     pointer-events: none;
+    float: left;
     -webkit-transition: 0.3s ease all;
     transition: 0.3s ease all;
 }
@@ -1721,8 +1727,11 @@ fieldset[disabled] .form-group .form-control {
 }
 
 
+/* CUSTOM EDIT */
+
+
 /*********  
-THIS IS WHERE YOU CHANGE THE IMPUT RIPPLE COLOR
+THIS IS WHERE YOU CHANGE THE IMPUT RIPPLE COLOR 
 **********/
 
 .form-group.is-focused .form-control {
@@ -1736,9 +1745,6 @@ THIS IS WHERE YOU CHANGE THE IMPUT RIPPLE COLOR
     transition-duration: 0.3s;
     /* color: #fff; */
 }
-
-
-/* CUSTOM EDIT */
 
 .form-group.is-focused .form-control .material-input:after {
     color: #fff;
@@ -1934,10 +1940,16 @@ label.control-label {
 .form-group.label-floating label.control-label,
 .form-group.label-placeholder label.control-label {
     top: -7px;
+    left: 0px;
     font-size: 16px;
     line-height: 1.42857143;
 }
 
+
+/* CUSTOM */
+
+
+/*
 .form-group.label-static label.control-label,
 .form-group.label-floating.is-focused label.control-label,
 .form-group.label-floating:not(.is-empty) label.control-label {
@@ -1945,7 +1957,9 @@ label.control-label {
     left: 0;
     font-size: 12px;
     line-height: 1.07142857;
+    color: #00a3e0;
 }
+*/
 
 .form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
     top: -30px;
@@ -2805,9 +2819,12 @@ fieldset[disabled] .navbar .btn-link:focus {
     }
 }
 
+
+/* CUSTOM EDIT */
+
 .dropdown-menu {
     border: 0;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); */
 }
 
 .dropdown-menu .divider {

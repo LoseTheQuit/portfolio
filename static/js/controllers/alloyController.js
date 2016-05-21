@@ -143,9 +143,9 @@ angular.module("mainModule")
         alloy.getSpotify($scope.windowInfoWithToken, function (response) {
 
             $scope.spotifyData = response.data;
-            console.info('getSPOTIFY: ');
+            console.info('getSPOTIFY:');
             console.info(response.data);
-            console.info('getSPOTIFY: ');
+            console.info('getSPOTIFY:');
 
 
         });
@@ -164,7 +164,9 @@ angular.module("mainModule")
                 $scope.hideThisDiv = true;
             }
 
+            console.warn('tapInsta:');
             console.info(response.data);
+            console.warn('tapInsta:');
 
         });
 

@@ -350,6 +350,17 @@
         color: black;
         background: #c3c3c3;
     }
+    /* CUSTOM */
+    
+    .form-group.label-static label.control-label,
+    .form-group.label-floating.is-focused label.control-label,
+    .form-group.label-floating:not(.is-empty) label.control-label {
+        top: -30px;
+        left: 0;
+        font-size: 12px;
+        line-height: 1.07142857;
+        color: #00a3e0;
+    }
 </style>
 
 <div class="container" ng-hide="!hideThisDiv">
@@ -369,10 +380,15 @@
 
                             <!-- <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">-->
 
-                            <div class="form-group">
-                                <input type="text" class="form-control col-sm-8" placeholder="#search" ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
-                            </div>
+                            <div class="form-group label-floating">
 
+
+                                <label for="i182" class="control-label">#search</label>
+                                <!--                                 placeholder="#search"-->
+                                <!--                                 col-sm-8-->
+
+                                <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                            </div>
                             <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                 <span class="sr-only">LTQ</span>
                                 <span class="icon-bar"></span>
@@ -467,8 +483,8 @@
                         </center>
 
                     </div>
-
-                    <!--
+                </div>
+                <!--
                     <div class="col-lg-12 col-md-12">
                         <div class="swipeController" ng-cloak layout="row">
                             <div flex>
@@ -487,21 +503,21 @@
                     </div>
 -->
 
-                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                        <div class="displayFlexBottom">
-                            <center>
-                                <h1 class="sideBarHeadLine">
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <div class="displayFlexBottom">
+                        <center>
+                            <h1 class="sideBarHeadLine">
                                 <span>werkspayce</span> 
                                 </h1>
-                            </center>
-                        </div>
+                        </center>
                     </div>
-
                 </div>
 
             </div>
-        </ul>
+
     </div>
+    </ul>
+</div>
 </div>
 
 <script>

@@ -695,6 +695,12 @@
                 if (!($('.navbar-toggle').hasClass('collapsed'))) {
                     $('.navbar-toggle:visible').click();
                 }
+
+            });
+            $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
+                e.stopPropagation();
+            }).on('touchstart.dropdown', '.navbar-toggle', function (e) {
+                e.stopPropagation();
             });
 
         });

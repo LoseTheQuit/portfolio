@@ -374,9 +374,11 @@
 
                         <center>
 
+
                             <div class="searchIconSideBarContainer">
                                 <img class="searchIconSideBar" src="../img/svg/search.svg">
                             </div>
+
 
                             <!-- <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">-->
 
@@ -384,18 +386,17 @@
 
 
                                 <label for="i182" class="control-label">#search</label>
-                                <!--                                 placeholder="#search"-->
-                                <!--                                 col-sm-8-->
+                                <!-- placeholder="#search" -->
 
                                 <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
-                            </div>
-                            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">LTQ</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
 
+                                <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">LTQ</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <center>
@@ -483,6 +484,15 @@
                         </center>
 
                     </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                        <div class="displayFlexBottom">
+                            <center>
+                                <h1 class="sideBarHeadLine">
+                                <span>werkspayce</span> 
+                                </h1>
+                            </center>
+                        </div>
+                    </div>
                 </div>
                 <!--
                     <div class="col-lg-12 col-md-12">
@@ -503,168 +513,160 @@
                     </div>
 -->
 
-                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                    <div class="displayFlexBottom">
-                        <center>
-                            <h1 class="sideBarHeadLine">
-                                <span>werkspayce</span> 
-                                </h1>
-                        </center>
-                    </div>
-                </div>
+
 
             </div>
 
+        </ul>
     </div>
-    </ul>
-</div>
-</div>
-
-<script>
-    $(function () {
-
-        var stickyLine = document.querySelector('.stickyLine');
-        var stickyLinePosition = stickyLine.getBoundingClientRect().top;
-
-        console.log(stickyLinePosition)
 
 
-        $('.sidebar').affix({
-            offset: {
-                top: -10
-            }
-        });
 
-        var $body = $(document.body);
-        var navHeight = $('.navbar').outerHeight(true) + 10;
+    <script>
+        $(function () {
 
-        $body.scrollspy({
-            target: '.leftCol',
-            offset: navHeight
-        });
+            var stickyLine = document.querySelector('.stickyLine');
+            var stickyLinePosition = stickyLine.getBoundingClientRect().top;
 
-        var instaCardWidth = $('.igCard').width();
-        var tweetCardWidth = $('.cardImage').width();
-        var theWhiteLineWidth = $('.theWhiteLine').width();
+            console.log(stickyLinePosition)
 
-        function sideBarResize() {
 
-            instaCardWidth = $('.igCard').width();
-            tweetCardWidth = $('.cardImage').width();
-            theWhiteLineWidth = $('.theWhiteLine').width();
+            $('.sidebar').affix({
+                offset: {
+                    top: -10
+                }
+            });
 
-            if ($('.tweetCardShell').css('padding-right') !== undefined) {
+            var $body = $(document.body);
+            var navHeight = $('.navbar').outerHeight(true) + 10;
+
+            $body.scrollspy({
+                target: '.leftCol',
+                offset: navHeight
+            });
+
+            var instaCardWidth = $('.igCard').width();
+            var tweetCardWidth = $('.cardImage').width();
+            var theWhiteLineWidth = $('.theWhiteLine').width();
+
+            function sideBarResize() {
+
+                instaCardWidth = $('.igCard').width();
+                tweetCardWidth = $('.cardImage').width();
+                theWhiteLineWidth = $('.theWhiteLine').width();
+
+                if ($('.tweetCardShell').css('padding-right') !== undefined) {
+
+                    var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
+                    var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
+                }
 
                 var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
                 var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
-            }
-
-            var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
-            var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
 
 
-            if (($(window).width() + 17) > 1200) {
+                if (($(window).width() + 17) > 1200) {
 
-                $('.hideThisDiv').css('display', 'block');
+                    $('.hideThisDiv').css('display', 'block');
 
-                $('.hideThisDiv').css('display', 'block');
+                    $('.hideThisDiv').css('display', 'block');
 
-                $('.row').css({
-                    "margin-right": '-15px',
-                    "margin-left": '-15px'
-                });
+                    $('.row').css({
+                        "margin-right": '-15px',
+                        "margin-left": '-15px'
+                    });
 
-                $('.sidebar').css({
-                    "background": 'rgba(0, 0, 0, .5)',
-                    "transition": 'all linear .25s',
-                    "height": '90%',
-                    "top": '5%',
-                    "position": "fixed"
-                });
+                    $('.sidebar').css({
+                        "background": 'rgba(0, 0, 0, .5)',
+                        "transition": 'all linear .25s',
+                        "height": '90%',
+                        "top": '5%',
+                        "position": "fixed"
+                    });
 
-                $('.swipeController').css('display', 'none');
-                // $('.sidebar').css('background', ' rgba(0, 0, 0, .5)');
+                    $('.swipeController').css('display', 'none');
+                    // $('.sidebar').css('background', ' rgba(0, 0, 0, .5)');
 
-                // $('.sidebar').css('position', 'fixed');
+                    // $('.sidebar').css('position', 'fixed');
 
-                // $('.sidebar').css({
-                // transition: 'all linear .25s'
-                // });
+                    // $('.sidebar').css({
+                    // transition: 'all linear .25s'
+                    // });
 
-                // $('.sidebar').css('height', '90%');
-                //  $('.sidebar.affix').css('top', '5%');
+                    // $('.sidebar').css('height', '90%');
+                    //  $('.sidebar.affix').css('top', '5%');
 
-                if (tweetCardWidth <= 101) {
-                    $('.sidebar').css('width', 300 - 75);
+                    if (tweetCardWidth <= 101) {
+                        $('.sidebar').css('width', 300 - 75);
+                    } else {
+                        $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2.5));
+                    }
+
                 } else {
-                    $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2.5));
+
+                    $('.hideThisDiv').css('display', 'none');
+                    $('.row').css({
+                        "margin-right": '-27px',
+                        "margin-left": '-27px'
+                    });
+                    $('.swipeController').css('display', 'block');
+
+                    $('.sidebar').hover(function () {
+                        $('.sidebar').css({
+                            transition: 'all linear .25s'
+                        });
+                    });
+
+                    $('.sidebar').css({
+                        "background": 'rgba(0, 0, 0, .87)',
+                        "transition": 'all linear .25s',
+                        "height": 'auto',
+                        "width": theWhiteLineWidth + 'px',
+                        "top": '5%',
+                        "position": "fixed"
+                    });
+
+                    // $('.sidebar.affix').css('top', '0%');
+                    // $('.sidebar').css({
+                    //    transition: 'all linear .007s'
+                    // });
+
+                    // $('.sidebar').css('position', 'fixed');
+
+                    // $('.sidebar').css('height', 'auto');
+                    // $('.sidebar').css('width', theWhiteLineWidth + 'px');
+                    // $('.sidebar').css('background', 'rgba(0, 0, 0, .87)');
+
+
                 }
 
-            } else {
-
-                $('.hideThisDiv').css('display', 'none');
-                $('.row').css({
-                    "margin-right": '-27px',
-                    "margin-left": '-27px'
-                });
-                $('.swipeController').css('display', 'block');
-
-                $('.sidebar').hover(function () {
-                    $('.sidebar').css({
-                        transition: 'all linear .25s'
-                    });
-                });
-
-                $('.sidebar').css({
-                    "background": 'rgba(0, 0, 0, .87)',
-                    "transition": 'all linear .25s',
-                    "height": 'auto',
-                    "width": theWhiteLineWidth + 'px',
-                    "top": '5%',
-                    "position": "fixed"
-                });
-
-                // $('.sidebar.affix').css('top', '0%');
-                // $('.sidebar').css({
-                //    transition: 'all linear .007s'
-                // });
-
-                // $('.sidebar').css('position', 'fixed');
-
-                // $('.sidebar').css('height', 'auto');
-                // $('.sidebar').css('width', theWhiteLineWidth + 'px');
-                // $('.sidebar').css('background', 'rgba(0, 0, 0, .87)');
-
+                console.log('\n');
+                console.log('WINDA: ' + ($(window).width() + 17));
+                console.log('INSTA: ' + instaCardWidth);
+                console.log('TWEET: ' + tweetCardWidth);
+                console.log('SIDEBAR: ' + $('.sidebar').width());
+                console.log('THE DIFF: ' + (tweetCardWidth - instaCardWidth));
+                console.log('tweetCardShellMARGIN: ' + (tweetCardShellPaddingRight + tweetCardShellPaddingLeft));
+                console.log('\n');
 
             }
 
-            console.log('\n');
-            console.log('WINDA: ' + ($(window).width() + 17));
-            console.log('INSTA: ' + instaCardWidth);
-            console.log('TWEET: ' + tweetCardWidth);
-            console.log('SIDEBAR: ' + $('.sidebar').width());
-            console.log('THE DIFF: ' + (tweetCardWidth - instaCardWidth));
-            console.log('tweetCardShellMARGIN: ' + (tweetCardShellPaddingRight + tweetCardShellPaddingLeft));
-            console.log('\n');
 
-        }
+            setTimeout(function () {
+                sideBarResize();
+            }, 1000);
+            setTimeout(function () {
+                sideBarResize();
+            }, 1500);
+            setTimeout(function () {
+                sideBarResize();
+            }, 5000);
 
+            $(window).resize(function () {
+                sideBarResize();
+            });
 
-        setTimeout(function () {
-            sideBarResize();
-        }, 1000);
-        setTimeout(function () {
-            sideBarResize();
-        }, 1500);
-        setTimeout(function () {
-            sideBarResize();
-        }, 5000);
+            $.material.init();
 
-        $(window).resize(function () {
-            sideBarResize();
         });
-
-        $.material.init();
-
-    });
-</script>
+    </script>

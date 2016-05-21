@@ -41,6 +41,12 @@
         transition: all linear .75s;
         background: rgba(0, 0, 0, .25);
     }
+    /*
+    .blur {
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+    }
+*/
 </style>
 <div class="bodyWrapper" ng-hide="!hideThisDiv">
     <!--!hideThisDiv-->
@@ -57,7 +63,7 @@
         <div class="spotWrapper">
             <div class="col-md-3" ng-repeat="data in spotifyData">
                 <div class="spotCard addSomeMarginBottom">
-                    <div class="spotImage" style="background: url('{{data.images[0].url}}') no-repeat center center;  background-size: cover;">
+                    <div class="spotImage blur" style="background: url('{{data.images[0].url}}') no-repeat center center;  background-size: cover;">
                         <!-- class="cardImage" -->
                         <div class="spotImageOverLay add20pxPadding">
                             <!-- cardImageOverLay -->
@@ -82,5 +88,3 @@
     </div>
 
 </div>
-
- 

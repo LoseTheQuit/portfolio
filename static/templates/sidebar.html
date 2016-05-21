@@ -341,6 +341,13 @@
         color: black;
         background: #c3c3c3;
     }
+    
+    .form-control,
+    .form-group .form-control {
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#337ab7)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
+        background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
+        background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+    }
 </style>
 
 <div class="container" ng-hide="!hideThisDiv">
@@ -359,6 +366,10 @@
                             </div>
 
                             <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control col-sm-8" placeholder="Search" ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                            </div>
 
                             <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                 <span class="sr-only">LTQ</span>
@@ -634,6 +645,8 @@
         $(window).resize(function () {
             sideBarResize();
         });
+
+        $.material.init();
 
     });
 </script>

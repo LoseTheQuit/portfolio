@@ -21,6 +21,16 @@
         transition: all linear .75;
         box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
     }
+    
+    .img-circle {
+        border-radius: 50%;
+    }
+    
+    .injectedTwitterImage {
+        margin: 0 auto;
+        width: 23.3%;
+        margin-bottom: 20px;
+    }
 </style>
 
 <div class="bodyWrapper" ng-hide="!hideThisDiv">
@@ -44,17 +54,21 @@
                         <!-- <div ng-bind-html="inputText | linky"></div>-->
                         <div class="tweetCardSpacer"></div>
                         <div class="igCardHeaderMargin"></div>
-                        <div class="col-xs-3 col-md-4 col-lg-4">
-                            <img class="injectedImage" ng-src="{{tweet.user.profile_image_url}}">
+                        <div class="col-xs-12 col-md-4 col-lg-12">
+                            <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
                         </div>
-                        <div class="col-xs-9 col-md-8 col-lg-8">
+                        <!--
+                        <div class="col-xs-12 col-md-8 col-lg-8">
                             <p class="screenName">{{tweet.user.username}}</p>
                         </div>
+-->
+
 
                         <p class="screenName">{{tweet.user.name}}</p>
                         <p>{{tweet.user.location}}</p>
                         <p>favourites_count: {{tweet.user.favourites_count}}</p>
-                        <!-- <p>description: {{tweet.user.description}}</p> -->
+
+                        <!-- <p>description: {{tweet.user.description}}</p >-->
                         <p>friends_count: {{tweet.user.friends_count}}</p>
                         <p>follcowers_count: {{tweet.user.followers_count}}</p>
                         <p>Tweets: {{tweet.user.statuses_count}}</p>
@@ -79,12 +93,19 @@
                         <div class="tweetCardSpacer"></div>
                         <div class="igCardHeaderMargin"></div>
 
-                        <div class="col-xs-3 col-md-4 col-lg-4">
-                            <img class="injectedImage" ng-src="{{tweet.user.profile_image_url}}">
+                        <div class="col-xs-12 col-md-4 col-lg-12">
+                            <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
                         </div>
+
+                        <!-- 
+
                         <div class="col-xs-9 col-md-8 col-lg-8">
                             <p class="screenName">{{tweet.user.username}}</p>
+                            <p class="screenName">{{tweet.user.username}}</p>
+                            <p class="screenName">{{tweet.user.username}}</p>
+                            <p class="screenName">{{tweet.user.username}}</p>
                         </div>
+-->
 
                         <p class="screenName">{{tweet.user.name}}</p>
                         <p>{{tweet.user.location}}</p>

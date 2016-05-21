@@ -36,6 +36,15 @@
         /* float: right; */
     }
     
+    .form-group {
+        width: 80%;
+        height: 45px;
+        color: #000;
+        padding-bottom: 7px;
+        margin: 0 auto;
+        /* margin: 28px 0 0 0;*/
+    }
+    
     .inputBox:focus,
     .inputBox input[type="text"].focus {
         border: solid 1px rgba(0, 0, 0, .50);
@@ -341,13 +350,6 @@
         color: black;
         background: #c3c3c3;
     }
-    
-    .form-control,
-    .form-group .form-control {
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#337ab7)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-        background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-        background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
-    }
 </style>
 
 <div class="container" ng-hide="!hideThisDiv">
@@ -365,10 +367,10 @@
                                 <img class="searchIconSideBar" src="../img/svg/search.svg">
                             </div>
 
-                            <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                            <!-- <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">-->
 
                             <div class="form-group">
-                                <input type="text" class="form-control col-sm-8" placeholder="Search" ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                                <input type="text" class="form-control col-sm-8" placeholder="#search" ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
                             </div>
 
                             <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

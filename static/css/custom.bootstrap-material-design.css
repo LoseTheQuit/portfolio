@@ -1637,12 +1637,15 @@ output {
     background-color: #f44336;
 }
 
+
+/* CUSTOM EDIT */
+
 .form-control,
 .form-group .form-control {
     border: 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-    background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-    background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#00a3e0), to(#00a3e0)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
+    background-image: -webkit-linear-gradient(#00a3e0, #00a3e0), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
+    background-image: linear-gradient(#00a3e0, #00a3e0), linear-gradient(#D2D2D2, #D2D2D2);
     background-size: 0 2px, 100% 1px;
     background-repeat: no-repeat;
     background-position: center bottom, center calc(100% - 1px);
@@ -1652,6 +1655,7 @@ output {
     float: none;
     box-shadow: none;
     border-radius: 0;
+    color: #fff;
 }
 
 .form-control::-moz-placeholder,
@@ -1662,7 +1666,7 @@ output {
 
 .form-control:-ms-input-placeholder,
 .form-group .form-control:-ms-input-placeholder {
-    color: #BDBDBD;
+    color: #fff;
     font-weight: 400;
 }
 
@@ -1691,6 +1695,7 @@ fieldset[disabled] .form-group .form-control {
 
 .form-group {
     position: relative;
+    color: #fff;
 }
 
 .form-group.label-static label.control-label,
@@ -1715,19 +1720,29 @@ fieldset[disabled] .form-group .form-control {
     display: none;
 }
 
+
+/*********  
+THIS IS WHERE YOU CHANGE THE IMPUT RIPPLE COLOR
+**********/
+
 .form-group.is-focused .form-control {
     outline: none;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-    background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-    background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#00a3e0), to(#00a3e0)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
+    background-image: -webkit-linear-gradient(#00a3e0, #00a3e0), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
+    background-image: linear-gradient(#00a3e0, #00a3e0), linear-gradient(#D2D2D2, #D2D2D2);
     background-size: 100% 2px, 100% 1px;
     box-shadow: none;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
+    /* color: #fff; */
 }
 
+
+/* CUSTOM EDIT */
+
 .form-group.is-focused .form-control .material-input:after {
-    background-color: #009688;
+    color: #fff;
+    background-color: #00a3e0;
 }
 
 .form-group.is-focused label,
@@ -1867,11 +1882,6 @@ label.control-label {
 .help-block {
     margin-top: 0;
     font-size: 12px;
-}
-
-.form-group {
-    padding-bottom: 7px;
-    margin: 28px 0 0 0;
 }
 
 .form-group .form-control {
@@ -2433,6 +2443,7 @@ fieldset[disabled] .navbar .btn-link:focus {
 
 .navbar .navbar-form .form-group .material-input:before,
 .navbar .navbar-form .form-group.is-focused .material-input:after {
+    color: #fff;
     background-color: inherit;
 }
 

@@ -697,6 +697,11 @@
                     $('.navbar-toggle:visible').click();
                 }
             });
+            $(window).scroll(function () {
+                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                    $('.navbar-toggle:visible').click();
+                }
+            });
 
         });
     </script>

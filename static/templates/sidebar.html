@@ -361,6 +361,10 @@
         line-height: 1.07142857;
         color: #00a3e0;
     }
+    
+    .hamburgerMenu {
+        margin-left: 20px;
+    }
 </style>
 
 <div class="container" ng-hide="!hideThisDiv">
@@ -382,24 +386,36 @@
 
                             <!-- <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">-->
 
-                            <div class="form-group label-floating">
 
-
+                            <div class="form-group label-floating hideThisDiv">
                                 <label for="i182" class="control-label">#search</label>
-                                <!-- placeholder="#search" -->
-
                                 <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
-
-                                <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                    <span class="sr-only">LTQ</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
                             </div>
+
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
+                                <span class="sr-only">LTQ</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+
+                            </button>
+
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <center>
+                                        <li role="presentation" class="">
+                                            <div class="form-group label-floating nestedInputField">
+                                                <!--
+                                                <div class="searchIconSideBarContainer">
+                                                    <img class="searchIconSideBar" src="../img/svg/search.svg">
+                                                </div>
+-->
+                                                <label for="i182" class="control-label">#search</label>
+                                                <!-- placeholder="#search" -->
+                                                <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                                            </div>
+                                        </li>
                                         <li role="presentation" class=" ">
                                             <div class="dropdown">
                                                 <button class="dropdown-toggle" type="button" data-toggle="dropdown">
@@ -412,15 +428,15 @@
 
                                                 <ul class="dropdown-menu">
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
                                                         </a>
                                                     </li>
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
                                                         </a>
                                                     </li>
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -436,15 +452,15 @@
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
                                                         </a>
                                                     </li>
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
                                                         </a>
                                                     </li>
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -461,15 +477,15 @@
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
                                                         </a>
                                                     </li>
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
                                                         </a>
                                                     </li>
                                                     <li class="customCenter">
-                                                        <a role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -568,8 +584,8 @@
                 if (($(window).width() + 17) > 1200) {
 
                     $('.hideThisDiv').css('display', 'block');
-
-                    $('.hideThisDiv').css('display', 'block');
+                    $('.swipeController').css('display', 'none');
+                    $('.nestedInputField').css('display', 'none');
 
                     $('.row').css({
                         "margin-right": '-15px',
@@ -584,7 +600,6 @@
                         "position": "fixed"
                     });
 
-                    $('.swipeController').css('display', 'none');
                     // $('.sidebar').css('background', ' rgba(0, 0, 0, .5)');
 
                     // $('.sidebar').css('position', 'fixed');
@@ -605,11 +620,14 @@
                 } else {
 
                     $('.hideThisDiv').css('display', 'none');
+                    $('.swipeController').css('display', 'block');
+                    $('.nestedInputField').css('display', 'block');
+
                     $('.row').css({
                         "margin-right": '-27px',
                         "margin-left": '-27px'
                     });
-                    $('.swipeController').css('display', 'block');
+
 
                     $('.sidebar').hover(function () {
                         $('.sidebar').css({
@@ -668,5 +686,18 @@
 
             $.material.init();
 
+            $('.menuitem').click(function () {
+
+                console.log("THIS IS WORKING IN THE MENUITEM")
+                console.log("THIS IS WORKING IN THE MENUITEM")
+                console.log("THIS IS WORKING IN THE MENUITEM")
+                console.log("THIS IS WORKING IN THE MENUITEM")
+                console.log("THIS IS WORKING IN THE MENUITEM")
+                console.log("THIS IS WORKING IN THE MENUITEM")
+
+                $(".navbar-toggle").removeClass("collapsed");
+                $(".navbar-toggle").removeClass(".collapsed");
+
+            });
         });
     </script>

@@ -692,5 +692,11 @@
                 }
             });
 
+            $(".socialDataWrapper").on("tap", function () {
+                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                    $('.navbar-toggle:visible').click();
+                }
+            });
+
         });
     </script>

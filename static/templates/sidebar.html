@@ -686,17 +686,12 @@
 
             $.material.init();
 
-            $('.socialDataWrapper').click(function () {
-                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                    $('.navbar-toggle:visible').click();
-                }
-            });
+            //            $('.socialDataWrapper').click(function () {
+            //                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+            //                    $('.navbar-toggle:visible').click();
+            //                }
+            //            });
 
-            $(".socialDataWrapper").on("tap", function () {
-                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                    $('.navbar-toggle:visible').click();
-                }
-            });
             $(window).scroll(function () {
                 if (!($('.navbar-toggle').hasClass('collapsed'))) {
                     $('.navbar-toggle:visible').click();

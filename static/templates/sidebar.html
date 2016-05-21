@@ -255,23 +255,22 @@
         color: transparent;
     }
     
-    .custom-dropdown .active a,
-    .custom-dropdown .active a:hover,
-    .custom-dropdown .active a:focus {
-        color: #ffffff;
-        background-color: red;
-    }
-    
     .custom-dropdown a:hover,
     .custom-dropdown a:focus {
         text-decoration: none;
     }
     
-    .custom-dropdown .open a,
-    .custom-dropdown .open a:hover,
-    .custom-dropdown .open a:focus {
+    .custom-dropdown .open a {
         background-color: transparent;
         text-decoration: none;
+    }
+    
+    .custom-dropdown .open a:hover,
+    .custom-dropdown .open a:focus {
+        /*        background-color: transparent;*/
+        background-color: rgba(255, 255, 255, .10);
+        text-decoration: none;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
     }
     
     .custom-dropdown .icon-bar {
@@ -645,6 +644,7 @@
                     });
 
                     // $('.sidebar.affix').css('top', '0%');
+
                     // $('.sidebar').css({
                     //    transition: 'all linear .007s'
                     // });
@@ -686,18 +686,11 @@
 
             $.material.init();
 
-            $('.menuitem').click(function () {
-
-                console.log("THIS IS WORKING IN THE MENUITEM")
-                console.log("THIS IS WORKING IN THE MENUITEM")
-                console.log("THIS IS WORKING IN THE MENUITEM")
-                console.log("THIS IS WORKING IN THE MENUITEM")
-                console.log("THIS IS WORKING IN THE MENUITEM")
-                console.log("THIS IS WORKING IN THE MENUITEM")
-
-                $(".navbar-toggle").removeClass("collapsed");
-                $(".navbar-toggle").removeClass(".collapsed");
-
+            $('.socialDataWrapper').click(function () {
+                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                    $('.navbar-toggle:visible').click();
+                }
             });
+
         });
     </script>

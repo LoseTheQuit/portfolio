@@ -462,9 +462,10 @@ app.post('/ig', function (req, res, next) {
                 request(self_search, function (error, response, body) {
                     if (error && response.statusCode != 200) {
                         console.error(error);
-                        if (error)
-                            throw (error);
-                        return error
+
+                        // if (error)
+                        // throw (error);
+
                     } else {
                         var JSONObjectArray = JSON.parse(body);
                         // turns off back end logging of user JSONObjectArray
@@ -551,8 +552,10 @@ app.post('/instaInputQuery', function (req, res, next) {
         if (error || response.statusCode != 200) {
             error = error || response;
             console.error(error);
-            if (error)
-                throw (error);
+
+            // if (error)
+            // throw (error);
+
         } else {
             var JSONobjArray = JSON.parse(body);
             // turns off back end logging of user JSONObjectArray

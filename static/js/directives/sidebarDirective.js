@@ -9,7 +9,7 @@ angular.module("mainModule")
 
         return {
 
-            templateUrl: '/templates/sidebar.html',
+            templateUrl: '../templates/sidebar.html',
             controller: 'sidebarController',
             replace: false
         }

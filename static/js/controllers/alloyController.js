@@ -7,55 +7,64 @@ angular.module("mainModule")
 
         console.log("INSIDE alloyController");
 
+        $scope.onSwipeLeft = function (ev) {
+            alert('You swiped left!!');
+        };
+        $scope.onSwipeRight = function (ev) {
+            alert('You swiped right!!');
+        };
+
+
         $scope.windowInfoWithToken = instagramService.getWindowInfo();
         $scope.getTwitterDropDownNumberIndex = sidebarService.getTwitterDropDownNumberIndex();
 
         $scope.getIgandTwitterApiData = function () {
 
-            instagramService.tapInstaExtended($scope.windowInfoWithToken, $scope.inputSearchTweetsAndInstagramQuery, function (response) {
+            if ($scope.inputSearchTweetsAndInstagramQuery.length >= 1) {
 
-                // console.info(response.data);
-                $scope.instagramData = response.data;
+                instagramService.tapInstaExtended($scope.windowInfoWithToken, $scope.inputSearchTweetsAndInstagramQuery, function (response) {
 
-            });
+                    // console.info(response.data);
+                    $scope.instagramData = response.data;
 
+                });
 
+                alloy.getSpotifyDATA({
 
-            alloy.getSpotifyDATA({
+                    q: $scope.inputSearchTweetsAndInstagramQuery,
+                    count: 20
 
-                q: $scope.inputSearchTweetsAndInstagramQuery,
-                count: 20
+                }, function (response) {
 
-            }, function (response) {
+                    $scope.spotifyData = response.data;
 
-                $scope.spotifyData = response.data;
+                    console.log("_________________________________");
+                    console.log("SPOTIFY response.DATA: ");
+                    console.info(response.data);
+                    console.log("SPOTIFY response: ");
+                    console.info(response);
+                    console.log("_________________________________");
 
-                console.log("_________________________________");
-                console.log("SPOTIFY response.DATA: ");
-                console.info(response.data);
-                console.log("SPOTIFY response: ");
-                console.info(response);
-                console.log("_________________________________");
+                });
 
-            });
+                sidebarService.getTwitterData($scope.inputSearchTweetsAndInstagramQuery, function (response) {
 
-            sidebarService.getTwitterData($scope.inputSearchTweetsAndInstagramQuery, function (response) {
+                    // for user timelines   var tweets = response;
+                    // for tags var tweets = response.data;
+                    var tweets = response;
+                    if (sidebarService.getTwitterDropDownNumberIndex() === 1) {
 
-                // for user timelines   var tweets = response;
-                // for tags var tweets = response.data;
-                var tweets = response;
-                if (sidebarService.getTwitterDropDownNumberIndex() === 1) {
+                        tweets = response;
+                    } else {
+                        tweets = response.data;
 
-                    tweets = response;
-                } else {
-                    tweets = response.data;
+                    }
+                    console.log(tweets);
 
-                }
-                console.log(tweets);
+                    $scope.twitterData = tweets;
 
-                $scope.twitterData = tweets;
-
-            });
+                });
+            }
 
         };
 
@@ -135,9 +144,9 @@ angular.module("mainModule")
         alloy.getSpotify($scope.windowInfoWithToken, function (response) {
 
             $scope.spotifyData = response.data;
-            console.info('getSPOTIFY: ');
+            console.info('getSPOTIFY:');
             console.info(response.data);
-            console.info('getSPOTIFY: ');
+            console.info('getSPOTIFY:');
 
 
         });
@@ -156,7 +165,9 @@ angular.module("mainModule")
                 $scope.hideThisDiv = true;
             }
 
+            console.warn('tapInsta:');
             console.info(response.data);
+            console.warn('tapInsta:');
 
         });
 

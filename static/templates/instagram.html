@@ -123,8 +123,11 @@
                         <div class="igCardSpacer"></div>
                         <div class="igCardHeaderMargin"></div>
 
+
+                        <img ng-src={{data.user.profile_picture}} class="injectedTwitterImage img-circle customCenter">
                         <p class="screenName">{{data.user.username}}</p>
                         <p class="fullName">{{data.user.full_name}}</p>
+
                         <p class="boldTheTags">tags:</p>
                         <div class="tagContainer">
                             <div ng-repeat="data in data.tags" class="inlinetagContainer">

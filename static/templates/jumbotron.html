@@ -33,19 +33,22 @@
         background: rgba(0, 0, 0, .5);
     }
     
+    .ghostButton:hover,
+    .ghostButton:active,
+    .ghostButton:focus {
+        text-decoration: none;
+        color: #fff;
+        transition: all linear .50s;
+        background: rgba(0, 0, 0, .5);
+    }
+    /*
     .ghostButton:hover {
         text-decoration: none;
         color: #fff;
         transition: all linear .50s;
         background: rgba(0, 0, 0, .5);
     }
-    
-    .ghostButton:active {
-        text-decoration: none;
-        color: #fff;
-        transition: all linear .50s;
-        background: rgba(0, 0, 0, .5);
-    }
+*/
     
     @-webkit-keyframes bgMove {
         0% {
@@ -102,6 +105,12 @@
     .headLine {
         font-size: 40px;
         color: #fff;
+    }
+    
+    .jumbotronContainer {
+        width: 50%;
+        height: 100vh;
+        height: 100%;
     }
 </style>
 <div class="row customJumbotron" ng-hide="hideThisDiv">

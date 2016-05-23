@@ -14,11 +14,19 @@
 
     <link rel="icon" type="image/png" href="//pbiwebprod.blob.core.windows.net/webassets/images/favicon.png">
 
-    <!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
-
+    <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+    <link rel="stylesheet" href="../css/custom.bootstrap-material-design.css">
     <link rel="stylesheet" href="../css/custom.bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
-    <script src="../js/directives/jumbotronDirective.js"></script>
+
+
+
+    <!--    <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css.map">-->
+    <!-- <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css.map"> -->
+
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+
     <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic' rel='stylesheet' type='text/css'>
 
     <style>
@@ -26,7 +34,7 @@
             width: 100%;
             height: 100%;
             background: #c7c7c7;
-            /*  background: #00a3e0; */
+            /* background: #00a3e0; */
             color: #fff;
             font-family: 'Gudea', sans-serif;
             text-shadow: 0 10px 30px rgba(0, 0, 0, .25);
@@ -131,15 +139,32 @@
             color: #fff;
             float: right;
         }
+        
+        .swipedemoBasicUsage .demo-swipe {
+            padding: 20px 10px;
+        }
+        
+        .swipedemoBasicUsage .no-select {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .swipeController {
+            background: black;
+        }
     </style>
 </head>
 
-<body ng-app="mainModule" ng-style="customOverFlow()">
+<body ng-app="mainModule" ng-style="customOverFlow()" ng-cloak>
 
     <jumbotron></jumbotron>
 
     <div class="stickyLine"></div>
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row">
 
@@ -147,8 +172,10 @@
                 <sidebar></sidebar>
             </div>
 
+
             <div class="socialDataWrapper">
                 <div class="col-lg-10 col-md-12">
+
                     <div class="col-lg-6 col-md-12">
                         <twitter></twitter>
                     </div>
@@ -161,19 +188,40 @@
                 </div>
             </div>
 
+
         </div>
 
     </div>
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+    <script src="/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+
+    <!-- <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js.map"></script> -->
+    <!-- <script src="/bower_components/bootstrap-material-design/dist/js/ripples.min.js.map"></script> -->
+
     <script src="../js/universal/parallax.min.js"></script>
     <script src="../js/universal/modernizr.custom.min.js"></script>
 
     <!-- ANGULAR IMPORTS -->
 
+    <!-- Angular Material requires Angular.js Libraries -->
     <script src="/bower_components/angular/angular.min.js"></script>
+
+    <!--
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+-->
+    <!-- Angular Material requires Angular.js Libraries -->
+
+    <!-- Your application bootstrap  -->
+
     <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+
 
     <script src="../js/main.js"></script>
     <script src="../js/controllers/alloyController.js"></script>
@@ -194,6 +242,8 @@
     <script src="../js/universal/werkspayce.js"></script>
 
     <!-- ANGULAR IMPORTS -->
+
+
 
 </body>
 

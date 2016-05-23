@@ -34,7 +34,7 @@ angular.module("mainModule")
                     data: {
 
                         screen_name: inputSearchQuery,
-                        count: 20
+                        count: 10
 
                     }
                 })
@@ -50,7 +50,7 @@ angular.module("mainModule")
                     data: {
 
                         q: inputSearchQuery,
-                        count: 20
+                        count: 10
 
                     }
                 })

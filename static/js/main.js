@@ -1,3 +1,5 @@
 'use strict';
 
-angular.module("mainModule", ['ngSanitize']);
+angular.module('mainModule', ['ngSanitize']);
+
+//, 'ngMaterial'

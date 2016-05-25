@@ -14,7 +14,20 @@
         box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
     }
     
-    .sidebarStyle {}
+    .sideBarHover {
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    }
+    
+    .sidebarStyle {
+        width: 100%;
+        height: 90%;
+        background: rgba(0, 0, 0, .5);
+        border: 1px solid #fff;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        transition: all linear .25s;
+        z-index: 1;
+    }
     
     .affix-top,
     .affix {
@@ -374,10 +387,10 @@
 
     <div class="leftCol">
 
-        <ul class="nav nav-stacked sidebar sidebarFinder" id="sidebar">
+        <ul class="nav nav-stacked sidebarFinder sidebar" id="sidebar">
             <div class="beaker displayFlex">
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                    <div class="dropdownController custom-dropdown">
+                    <div class="dropDownController custom-dropdown">
 
                         <center>
 
@@ -551,11 +564,10 @@
         </ul>
     </div>
 
-
-
     <script>
         $(function () {
 
+            let isTheSideBarLargerThan1200 = true;
             var stickyLine = document.querySelector('.stickyLine');
             var stickyLinePosition = stickyLine.getBoundingClientRect().top;
 
@@ -602,6 +614,8 @@
             }
 
             function sideBarDisAppear() {
+
+
                 $('.sidebar').css({
                     "background": 'rgba(0, 0, 0, .00)',
                     "border": 'none',
@@ -638,10 +652,15 @@
 
                 if (($(window).width() + 17) > 1200) {
 
+                    isTheSideBarLargerThan1200 = true;
+                    $('.dropDownController').addClass('custom-dropdown');
+
+                    $('.navbar-toggle').addClass('collapsed');
+
                     $('.hideThisDiv').css('display', 'block');
                     $('.swipeController').css('display', 'none');
                     $('.nestedInputField').css('display', 'none');
-                    $('.dropdownController').addClass('custom-dropdown');
+                    $('.dropDownController').addClass('custom-dropdown');
 
                     $('.row').css({
                         "margin-right": '-15px',
@@ -649,11 +668,21 @@
                     });
 
                     $('.sidebar').css({
+
+                        "top": '5%',
+                        "width": '100%',
+                        "height": '90%',
+                        "z-index": '1',
                         "background": 'rgba(0, 0, 0, .5)',
                         "transition": 'all linear .25s',
                         "height": '90%',
-                        "top": '5%',
-                        "position": "fixed"
+                        "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
+                        "border": '1px solid #fff'
+
+                    });
+
+                    $('.sidebar.affix').css({
+                        "margin-top": '0px'
                     });
 
                     if (tweetCardWidth <= 101) {
@@ -664,7 +693,9 @@
 
                 } else {
 
-                    $('.dropdownController').removeClass('custom-dropdown');
+                    isTheSideBarLargerThan1200 = false;
+
+                    $('.dropDownController').removeClass('custom-dropdown');
                     $('.hideThisDiv').css('display', 'none');
                     $('.swipeController').css('display', 'block');
                     $('.nestedInputField').css('display', 'block');
@@ -683,26 +714,64 @@
                         "margin-left": '-27px'
                     });
 
+                    $(window).scroll(function () {
 
-                    $('.sidebar').hover(function () {
-                        $('.sidebar').css({
-                            transition: 'all linear .25s'
-                        });
+
+                        if (!(isTheSideBarLargerThan1200)) {
+
+                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                $('.navbar-toggle:visible').click();
+                                sideBarAppear();
+
+                            } else {
+
+                                sideBarDisAppear();
+
+                            }
+                        }
+
                     });
 
                 }
 
-                console.log('\n');
-                console.log('WINDA: ' + ($(window).width() + 17));
-                console.log('INSTA: ' + instaCardWidth);
-                console.log('TWEET: ' + tweetCardWidth);
-                console.log('SIDEBAR: ' + $('.sidebar').width());
-                console.log('THE DIFF: ' + (tweetCardWidth - instaCardWidth));
-                console.log('tweetCardShellMARGIN: ' + (tweetCardShellPaddingRight + tweetCardShellPaddingLeft));
-                console.log('\n');
+                //                console.log('\n');
+                //                console.log('WINDA: ' + ($(window).width() + 17));
+                //                console.log('INSTA: ' + instaCardWidth);
+                //                console.log('TWEET: ' + tweetCardWidth);
+                //                console.log('SIDEBAR: ' + $('.sidebar').width());
+                //                console.log('\n');
 
             }
 
+            $('.btn-info').click(function () {
+
+                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                    sideBarDisAppear();
+                } else {
+                    sideBarAppear();
+                }
+
+            });
+
+            $('.sidebar').hover(
+                function () {
+                    // if (($('.navbar-toggle').hasClass('collapsed'))) {
+                    $('.sidebar').css({
+                        'transition': 'all linear .25s',
+                        'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
+                    });
+                    // }     
+                },
+                function () {
+                    // if (($('.navbar-toggle').hasClass('collapsed'))) {
+                    $('.sidebar').css({
+                        'transition': 'all linear .25s',
+                        'box-shadow': '0 10px 10px rgba(0, 0, 0, .25)'
+                    });
+                    // } 
+                }
+            );
 
             setTimeout(function () {
                 sideBarResize();
@@ -720,47 +789,18 @@
 
             $.material.init();
 
-            $('.btn-info').click(function () {
-
-                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                    sideBarDisAppear();
-                } else {
-                    sideBarAppear();
-                }
-
-            });
-
-            $('.sidebar').click(function () {
-
-
-                if (($('.navbar-toggle').hasClass('collapsed'))) {
-
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED')
-
-                } else {
-                    $('.btn-info').addClass('btn-raised');
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-
-                }
-
-            });
-
-
-            $(window).scroll(function () {
-
-                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                    $('.navbar-toggle:visible').click();
-                    sideBarAppear();
-                } else {
-                    sideBarDisAppear();
-                }
-
-
-            });
-
+            //            $('.sidebar').click(function () {
+            //
+            //                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+            //                    $('.btn-info').addClass('btn-raised');
+            //                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+            //                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+            //                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+            //                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+            //
+            //                }
+            //
+            //            }); 
 
             $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
                 e.stopPropagation();

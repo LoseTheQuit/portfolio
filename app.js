@@ -58,7 +58,6 @@ var spotify_client_secret = '42c98e7bfcf6426dbf25888204456dce'; // Your secret
 
 var generateRandomString = function (length) {
 
-
     /************************************************************
      * Generates a random string containing numbers and letters
      * @param  {number} length The length of the string 

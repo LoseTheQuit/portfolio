@@ -28,7 +28,7 @@
     
     .injectedTwitterImage {
         margin: 0 auto;
-        width: 23.3%;
+        width: 18.2%;
         margin-bottom: 20px;
     }
     
@@ -44,8 +44,8 @@
         margin: 25px 0px;
     }
     
-    .fullWidth50MarginAuto {
-        width: 32%;
+    .fullWidth33MarginAuto {
+        width: 33%;
         display: inline;
         height: 50px;
         margin: 0 auto;
@@ -96,43 +96,34 @@
         <div class="col-md-6 col-xs-12 tweetCardShell userDataTweetCard" ng-repeat="tweet in twitterData.data">
             <div class="tweetCard addSomeMarginBottom">
                 <div class="cardImage" style="background: url(&quot;{{tweet.user.profile_background_image_url}}&quot;); background-size: cover;">
-                    <!-- cardImage-->
+
                     <div class="cardImageOverLay add20pxPadding">
 
                         <p>USER DATA</p>
-                        <!-- <div ng-bind-html="inputText | linky"></div>-->
+
                         <div class="tweetCardSpacer"></div>
                         <div class="igCardHeaderMargin"></div>
-                        <div class="col-xs-12 col-md-4 col-lg-12">
+
+                        <div class="col-xs-12 col-s-12 col-md-12 col-lg-12">
                             <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
                         </div>
 
-                        <!--
-                        <div class="col-xs-12 col-md-8 col-lg-8">
-                            <p class="screenName">{{tweet.user.username}}</p>
-                        </div>
-                        -->
-
-                        <!-- <p class="screenName">{{tweet.user}}</p> -->
-                        <!--                        <p>{{tweet}}</p>-->
+                        <!-- <p>{{tweet}}</p> -->
 
                         <p class="screenName">{{tweet.user.name}}</p>
                         <p>{{tweet.user.location}}</p>
 
-
-                        <!-- <p>description: {{tweet.user.description}}</p>-->
-                        <!-- <div class="col-xs-12 col-md-4 col-lg-12">-->
                         <div class="fullWidthMarginAuto">
-                            <div class="fullWidth50MarginAuto">
+                            <div class="fullWidth33MarginAuto">
                                 <div class="dataPartial">
                                     <p class="byTheByNumbers">{{tweet.user.friends_count | number}}</p>
-                                    <p>friends</p>
+                                    <p>following</p>
                                 </div>
                             </div>
 
                             <div class="leDivider"></div>
 
-                            <div class="fullWidth50MarginAuto">
+                            <div class="fullWidth33MarginAuto">
                                 <div class="dataPartial">
                                     <p class="byTheByNumbers">{{tweet.user.followers_count | number}}</p>
                                     <p>followers</p>
@@ -141,7 +132,7 @@
 
                             <div class="leDivider"></div>
 
-                            <div class="fullWidth50MarginAuto">
+                            <div class="fullWidth33MarginAuto">
                                 <div class="dataPartial">
                                     <p class="byTheByNumbers">{{tweet.user.statuses_count | number}}</p>
                                     <p>Tweets</p>
@@ -158,7 +149,7 @@
 
                             <div class="customCenter">
                                 <div class="dataPartial">
-                                    <p class="byTheByNumbers">{{tweet.retweet_count| number}}</p>
+                                    <p class="byTheByNumbers">{{tweet.retweet_count | number}}</p>
                                     <p>Retweet count</p>
                                 </div>
                             </div>
@@ -189,47 +180,69 @@
         <div class="col-md-6 col-xs-12 tweetCardShell" ng-repeat="tweet in twitterData.statuses">
             <div class="tweetCard addSomeMarginBottom">
                 <div class="cardImage" style="background: url(&quot;{{tweet.user.profile_background_image_url}}&quot;); background-size: cover;">
-                    <!--                    cardImage-->
+
                     <div class="cardImageOverLay add20pxPadding">
+
                         <p>TAG SEARCH</p>
 
                         <div class="tweetCardSpacer"></div>
                         <div class="igCardHeaderMargin"></div>
 
-                        <div class="col-xs-12 col-md-4 col-lg-12">
+                        <div class="col-xs-12 col-s-12 col-md-12 col-lg-12">
                             <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
                         </div>
+
+                        <!-- <p>{{tweet}}</p> -->
 
                         <p class="screenName">{{tweet.user.name}}</p>
                         <p>{{tweet.user.location}}</p>
 
-                        <!-- <p>{{tweet.user.description}}</p> -->
-
                         <div class="fullWidthMarginAuto">
-                            <div class="fullWidth50MarginAuto">
+                            <div class="fullWidth33MarginAuto">
                                 <div class="dataPartial">
                                     <p class="byTheByNumbers">{{tweet.user.friends_count | number}}</p>
-                                    <p>friends</p>
+                                    <p>following</p>
                                 </div>
                             </div>
 
                             <div class="leDivider"></div>
 
-                            <div class="fullWidth50MarginAuto">
+                            <div class="fullWidth33MarginAuto">
                                 <div class="dataPartial">
                                     <p class="byTheByNumbers">{{tweet.user.followers_count | number}}</p>
                                     <p>followers</p>
                                 </div>
                             </div>
 
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.statuses_count | number}}</p>
+                                    <p>Tweets</p>
+                                </div>
+                            </div>
+
                             <div class="clearFloat"></div>
                         </div>
 
-                        <p>Tweets: {{tweet.user.statuses_count}}</p>
-                        <p>favourites_count: {{tweet.user.favourites_count}}</p>
-                        <p>TWEET: {{tweet.text}}</p>
-                        <p>Retweet count: {{tweet.retweet_count}}</p>
-                        <p>{{tweet.created_at}}</p>
+                        <div class="tweetText" ng-bind-html="tweet.text | linky:'_blank':{rel: 'nofollow'}">
+                        </div>
+
+                        <div class="fullWidthMarginAuto">
+
+                            <div class="customCenter">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.retweet_count | number}}</p>
+                                    <p>Retweet count</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+                        </div>
+
+                        <p>{{tweet.created_at | date : format : timezone}}</p>
+
                         <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
                         <p>{{tweet.entities.hashtags}}</p>
                         <p>{{tweet.retweeted_status.text}}</p>

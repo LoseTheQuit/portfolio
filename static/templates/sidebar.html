@@ -468,6 +468,7 @@
                                                 </ul>
                                             </div>
 
+                                            <!--
                                             <div class="dropdown">
                                                 <button class="dropdown-toggle" type="button" data-toggle="dropdown">
                                                     <img class="socialIconSideBar" src="../img/svg/instagram.svg">
@@ -516,6 +517,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
+                                            -->
 
                                         </li>
                                         <li role="presentation" class=" ">
@@ -735,12 +737,21 @@
 
                 }
 
-                //                console.log('\n');
-                //                console.log('WINDA: ' + ($(window).width() + 17));
-                //                console.log('INSTA: ' + instaCardWidth);
-                //                console.log('TWEET: ' + tweetCardWidth);
-                //                console.log('SIDEBAR: ' + $('.sidebar').width());
-                //                console.log('\n');
+                if (tweetCardWidth <= 240) {
+                    $('.fullWidth33MarginAuto').css({
+                        "width": '32%'
+                    });
+
+                }
+
+
+
+                console.log('\n');
+                console.log('WINDA: ' + ($(window).width() + 17));
+                console.log('INSTA: ' + instaCardWidth);
+                console.log('TWEET: ' + tweetCardWidth);
+                console.log('SIDEBAR: ' + $('.sidebar').width());
+                console.log('\n');
 
             }
 

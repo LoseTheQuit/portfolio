@@ -31,6 +31,50 @@
         width: 23.3%;
         margin-bottom: 20px;
     }
+    
+    .displayFlexRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .fullWidthMarginAuto {
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+    }
+    
+    .fullWidth50MarginAuto {
+        width: 49%;
+        display: inline;
+        height: 50px;
+        margin: 0 auto;
+        float: left;
+    }
+    
+    .dataPartial {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, .0007);
+        text-align: center;
+    }
+    
+    .leDivider {
+        margin: 0 auto;
+        background-color: #f3f3f3;
+        width: 1px;
+        height: 90%;
+        display: block;
+        display: inline;
+        display: inline-table;
+        float: left;
+    }
+    
+    .byTheByNumbers {
+        font-size: 20px;
+        font-size: 18px;
+    }
 </style>
 
 <div class="bodyWrapper" ng-hide="!hideThisDiv">
@@ -57,24 +101,57 @@
                         <div class="col-xs-12 col-md-4 col-lg-12">
                             <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
                         </div>
+
                         <!--
                         <div class="col-xs-12 col-md-8 col-lg-8">
                             <p class="screenName">{{tweet.user.username}}</p>
                         </div>
--->
+                        -->
 
+                        <!-- <p class="screenName">{{tweet.user}}</p> -->
+                        <!--                        <p>{{tweet}}</p>-->
 
                         <p class="screenName">{{tweet.user.name}}</p>
                         <p>{{tweet.user.location}}</p>
-                        <p>favourites_count: {{tweet.user.favourites_count}}</p>
 
-                        <!-- <p>description: {{tweet.user.description}}</p >-->
-                        <p>friends_count: {{tweet.user.friends_count}}</p>
-                        <p>follcowers_count: {{tweet.user.followers_count}}</p>
+
+                        <!-- <p>description: {{tweet.user.description}}</p>-->
+                        <!-- <div class="col-xs-12 col-md-4 col-lg-12">-->
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth50MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.friends_count | number}}</p>
+                                    <p>friends</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth50MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.followers_count | number}}</p>
+                                    <p>followers</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+                        </div>
+
                         <p>Tweets: {{tweet.user.statuses_count}}</p>
-                        <p>{{data.text}}</p>
+                        <p>favourites_count: {{tweet.user.favourites_count}}</p>
                         <p>Retweet count: {{tweet.retweet_count}}</p>
-                        <p>{{tweet.created_at}}</p>
+
+                        <div ng-bind-html="tweet.text | linky:'_blank':{rel: 'nofollow'}">
+                        </div>
+                        <p>{{tweet.created_at | date : format : timezone}}</p>
+
+
+                        <div class="tagContainer">
+                            <!-- <p class="boldTheTags">tags:</p> -->
+                            <div ng-repeat="data in tweet.entities.hashtags[0].text" class="inlinetagContainer">
+                                <a ng-href="" ng-model="tagQuery" ng-click="tagQuery(data)" class="igCardTagLink igLink">#{{data}}</a>
+                            </div>
+                        </div>
                         <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
                     </div>
                 </div>
@@ -97,28 +174,41 @@
                             <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
                         </div>
 
-                        <!-- 
-
-                        <div class="col-xs-9 col-md-8 col-lg-8">
-                            <p class="screenName">{{tweet.user.username}}</p>
-                            <p class="screenName">{{tweet.user.username}}</p>
-                            <p class="screenName">{{tweet.user.username}}</p>
-                            <p class="screenName">{{tweet.user.username}}</p>
-                        </div>
--->
-
                         <p class="screenName">{{tweet.user.name}}</p>
                         <p>{{tweet.user.location}}</p>
 
                         <!-- <p>{{tweet.user.description}}</p> -->
-                        <p>favourites_count: {{tweet.user.favourites_count}}</p>
-                        <p>friends_count: {{tweet.user.friends_count}}</p>
-                        <p>follcowers_count: {{tweet.user.followers_count}}</p>
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth50MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.friends_count | number}}</p>
+                                    <p>friends</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth50MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.followers_count | number}}</p>
+                                    <p>followers</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+                        </div>
+
                         <p>Tweets: {{tweet.user.statuses_count}}</p>
-                        <p>{{tweet.text}}</p>
+                        <p>favourites_count: {{tweet.user.favourites_count}}</p>
+                        <p>TWEET: {{tweet.text}}</p>
                         <p>Retweet count: {{tweet.retweet_count}}</p>
                         <p>{{tweet.created_at}}</p>
                         <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
+                        <p>{{tweet.entities.hashtags}}</p>
+                        <p>{{tweet.retweeted_status.text}}</p>
+                        <p>{{tweet.retweeted_status.entities}}</p>
+
                     </div>
                 </div>
             </div>

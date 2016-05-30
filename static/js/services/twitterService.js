@@ -13,7 +13,7 @@ angular.module("mainModule")
                 url: '/userTimeLineQuery',
                 method: "POST",
                 data: {
-                    screen_name: 'twitter',
+                    screen_name: 'kanyewest',
                     count: 10
                 }
             })

@@ -643,14 +643,53 @@
                 tweetCardWidth = $('.cardImage').width();
                 theWhiteLineWidth = $('.theWhiteLine').width();
 
-                if ($('.tweetCardShell').css('padding-right') !== undefined) {
+                var tweetCardShellPaddingRight = function () {
 
-                    var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
-                    var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
-                }
+                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                        return 15;
+                    } else {
 
-                var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
-                var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
+                        return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
+                    }
+                };
+
+                var tweetCardShellPaddingLeft = function () {
+
+
+                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                        return 15;
+                    } else {
+
+                        return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
+                    }
+                };
+
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingLeft());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+                console.log(tweetCardShellPaddingRight());
+
 
                 if (($(window).width() + 17) > 1200) {
 
@@ -690,7 +729,7 @@
                     if (tweetCardWidth <= 101) {
                         $('.sidebar').css('width', 300 - 75);
                     } else {
-                        $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2.5));
+                        $('.sidebar').css('width', tweetCardWidth - ((15 + 15) * 2.5));
                     }
 
                 } else {
@@ -738,12 +777,20 @@
                 }
 
                 if (tweetCardWidth <= 240) {
+                    console.log('TRIGGA');
+                    console.log('TRIGGA');
+                    console.log('TRIGGA');
+                    console.log('TRIGGA');
+                    console.log('TRIGGA');
                     $('.fullWidth33MarginAuto').css({
                         "width": '32%'
                     });
 
-                }
+                    $('.byTheByNumbers').css({
+                        "font-size": '15px;'
+                    });
 
+                }
 
 
                 console.log('\n');
@@ -766,8 +813,8 @@
             });
 
             $('.sidebar').hover(
-                function () {
 
+                function () {
 
                     if (($(window).width() + 17) > 1200) {
 

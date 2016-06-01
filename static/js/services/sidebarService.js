@@ -23,6 +23,10 @@ angular.module("mainModule")
             console.log(getTwitterDropDownNumber);
             console.log(getTwitterDropDownNumber);
             console.log(getTwitterDropDownNumber);
+            console.log(getTwitterDropDownNumber);
+            console.log(getTwitterDropDownNumber);
+            console.log(getTwitterDropDownNumber);
+            console.log(getTwitterDropDownNumber);
 
             switch (getTwitterDropDownNumber) {
 

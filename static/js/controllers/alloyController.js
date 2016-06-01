@@ -72,8 +72,28 @@ angular.module("mainModule")
 
             instagramService.tapInstaExtended($scope.windowInfoWithToken, instaQuery, function (response) {
 
-                // console.info(response.data);
                 $scope.instagramData = response.data;
+
+            });
+
+        };
+
+        $scope.twitterTagQuery = function (twitterTagSearch) {
+            sidebarService.setTwitterDropDownNumberIndex(2);
+
+            sidebarService.getTwitterData(twitterTagSearch, function (response) {
+
+                // for user timelines   var tweets = response;
+                // for tags var tweets = response.data;
+
+                var tweets = response;
+                tweets = response.data;
+
+                console.log("_________________________________");
+                console.log("twitterTagQuery response.DATA: ");
+                console.info(response.data);
+                console.log("_________________________________");
+                $scope.twitterData = tweets;
 
             });
 
@@ -88,6 +108,7 @@ angular.module("mainModule")
                 return {
                     "overflow": 'auto'
                 }
+
             } else {
 
                 return {
@@ -96,24 +117,6 @@ angular.module("mainModule")
 
             }
         }
-
-        $scope.changeThis = function () {
-
-            twitterService.getTwitterExtended({
-
-                screen_name: $scope.inputQuery,
-                count: 25
-
-            }, function (response) {
-
-                var tweets = response.data;
-                console.log(tweets);
-                $scope.twitterData = {};
-                $scope.twitterData.data = tweets;
-
-            });
-
-        };
 
         $scope.changeThisSearchTweets = function () {
 

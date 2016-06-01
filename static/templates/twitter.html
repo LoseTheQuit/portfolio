@@ -144,6 +144,13 @@
                         <div class="tweetText" ng-bind-html="tweet.text | linky:'_blank':{rel: 'nofollow'}">
                         </div>
 
+                        <div class="tagContainer">
+                            <p class="boldTheTags">tags:</p>
+                            <div ng-repeat="data in tweet.entities.hashtags" class="inlinetagContainer">
+                                <a ng-href="#" ng-click="twitterTagQuery(data.text)" class="igCardTagLink igLink">#{{data.text}}</a>
+                            </div>
+                        </div>
+
                         <div class="fullWidthMarginAuto">
 
                             <div class="customCenter">
@@ -156,26 +163,8 @@
                             <div class="clearFloat"></div>
                         </div>
 
-
-                        <p>{{tweet.created_at | date : format : timezone}}</p>
-
-
-
-                        <div class="tagContainer">
-                            <p class="boldTheTags">tags:</p>
-                            <div ng-repeat="data in tweet.entities.hashtags[0].text" class="inlinetagContainer">
-                                <a ng-href="" ng-model="tagQuery" ng-click="tagQuery(data)" class="igCardTagLink igLink">#{{data}}</a>
-                            </div>
-                        </div>
-
-
-                        <p>{{tweet.entities.hashtags}}</p>
-                        <p>{{tweet.retweeted_status.text}}</p>
-                        <p>{{tweet.retweeted_status.entities}}</p>
-
                         <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
-                        <a class="cardLink" ng-href={{tweet.user.entities.url.urls.expanded_url}} target="_blank">{{tweet.user.entities.url.urls.expanded_url}}
-                        </a>
+                        <p>{{tweet.created_at | date : format : timezone}}</p>
                     </div>
                 </div>
             </div>
@@ -235,6 +224,13 @@
                         <div class="tweetText" ng-bind-html="tweet.text | linky:'_blank':{rel: 'nofollow'}">
                         </div>
 
+                        <div class="tagContainer">
+                            <!-- <p class="boldTheTags">tags:</p> -->
+                            <div ng-repeat="data in tweet.entities.hashtags" class="inlinetagContainer">
+                                <a ng-href="#" ng-click="twitterTagQuery(data.text)" class="igCardTagLink igLink">#{{data.text}}</a>
+                            </div>
+                        </div>
+
                         <div class="fullWidthMarginAuto">
 
                             <div class="customCenter">
@@ -247,15 +243,8 @@
                             <div class="clearFloat"></div>
                         </div>
 
-                        <p>{{tweet.created_at | date : format : timezone}}</p>
-
                         <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
-
-                        <p>{{tweet.entities.hashtags}}</p>
-                        <p>{{tweet.retweeted_status.text}}</p>
-                        <p>{{tweet.retweeted_status.entities}}</p>
-
-
+                        <p>{{tweet.created_at | date : format : timezone}}</p>
                     </div>
                 </div>
             </div>

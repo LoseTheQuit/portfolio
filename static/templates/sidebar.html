@@ -557,241 +557,233 @@
 
     <script>
         $(function () {
+            try {
 
-            let isTheSideBarLargerThan1200 = true;
-            var stickyLine = document.querySelector('.stickyLine');
-            var stickyLinePosition = stickyLine.getBoundingClientRect().top;
+                let isTheSideBarLargerThan1200 = true;
+                var stickyLine = document.querySelector('.stickyLine');
+                var stickyLinePosition = stickyLine.getBoundingClientRect().top;
 
-            console.log(stickyLinePosition)
-
-
-            $('.sidebar').affix({
-                offset: {
-                    top: -10
-                }
-            });
-
-            var $body = $(document.body);
-            var navHeight = $('.navbar').outerHeight(true) + 10;
-
-            $body.scrollspy({
-                target: '.leftCol',
-                offset: navHeight
-            });
-
-            var instaCardWidth = $('.igCard').width();
-            var tweetCardWidth = $('.cardImage').width();
-            var theWhiteLineWidth = $('.theWhiteLine').width();
-
-            function sideBarAppear() {
-
-                $('.sidebar').css({
-                    "background": 'rgba(0, 0, 0, .87)',
-                    "transition": 'all linear .25s',
-                    "border": '1px solid #fff',
-                    "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
-                    "height": 'auto',
-                    "width": theWhiteLineWidth + 'px',
-                    "top": '5%',
-                    "position": "fixed"
-                });
-
-                $('.sidebar.affix').css({
-                    "margin-top": '-20px'
-                });
-
-                $('.btn-info').removeClass('btn-raised');
-
-            }
-
-            function sideBarDisAppear() {
+                console.log(stickyLinePosition)
 
 
-                $('.sidebar').css({
-                    "background": 'rgba(0, 0, 0, .00)',
-                    "border": 'none',
-                    "box-shadow": '0 0px 0px rgba(0, 0, 0, .00)',
-                    "transition": 'all linear .25s',
-                    "height": 'auto',
-                    "width": theWhiteLineWidth + 'px',
-                    "top": '5%',
-                    "position": "fixed"
-                });
-
-                $('.sidebar.affix').css({
-                    "margin-top": '-30px'
-                });
-
-                $('.btn-info').addClass('btn-raised');
-
-            }
-
-            function sideBarResize() {
-
-                instaCardWidth = $('.igCard').width();
-                tweetCardWidth = $('.cardImage').width();
-                theWhiteLineWidth = $('.theWhiteLine').width();
-
-                var tweetCardShellPaddingRight = function () {
-
-                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-                        return 15;
-                    } else {
-
-                        return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
+                $('.sidebar').affix({
+                    offset: {
+                        top: -10
                     }
-                };
+                });
 
-                var tweetCardShellPaddingLeft = function () {
+                var $body = $(document.body);
+                var navHeight = $('.navbar').outerHeight(true) + 10;
 
+                $body.scrollspy({
+                    target: '.leftCol',
+                    offset: navHeight
+                });
 
-                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-                        return 15;
-                    } else {
+                var instaCardWidth = $('.igCard').width();
+                var tweetCardWidth = $('.cardImage').width();
+                var theWhiteLineWidth = $('.theWhiteLine').width();
 
-                        return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
-                    }
-                };
-
-
-                if (($(window).width() + 17) > 1200) {
-
-                    isTheSideBarLargerThan1200 = true;
-                    $('.dropDownController').addClass('custom-dropdown');
-
-                    $('.navbar-toggle').addClass('collapsed');
-
-                    $('.hideThisDiv').css('display', 'block');
-
-                    $('.swipeController').css('display', 'none');
-                    $('.nestedInputField').css('display', 'none');
-                    $('.dropDownController').addClass('custom-dropdown');
-
-                    $('.row').css({
-                        "margin-right": '-15px',
-                        "margin-left": '-15px'
-                    });
+                function sideBarAppear() {
 
                     $('.sidebar').css({
-
-                        "top": '5%',
-                        "width": '100%',
-                        "height": '90%',
-                        "z-index": '1',
-                        "background": 'rgba(0, 0, 0, .5)',
+                        "background": 'rgba(0, 0, 0, .87)',
                         "transition": 'all linear .25s',
-                        "height": '90%',
+                        "border": '1px solid #fff',
                         "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
-                        "border": '1px solid #fff'
-
+                        "height": 'auto',
+                        "width": theWhiteLineWidth + 'px',
+                        "top": '5%',
+                        "position": "fixed"
                     });
 
                     $('.sidebar.affix').css({
-                        "margin-top": '0px'
+                        "margin-top": '-20px'
                     });
 
-                    if (tweetCardWidth <= 101) {
-                        $('.sidebar').css('width', 300 - 75);
-                    } else {
-                        $('.sidebar').css('width', tweetCardWidth - ((15 + 15) * 2.5));
-                    }
+                    $('.btn-info').removeClass('btn-raised');
 
-                } else {
+                }
 
-                    isTheSideBarLargerThan1200 = false;
+                function sideBarDisAppear() {
 
-                    $('.dropDownController').removeClass('custom-dropdown');
-                    $('.hideThisDiv').css('display', 'none');
 
-                    $('.swipeController').css('display', 'block');
-                    $('.nestedInputField').css('display', 'block');
-
-                    if (($('.navbar-toggle').hasClass('collapsed'))) {
-
-                        sideBarDisAppear();
-
-                    } else {
-
-                        sideBarAppear();
-                    }
-
-                    $('.row').css({
-                        "margin-right": '-27px',
-                        "margin-left": '-27px'
+                    $('.sidebar').css({
+                        "background": 'rgba(0, 0, 0, .00)',
+                        "border": 'none',
+                        "box-shadow": '0 0px 0px rgba(0, 0, 0, .00)',
+                        "transition": 'all linear .25s',
+                        "height": 'auto',
+                        "width": theWhiteLineWidth + 'px',
+                        "top": '5%',
+                        "position": "fixed"
                     });
 
-                    $(window).scroll(function () {
+                    $('.sidebar.affix').css({
+                        "margin-top": '-30px'
+                    });
 
+                    $('.btn-info').addClass('btn-raised');
 
-                        if (!(isTheSideBarLargerThan1200)) {
+                }
 
-                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                function sideBarResize() {
 
-                                $('.navbar-toggle:visible').click();
-                                sideBarAppear();
+                    instaCardWidth = $('.igCard').width();
+                    tweetCardWidth = $('.cardImage').width();
+                    theWhiteLineWidth = $('.theWhiteLine').width();
 
-                            } else {
+                    var tweetCardShellPaddingRight = function () {
 
-                                sideBarDisAppear();
+                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                            return 15;
+                        } else {
 
-                            }
+                            return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
                         }
+                    };
 
-                    });
-
-                }
-
-                if (tweetCardWidth <= 240) {
-                    console.log('tweetCardWidth <= 240');
-                    console.log('tweetCardWidth <= 240');
-                    console.log('tweetCardWidth <= 240');
-                    console.log('tweetCardWidth <= 240');
-                    console.log('tweetCardWidth <= 240');
-
-                    $('.fullWidth33MarginAuto').css({
-                        "width": '32%'
-                    });
-
-                    $('.byTheByNumbers').css({
-                        "font-size": '15px;'
-                    });
-
-                }
+                    var tweetCardShellPaddingLeft = function () {
 
 
-                console.log('\n');
-                console.log('WINDA: ' + ($(window).width() + 17));
-                console.log('INSTA: ' + instaCardWidth);
-                console.log('TWEET: ' + tweetCardWidth);
-                console.log('SIDEBAR: ' + $('.sidebar').width());
-                console.log('\n');
+                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                            return 15;
+                        } else {
 
-            }
+                            return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
+                        }
+                    };
 
-            $('.btn-info').click(function () {
-
-                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                    sideBarDisAppear();
-                } else {
-                    sideBarAppear();
-                }
-
-            });
-
-            $('.sidebar').hover(
-
-                function () {
 
                     if (($(window).width() + 17) > 1200) {
 
-                        $('.sidebar').css({
-                            'transition': 'all linear .25s',
-                            'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
+                        isTheSideBarLargerThan1200 = true;
+                        $('.dropDownController').addClass('custom-dropdown');
+
+                        $('.navbar-toggle').addClass('collapsed');
+
+                        $('.hideThisDiv').css('display', 'block');
+
+                        $('.swipeController').css('display', 'none');
+                        $('.nestedInputField').css('display', 'none');
+                        $('.dropDownController').addClass('custom-dropdown');
+
+                        $('.row').css({
+                            "margin-right": '-15px',
+                            "margin-left": '-15px'
                         });
+
+                        $('.sidebar').css({
+
+                            "top": '5%',
+                            "width": '100%',
+                            "height": '90%',
+                            "z-index": '1',
+                            "background": 'rgba(0, 0, 0, .5)',
+                            "transition": 'all linear .25s',
+                            "height": '90%',
+                            "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
+                            "border": '1px solid #fff'
+
+                        });
+
+                        $('.sidebar.affix').css({
+                            "margin-top": '0px'
+                        });
+
+                        if (tweetCardWidth <= 101) {
+                            $('.sidebar').css('width', 300 - 75);
+                        } else {
+                            $('.sidebar').css('width', tweetCardWidth - ((15 + 15) * 2.5));
+                        }
 
                     } else {
 
-                        if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                        isTheSideBarLargerThan1200 = false;
+
+                        $('.dropDownController').removeClass('custom-dropdown');
+                        $('.hideThisDiv').css('display', 'none');
+
+                        $('.swipeController').css('display', 'block');
+                        $('.nestedInputField').css('display', 'block');
+
+                        if (($('.navbar-toggle').hasClass('collapsed'))) {
+
+                            sideBarDisAppear();
+
+                        } else {
+
+                            sideBarAppear();
+                        }
+
+                        $('.row').css({
+                            "margin-right": '-27px',
+                            "margin-left": '-27px'
+                        });
+
+                        $(window).scroll(function () {
+
+
+                            if (!(isTheSideBarLargerThan1200)) {
+
+                                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                    $('.navbar-toggle:visible').click();
+                                    sideBarAppear();
+
+                                } else {
+
+                                    sideBarDisAppear();
+
+                                }
+                            }
+
+                        });
+
+                    }
+
+                    if (tweetCardWidth <= 240) {
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+
+                        $('.fullWidth33MarginAuto').css({
+                            "width": '32%'
+                        });
+
+                        $('.byTheByNumbers').css({
+                            "font-size": '15px;'
+                        });
+
+                    }
+
+
+                    console.log('\n');
+                    console.log('WINDA: ' + ($(window).width() + 17));
+                    console.log('INSTA: ' + instaCardWidth);
+                    console.log('TWEET: ' + tweetCardWidth);
+                    console.log('SIDEBAR: ' + $('.sidebar').width());
+                    console.log('\n');
+
+                }
+
+                $('.btn-info').click(function () {
+
+                    if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                        sideBarDisAppear();
+                    } else {
+                        sideBarAppear();
+                    }
+
+                });
+
+                $('.sidebar').hover(
+
+                    function () {
+
+                        if (($(window).width() + 17) > 1200) {
 
                             $('.sidebar').css({
                                 'transition': 'all linear .25s',
@@ -800,77 +792,89 @@
 
                         } else {
 
-                            $('.sidebar').css({
-                                'transition': 'all linear .25s',
-                                'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
-                            });
+                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
+                                });
+
+                            } else {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
+                                });
+                            }
+
                         }
 
-                    }
-
-                },
-                function () {
-                    if (($(window).width() + 17) > 1200) {
-                        $('.sidebar').css({
-                            'transition': 'all linear .25s',
-                            'box-shadow': '0 10px 10px rgba(0,0, 0, .25)'
-                        });
-                    } else {
-
-                        if (!($('.navbar-toggle').hasClass('collapsed'))) {
-
+                    },
+                    function () {
+                        if (($(window).width() + 17) > 1200) {
                             $('.sidebar').css({
                                 'transition': 'all linear .25s',
-                                'box-shadow': '0 10px 10px rgba(0, 0, 0, .25)'
+                                'box-shadow': '0 10px 10px rgba(0,0, 0, .25)'
                             });
                         } else {
 
-                            $('.sidebar').css({
-                                'transition': 'all linear .25s',
-                                'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
-                            });
+                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 10px 10px rgba(0, 0, 0, .25)'
+                                });
+                            } else {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
+                                });
+                            }
+
                         }
 
                     }
-
-                }
-            );
+                );
 
 
-            setTimeout(function () {
-                sideBarResize();
-            }, 1000);
-            setTimeout(function () {
-                sideBarResize();
-            }, 1500);
-            setTimeout(function () {
-                sideBarResize();
-            }, 5000);
+                setTimeout(function () {
+                    sideBarResize();
+                }, 1000);
+                setTimeout(function () {
+                    sideBarResize();
+                }, 1500);
+                setTimeout(function () {
+                    sideBarResize();
+                }, 5000);
 
-            $(window).resize(function () {
-                sideBarResize();
-            });
+                $(window).resize(function () {
+                    sideBarResize();
+                });
 
-            $.material.init();
+                $.material.init();
 
-            $('.sidebar').click(function () {
+                $('.sidebar').click(function () {
 
-                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                    $('.btn-info').addClass('btn-raised');
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                    if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                        $('.btn-info').addClass('btn-raised');
+                        console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                        console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                        console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                        console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
 
-                }
+                    }
 
-            });
+                });
 
-            $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
-                e.stopPropagation();
-            }).on('touchstart.dropdown', '.navbar-toggle', function (e) {
-                e.stopPropagation();
-            });
+                $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
+                    e.stopPropagation();
+                }).on('touchstart.dropdown', '.navbar-toggle', function (e) {
+                    e.stopPropagation();
+                });
+            } catch (e) {
+                alert(e.name + " " + e.message)
+            }
 
         });
     </script>

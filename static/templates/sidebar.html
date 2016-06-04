@@ -887,7 +887,7 @@
     <script>
         $(function () {
 
-            let isTheSideBarLargerThan1200 = true;
+            //  let isTheSideBarLargerThan1200 = true;
             var stickyLine = document.querySelector('.stickyLine');
             var stickyLinePosition = stickyLine.getBoundingClientRect().top;
 
@@ -1072,9 +1072,7 @@
                     sideBarDisAppear();
                 }
 
-
             });
-
 
             $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
                 e.stopPropagation();

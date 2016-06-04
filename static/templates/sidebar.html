@@ -394,18 +394,15 @@
 
                         <center>
 
-                            <div class="searchIconSideBarContainer hideThisDiv">
-                                <img class="searchIconSideBar" src="../img/svg/search.svg">
-                            </div>
+                            <div class="hideThisDiv">
+                                <div class="searchIconSideBarContainer">
+                                    <img class="searchIconSideBar" src="../img/svg/search.svg">
+                                </div>
 
-
-                            <!-- <input ng-model-options='{ debounce: 500 }' class="inputBox" type="text" placeholder="#search" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
-                            -->
-
-
-                            <div class="form-group label-floating hideThisDiv">
-                                <label for="i182" class="control-label">#search</label>
-                                <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                                <div class="form-group label-floating">
+                                    <label for="i182" class="control-label">#search</label>
+                                    <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                                </div>
                             </div>
 
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -418,12 +415,6 @@
                                     </i>
                                 </a>
 
-                                <!--
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                             -->
-
                             </button>
 
                             <div id="navbar" class="navbar-collapse collapse">
@@ -431,11 +422,7 @@
                                     <center>
                                         <li role="presentation" class="">
                                             <div class="form-group label-floating nestedInputField">
-                                                <!--
-                                                <div class="searchIconSideBarContainer">
-                                                    <img class="searchIconSideBar" src="../img/svg/search.svg">
-                                                </div>
-                                             -->
+
                                                 <label for="i182" class="control-label">#search</label>
                                                 <!-- placeholder="#search" -->
                                                 <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
@@ -643,26 +630,26 @@
                 tweetCardWidth = $('.cardImage').width();
                 theWhiteLineWidth = $('.theWhiteLine').width();
 
-                //                var tweetCardShellPaddingRight = function () {
-                //
-                //                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-                //                        return 15;
-                //                    } else {
-                //
-                //                        return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
-                //                    }
-                //                };
-                //
-                //                var tweetCardShellPaddingLeft = function () {
-                //
-                //
-                //                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-                //                        return 15;
-                //                    } else {
-                //
-                //                        return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
-                //                    }
-                //                };
+                var tweetCardShellPaddingRight = function () {
+
+                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                        return 15;
+                    } else {
+
+                        return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
+                    }
+                };
+
+                var tweetCardShellPaddingLeft = function () {
+
+
+                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                        return 15;
+                    } else {
+
+                        return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
+                    }
+                };
 
 
                 if (($(window).width() + 17) > 1200) {
@@ -717,43 +704,42 @@
                     $('.swipeController').css('display', 'block');
                     $('.nestedInputField').css('display', 'block');
 
-                    //                    if (($('.navbar-toggle').hasClass('collapsed'))) {
-                    //
-                    //                        sideBarDisAppear();
-                    //
-                    //                    } else {
-                    //
-                    //                        sideBarAppear();
-                    //                    }
+                    if (($('.navbar-toggle').hasClass('collapsed'))) {
+
+                        sideBarDisAppear();
+
+                    } else {
+
+                        sideBarAppear();
+                    }
 
                     $('.row').css({
                         "margin-right": '-27px',
                         "margin-left": '-27px'
                     });
 
-                    //                    $(window).scroll(function () {
-                    //
-                    //
-                    //                        //                        if (!(isTheSideBarLargerThan1200)) {
-                    //                        //
-                    //                        //                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                    //                        //
-                    //                        //                                $('.navbar-toggle:visible').click();
-                    //                        //                                sideBarAppear();
-                    //                        //
-                    //                        //                            } else {
-                    //                        //
-                    //                        //                                sideBarDisAppear();
-                    //                        //
-                    //                        //                            }
-                    //                        //                        }
-                    //
-                    //                    });
+                    $(window).scroll(function () {
+
+
+                        if (!(isTheSideBarLargerThan1200)) {
+
+                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                $('.navbar-toggle:visible').click();
+                                sideBarAppear();
+
+                            } else {
+
+                                sideBarDisAppear();
+
+                            }
+                        }
+
+                    });
 
                 }
 
                 if (tweetCardWidth <= 240) {
-
                     console.log('tweetCardWidth <= 240');
                     console.log('tweetCardWidth <= 240');
                     console.log('tweetCardWidth <= 240');
@@ -782,72 +768,72 @@
 
             $('.btn-info').click(function () {
 
-                //                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-                //                    sideBarDisAppear();
-                //                } else {
-                //                    sideBarAppear();
-                //                }
+                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                    sideBarDisAppear();
+                } else {
+                    sideBarAppear();
+                }
 
             });
 
-            //            $('.sidebar').hover(
-            //
-            //                function () {
-            //
-            //                    if (($(window).width() + 17) > 1200) {
-            //
-            //                        $('.sidebar').css({
-            //                            'transition': 'all linear .25s',
-            //                            'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
-            //                        });
-            //
-            //                    } else {
-            //
-            //                        if (!($('.navbar-toggle').hasClass('collapsed'))) {
-            //
-            //                            $('.sidebar').css({
-            //                                'transition': 'all linear .25s',
-            //                                'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
-            //                            });
-            //
-            //                        } else {
-            //
-            //                            $('.sidebar').css({
-            //                                'transition': 'all linear .25s',
-            //                                'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
-            //                            });
-            //                        }
-            //
-            //                    }
-            //
-            //                },
-            //                function () {
-            //                    if (($(window).width() + 17) > 1200) {
-            //                        $('.sidebar').css({
-            //                            'transition': 'all linear .25s',
-            //                            'box-shadow': '0 10px 10px rgba(0,0, 0, .25)'
-            //                        });
-            //                    } else {
-            //
-            //                        if (!($('.navbar-toggle').hasClass('collapsed'))) {
-            //
-            //                            $('.sidebar').css({
-            //                                'transition': 'all linear .25s',
-            //                                'box-shadow': '0 10px 10px rgba(0, 0, 0, .25)'
-            //                            });
-            //                        } else {
-            //
-            //                            $('.sidebar').css({
-            //                                'transition': 'all linear .25s',
-            //                                'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
-            //                            });
-            //                        }
-            //
-            //                    }
-            //
-            //                }
-            //            );
-            //
+            $('.sidebar').hover(
+
+                function () {
+
+                    if (($(window).width() + 17) > 1200) {
+
+                        $('.sidebar').css({
+                            'transition': 'all linear .25s',
+                            'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
+                        });
+
+                    } else {
+
+                        if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                            $('.sidebar').css({
+                                'transition': 'all linear .25s',
+                                'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
+                            });
+
+                        } else {
+
+                            $('.sidebar').css({
+                                'transition': 'all linear .25s',
+                                'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
+                            });
+                        }
+
+                    }
+
+                },
+                function () {
+                    if (($(window).width() + 17) > 1200) {
+                        $('.sidebar').css({
+                            'transition': 'all linear .25s',
+                            'box-shadow': '0 10px 10px rgba(0,0, 0, .25)'
+                        });
+                    } else {
+
+                        if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                            $('.sidebar').css({
+                                'transition': 'all linear .25s',
+                                'box-shadow': '0 10px 10px rgba(0, 0, 0, .25)'
+                            });
+                        } else {
+
+                            $('.sidebar').css({
+                                'transition': 'all linear .25s',
+                                'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
+                            });
+                        }
+
+                    }
+
+                }
+            );
+
 
             setTimeout(function () {
                 sideBarResize();
@@ -863,22 +849,26 @@
                 sideBarResize();
             });
 
-            //            $.material.init();
+            $.material.init();
 
-            //            $('.sidebar').click(function () {
-            //
-            //                if (!($('.navbar-toggle').hasClass('collapsed'))) {
-            //                    $('.btn-info').addClass('btn-raised');
-            //                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
-            //                }
-            //
-            //            });
+            $('.sidebar').click(function () {
 
-            //            $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
-            //                e.stopPropagation();
-            //            }).on('touchstart.dropdown', '.navbar-toggle', function (e) {
-            //                e.stopPropagation();
-            //            });
+                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                    $('.btn-info').addClass('btn-raised');
+                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                    console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+
+                }
+
+            });
+
+            $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
+                e.stopPropagation();
+            }).on('touchstart.dropdown', '.navbar-toggle', function (e) {
+                e.stopPropagation();
+            });
 
         });
     </script>

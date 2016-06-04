@@ -555,6 +555,7 @@ app.post('/instaInputQuery', function (req, res, next) {
 
         } else {
             var JSONobjArray = JSON.parse(body);
+
             // turns off back end logging of user JSONObjectArray
             // console.log(JSONObjectArray);
 

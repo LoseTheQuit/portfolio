@@ -555,34 +555,142 @@
         </ul>
     </div>
 
+
     <script>
         //        $(function () {
         //            try {
         //
-
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-        // GAP
-
-
+        //                let isTheSideBarLargerThan1200 = true;
+        //                var stickyLine = document.querySelector('.stickyLine');
+        //                var stickyLinePosition = stickyLine.getBoundingClientRect().top;
+        //
+        //                console.log(stickyLinePosition)
+        //
+        //
+        //                $('.sidebar').affix({
+        //                    offset: {
+        //                        top: -10
+        //                    }
+        //                });
+        //
+        //                var $body = $(document.body);
+        //                var navHeight = $('.navbar').outerHeight(true) + 10;
+        //
+        //                $body.scrollspy({
+        //                    target: '.leftCol',
+        //                    offset: navHeight
+        //                });
+        //
+        //                var instaCardWidth = $('.igCard').width();
+        //                var tweetCardWidth = $('.cardImage').width();
+        //                var theWhiteLineWidth = $('.theWhiteLine').width();
+        //
+        //                function sideBarAppear() {
+        //
+        //                    $('.sidebar').css({
+        //                        "background": 'rgba(0, 0, 0, .87)',
+        //                        "transition": 'all linear .25s',
+        //                        "border": '1px solid #fff',
+        //                        "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
+        //                        "height": 'auto',
+        //                        "width": theWhiteLineWidth + 'px',
+        //                        "top": '5%',
+        //                        "position": "fixed"
+        //                    });
+        //
+        //                    $('.sidebar.affix').css({
+        //                        "margin-top": '-20px'
+        //                    });
+        //
+        //                    $('.btn-info').removeClass('btn-raised');
+        //
+        //                }
+        //
+        //                function sideBarDisAppear() {
+        //
+        //
+        //                    $('.sidebar').css({
+        //                        "background": 'rgba(0, 0, 0, .00)',
+        //                        "border": 'none',
+        //                        "box-shadow": '0 0px 0px rgba(0, 0, 0, .00)',
+        //                        "transition": 'all linear .25s',
+        //                        "height": 'auto',
+        //                        "width": theWhiteLineWidth + 'px',
+        //                        "top": '5%',
+        //                        "position": "fixed"
+        //                    });
+        //
+        //                    $('.sidebar.affix').css({
+        //                        "margin-top": '-30px'
+        //                    });
+        //
+        //                    $('.btn-info').addClass('btn-raised');
+        //
+        //                }
         //
         //                function sideBarResize() {
-
+        //
+        //                    instaCardWidth = $('.igCard').width();
+        //                    tweetCardWidth = $('.cardImage').width();
+        //                    theWhiteLineWidth = $('.theWhiteLine').width();
+        //
+        //                    var tweetCardShellPaddingRight = function () {
+        //
+        //                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+        //                            return 15;
+        //                        } else {
+        //
+        //                            return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
+        //                        }
+        //                    };
+        //
+        //                    var tweetCardShellPaddingLeft = function () {
+        //
+        //
+        //                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+        //                            return 15;
+        //                        } else {
+        //
+        //                            return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
+        //                        }
+        //                    };
         //
         //
         //                    if (($(window).width() + 17) > 1200) {
         //
+        //                        isTheSideBarLargerThan1200 = true;
+        //                        $('.dropDownController').addClass('custom-dropdown');
+        //
+        //                        $('.navbar-toggle').addClass('collapsed');
+        //
+        //                        $('.hideThisDiv').css('display', 'block');
+        //
+        //                        $('.swipeController').css('display', 'none');
+        //                        $('.nestedInputField').css('display', 'none');
+        //                        $('.dropDownController').addClass('custom-dropdown');
+        //
+        //                        $('.row').css({
+        //                            "margin-right": '-15px',
+        //                            "margin-left": '-15px'
+        //                        });
+        //
+        //                        $('.sidebar').css({
+        //
+        //                            "top": '5%',
+        //                            "width": '100%',
+        //                            "height": '90%',
+        //                            "z-index": '1',
+        //                            "background": 'rgba(0, 0, 0, .5)',
+        //                            "transition": 'all linear .25s',
+        //                            "height": '90%',
+        //                            "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
+        //                            "border": '1px solid #fff'
+        //
+        //                        });
+        //
+        //                        $('.sidebar.affix').css({
+        //                            "margin-top": '0px'
+        //                        });
         //
         //                        if (tweetCardWidth <= 101) {
         //                            $('.sidebar').css('width', 300 - 75);
@@ -825,8 +933,6 @@
             }
 
             function sideBarDisAppear() {
-
-
                 $('.sidebar').css({
                     "background": 'rgba(0, 0, 0, .00)',
                     "border": 'none',
@@ -852,33 +958,15 @@
                 tweetCardWidth = $('.cardImage').width();
                 theWhiteLineWidth = $('.theWhiteLine').width();
 
-                //  if ($('.tweetCardShell').css('padding-right') !== undefined) {
-                //
-                //                    var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
-                //                    var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
-                //                }
-                //
-                //                var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
-                //                var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
+                if ($('.tweetCardShell').css('padding-right') !== undefined) {
 
+                    var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
+                    var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
+                }
 
-                var tweetCardShellPaddingRight = function () {
+                var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
+                var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
 
-                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-                        return 15;
-                    } else {
-                        return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
-                    }
-                };
-
-                var tweetCardShellPaddingLeft = function () {
-
-                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-                        return 15;
-                    } else {
-                        return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
-                    }
-                };
 
                 if (($(window).width() + 17) > 1200) {
 
@@ -900,50 +988,10 @@
                         "position": "fixed"
                     });
 
-
-                    // TRANSPORTED
-                    // TRANSPORTED  
-                    //
-                    //                    isTheSideBarLargerThan1200 = true;
-                    //
-                    //                    $('.navbar-toggle').addClass('collapsed');
-                    //
-                    //                    $('.hideThisDiv').css('display', 'block');
-                    //                    $('.swipeController').css('display', 'none');
-                    //                    $('.nestedInputField').css('display', 'none');
-                    //                    $('.dropDownController').addClass('custom-dropdown');
-                    //
-                    //                    $('.row').css({
-                    //                        "margin-right": '-15px',
-                    //                        "margin-left": '-15px'
-                    //                    });
-                    //
-                    //                    $('.sidebar').css({
-                    //
-                    //                        "top": '5%',
-                    //                        "width": '100%',
-                    //                        "height": '90%',
-                    //                        "z-index": '1',
-                    //                        "background": 'rgba(0, 0, 0, .5)',
-                    //                        "transition": 'all linear .25s',
-                    //                        "height": '90%',
-                    //                        "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
-                    //                        "border": '1px solid #fff'
-                    //
-                    //                    });
-                    //
-                    //                    $('.sidebar.affix').css({
-                    //                        "margin-top": '0px'
-                    //                    });
-
-                    // TRANSPORTED
-                    // TRANSPORTED
-
-
                     if (tweetCardWidth <= 101) {
                         $('.sidebar').css('width', 300 - 75);
                     } else {
-                        $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight() + tweetCardShellPaddingLeft()) * 2.5));
+                        $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2.5));
                     }
 
                 } else {

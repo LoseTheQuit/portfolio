@@ -51,14 +51,14 @@ angular.module("mainModule")
 
                     // for user timelines   var tweets = response;
                     // for tags var tweets = response.data;
+
                     var tweets = response;
                     if (sidebarService.getTwitterDropDownNumberIndex() === 1) {
-
                         tweets = response;
                     } else {
                         tweets = response.data;
-
                     }
+
                     console.log(tweets);
 
                     $scope.twitterData = tweets;
@@ -87,7 +87,32 @@ angular.module("mainModule")
                 // for tags var tweets = response.data;
 
                 var tweets = response;
+
                 tweets = response.data;
+
+                console.log("_________________________________");
+                console.log("twitterTagQuery response.DATA: ");
+                console.info(response.data);
+                console.log("_________________________________");
+                $scope.twitterData = tweets;
+
+            });
+
+        };
+        $scope.twitterUserNameQuery = function (twitterTagSearch) {
+            sidebarService.setTwitterDropDownNumberIndex(1);
+
+            sidebarService.getTwitterData(twitterTagSearch, function (response) {
+
+                // for user timelines   var tweets = response;
+                // for tags var tweets = response.data;
+
+                var tweets = response;
+//                if (index === 1) {
+      //                    tweets = response.data;
+      //                } else {
+      //                    tweets = response;
+      //                }
 
                 console.log("_________________________________");
                 console.log("twitterTagQuery response.DATA: ");

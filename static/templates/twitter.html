@@ -20,6 +20,10 @@
     .tweetCard:hover {
         transition: all linear .75;
         box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+        /*        */
+        border: 1px solid rgba(0, 0, 0, .5);
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
     }
     
     .img-circle {
@@ -110,6 +114,8 @@
                         <!-- <p>{{tweet}}</p> -->
 
                         <p class="screenName">{{tweet.user.name}}</p>
+                        <a ng-href="#" ng-click="twitterUserNameQuery(tweet.user.screen_name)" class="igCardTagLink igLink">@{{tweet.user.screen_name}}</a>
+
                         <p>{{tweet.user.location}}</p>
 
                         <div class="fullWidthMarginAuto">
@@ -191,6 +197,7 @@
                         <!-- <p>{{tweet}}</p> -->
 
                         <p class="screenName">{{tweet.user.name}}</p>
+                        <a ng-href="#" ng-click="twitterUserNameQuery(tweet.user.screen_name)" class="igCardTagLink igLink">@{{tweet.user.screen_name}}</a>
                         <p>{{tweet.user.location}}</p>
 
                         <div class="fullWidthMarginAuto">
@@ -226,7 +233,7 @@
                         </div>
 
                         <div class="tagContainer">
-                            <!-- <p class="boldTheTags">tags:</p> -->
+                            <p class="boldTheTags">tags:</p>
                             <div ng-repeat="data in tweet.entities.hashtags" class="inlinetagContainer">
                                 <a ng-href="#" ng-click="twitterTagQuery(data.text)" class="igCardTagLink igLink">#{{data.text}}</a>
                             </div>

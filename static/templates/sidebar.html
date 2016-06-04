@@ -578,68 +578,11 @@
 
         //
         //                function sideBarResize() {
-        //
-        //                    instaCardWidth = $('.igCard').width();
-        //                    tweetCardWidth = $('.cardImage').width();
-        //                    theWhiteLineWidth = $('.theWhiteLine').width();
-        //
-        //                    var tweetCardShellPaddingRight = function () {
-        //
-        //                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-        //                            return 15;
-        //                        } else {
-        //
-        //                            return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
-        //                        }
-        //                    };
-        //
-        //                    var tweetCardShellPaddingLeft = function () {
-        //
-        //
-        //                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
-        //                            return 15;
-        //                        } else {
-        //
-        //                            return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
-        //                        }
-        //                    };
+
         //
         //
         //                    if (($(window).width() + 17) > 1200) {
         //
-        //                        isTheSideBarLargerThan1200 = true;
-        //                        $('.dropDownController').addClass('custom-dropdown');
-        //
-        //                        $('.navbar-toggle').addClass('collapsed');
-        //
-        //                        $('.hideThisDiv').css('display', 'block');
-        //
-        //                        $('.swipeController').css('display', 'none');
-        //                        $('.nestedInputField').css('display', 'none');
-        //                        $('.dropDownController').addClass('custom-dropdown');
-        //
-        //                        $('.row').css({
-        //                            "margin-right": '-15px',
-        //                            "margin-left": '-15px'
-        //                        });
-        //
-        //                        $('.sidebar').css({
-        //
-        //                            "top": '5%',
-        //                            "width": '100%',
-        //                            "height": '90%',
-        //                            "z-index": '1',
-        //                            "background": 'rgba(0, 0, 0, .5)',
-        //                            "transition": 'all linear .25s',
-        //                            "height": '90%',
-        //                            "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
-        //                            "border": '1px solid #fff'
-        //
-        //                        });
-        //
-        //                        $('.sidebar.affix').css({
-        //                            "margin-top": '0px'
-        //                        });
         //
         //                        if (tweetCardWidth <= 101) {
         //                            $('.sidebar').css('width', 300 - 75);
@@ -910,22 +853,68 @@
                 tweetCardWidth = $('.cardImage').width();
                 theWhiteLineWidth = $('.theWhiteLine').width();
 
-                if ($('.tweetCardShell').css('padding-right') !== undefined) {
+                //  if ($('.tweetCardShell').css('padding-right') !== undefined) {
+                //
+                //                    var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
+                //                    var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
+                //                }
+                //
+                //                var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
+                //                var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
 
-                    var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
-                    var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
-                }
 
-                var tweetCardShellPaddingRight = parseInt($('.tweetCardShell').css('padding-right').replace('px', '')) || null;
-                var tweetCardShellPaddingLeft = parseInt($('.tweetCardShell').css('padding-left').replace('px', '')) || null;
+                var tweetCardShellPaddingRight = function () {
 
+                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                        return 15;
+                    } else {
+                        return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
+                    }
+                };
+
+                var tweetCardShellPaddingLeft = function () {
+
+                    if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                        return 15;
+                    } else {
+                        return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
+                    }
+                };
 
                 if (($(window).width() + 17) > 1200) {
 
+                    //                    $('.hideThisDiv').css('display', 'block');
+                    //                    $('.swipeController').css('display', 'none');
+                    //                    $('.nestedInputField').css('display', 'none');
+                    //                    $('.dropdownController').addClass('custom-dropdown');
+                    //
+                    //                    $('.row').css({
+                    //                        "margin-right": '-15px',
+                    //                        "margin-left": '-15px'
+                    //                    });
+                    //
+                    //                    $('.sidebar').css({
+                    //                        "background": 'rgba(0, 0, 0, .5)',
+                    //                        "transition": 'all linear .25s',
+                    //                        "height": '90%',
+                    //                        "top": '5%',
+                    //                        "position": "fixed"
+                    //                    });
+
+
+                    // TRANSPORTED
+                    // TRANSPORTED  
+
+                    isTheSideBarLargerThan1200 = true;
+                    $('.dropDownController').addClass('custom-dropdown');
+
+                    $('.navbar-toggle').addClass('collapsed');
+
                     $('.hideThisDiv').css('display', 'block');
+
                     $('.swipeController').css('display', 'none');
                     $('.nestedInputField').css('display', 'none');
-                    $('.dropdownController').addClass('custom-dropdown');
+                    $('.dropDownController').addClass('custom-dropdown');
 
                     $('.row').css({
                         "margin-right": '-15px',
@@ -933,17 +922,31 @@
                     });
 
                     $('.sidebar').css({
+
+                        "top": '5%',
+                        "width": '100%',
+                        "height": '90%',
+                        "z-index": '1',
                         "background": 'rgba(0, 0, 0, .5)',
                         "transition": 'all linear .25s',
                         "height": '90%',
-                        "top": '5%',
-                        "position": "fixed"
+                        "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
+                        "border": '1px solid #fff'
+
                     });
+
+                    $('.sidebar.affix').css({
+                        "margin-top": '0px'
+                    });
+
+                    // TRANSPORTED
+                    // TRANSPORTED
+
 
                     if (tweetCardWidth <= 101) {
                         $('.sidebar').css('width', 300 - 75);
                     } else {
-                        $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight + tweetCardShellPaddingLeft) * 2.5));
+                        $('.sidebar').css('width', tweetCardWidth - ((tweetCardShellPaddingRight() + tweetCardShellPaddingLeft()) * 2.5));
                     }
 
                 } else {

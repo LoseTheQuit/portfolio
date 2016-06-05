@@ -68,6 +68,22 @@ angular.module("mainModule")
 
         };
 
+        $scope.doSomething = function () {
+
+            alloy.doSomethingExtended(function (response) {
+
+                $scope.doSomethingData = response.data;
+
+                //                for (var key in response) {
+                //
+                //                    console.log('KEY: ' + key)
+                //                    console.log('RESPONSE: ' + response[key])
+                //                }
+
+            });
+
+        };
+
         $scope.tagQuery = function (instaQuery) {
 
             instagramService.tapInstaExtended($scope.windowInfoWithToken, instaQuery, function (response) {
@@ -108,11 +124,11 @@ angular.module("mainModule")
                 // for tags var tweets = response.data;
 
                 var tweets = response;
-//                if (index === 1) {
-      //                    tweets = response.data;
-      //                } else {
-      //                    tweets = response;
-      //                }
+                //                if (index === 1) {
+                //                    tweets = response.data;
+                //                } else {
+                //                    tweets = response;
+                //                }
 
                 console.log("_________________________________");
                 console.log("twitterTagQuery response.DATA: ");

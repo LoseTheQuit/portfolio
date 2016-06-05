@@ -44,4 +44,20 @@ angular.module("mainModule")
 
         };
 
+
+        this.doSomethingExtended = function (params, callback) {
+            console.log("success from doSomethingExtended");
+            console.log(params);
+
+            $http({
+                url: 'http://go.medassets.com/RB-CO-5-1-2-LP.html',
+                method: "GET"
+            })
+
+            .then(callback);
+
+        };
+
+
+
     });

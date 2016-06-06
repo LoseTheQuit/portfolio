@@ -695,7 +695,8 @@
                         if (tweetCardWidth <= 101) {
                             $('.sidebar').css('width', 300 - 75);
                         } else {
-                            $('.sidebar').css('width', tweetCardWidth - ((15 + 15) * 2.5));
+                            // $('.sidebar').css('width', tweetCardWidth - ((15 + 15) * 2.5));
+                            $('.sidebar').css('width', (tweetCardWidth / 2) - ((15 + 15) * 2.5));
                         }
 
                     } else {

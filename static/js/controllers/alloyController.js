@@ -216,4 +216,11 @@ angular.module("mainModule")
         });
 
 
+        $scope.forLizz = function () {
+
+
+            $scope.hideThisDiv = true;
+        }
+
+
     });

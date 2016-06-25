@@ -118,7 +118,8 @@ app.get('/on-ramp', function (req, res) {
     console.log('\n');
 
     var html = fs.readFileSync('static/views/on-ramp.html');
-    res.end(html);
+    var onRamp = fs.readFileSync('http://go.nthrive.com/rs/099-EMG-811/images/nThrive-banner-001.html');
+    res.end(onRamp);
 
 });
 

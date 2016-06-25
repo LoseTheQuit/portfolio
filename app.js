@@ -111,6 +111,17 @@ app.get('/', function (req, res) {
 
 });
 
+app.get('/on-ramp', function (req, res) {
+
+    console.log('\n');
+    console.log('******* INCOMING GET REQUEST - Load Template *******'.black.bgWhite);
+    console.log('\n');
+
+    var html = fs.readFileSync('static/views/on-ramp.html');
+    res.end(html);
+
+});
+
 app.listen(app.get('port'), function () {
 
     console.log('\n');

@@ -860,6 +860,7 @@
                 $('.sidebar').click(function () {
 
                     if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
                         $('.btn-info').addClass('btn-raised');
                         console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
                         console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
@@ -875,6 +876,7 @@
                 }).on('touchstart.dropdown', '.navbar-toggle', function (e) {
                     e.stopPropagation();
                 });
+
             } catch (e) {
                 alert(e.name + " " + e.message)
             }

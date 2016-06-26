@@ -1,20 +1,10 @@
-# ltq
-
-using two computers to manage the same project
-
-#WERKSPAYCE
-#COMING SOON
+# nthRESTFul
+ 
+- Alpha 1.0.0
 
 # Change Log
 
-5/11
+6/26/2016
 
-Search by username or by tweet.
-
-5/22
-
-added the floating action button for mobile
-
-6/4
-
-Fixed floating action button with Apple phones, apparently “let” doesn’t work with mobile Safari
+"first commit"
+ 

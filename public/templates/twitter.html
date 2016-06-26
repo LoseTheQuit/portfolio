@@ -1,0 +1,275 @@
+<style>
+    .tweetCardSpacer {
+        margin-bottom: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .tweetCard {
+        min-height: 305px;
+        background: #fff;
+        padding: 0px;
+        height: 100%;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .5);
+        border: 1px solid #fff;
+        color: #fff;
+        transition: all linear .25s;
+    }
+    
+    .tweetCard:hover {
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+        /*        */
+        border: 1px solid rgba(0, 0, 0, .5);
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    }
+    
+    .img-circle {
+        border-radius: 50%;
+    }
+    
+    .injectedTwitterImage {
+        margin: 0 auto;
+        width: 18.2%;
+        margin-bottom: 20px;
+    }
+    
+    .displayFlexRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .fullWidthMarginAuto {
+        width: 100%;
+        height: 50px;
+        margin: 25px 0px;
+    }
+    
+    .fullWidth33MarginAuto {
+        width: 33%;
+        display: inline;
+        height: 50px;
+        margin: 0 auto;
+        float: left;
+    }
+    
+    .dataPartial {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, .0007);
+        text-align: center;
+    }
+    
+    .leDivider {
+        margin: 0 auto;
+        background-color: #f3f3f3;
+        width: 1px;
+        height: 90%;
+        display: block;
+        display: inline;
+        display: inline-table;
+        float: left;
+    }
+    
+    .byTheByNumbers {
+        font-size: 18px;
+    }
+    
+    .tweetText {
+        /* margin: 25px 0px; */
+    }
+</style>
+
+<div class="bodyWrapper" ng-hide="!hideThisDiv">
+
+    <div class="row">
+        <div class="col-lg-6 col-xs-12">
+            <h3>Twitter:</h3>
+        </div>
+    </div>
+
+    <div class="theWhiteLine"></div>
+    <div class="clearFloat"></div>
+
+    <!--
+    <div class="row">
+        <button ng-click="doSomething()">ng-repeat="data in doSomethingData"</button>
+        <div class="col-md-6 col-xs-12 tweetCardShell userDataTweetCard" ng-repeat="data in doSomethingData">
+
+            <div class="inlinetagContainer">
+                <p>{{data}}</p>
+            </div>
+        </div>
+    </div>
+-->
+
+    <div class="row">
+        <div class="col-md-6 col-xs-12 tweetCardShell userDataTweetCard" ng-repeat="tweet in twitterData.data">
+            <div class="tweetCard addSomeMarginBottom">
+                <div class="cardImage" style="background: url(&quot;{{tweet.user.profile_background_image_url}}&quot;); background-size: cover;">
+
+                    <div class="cardImageOverLay add20pxPadding">
+
+                        <p>USER DATA</p>
+
+                        <div class="tweetCardSpacer"></div>
+                        <div class="igCardHeaderMargin"></div>
+
+                        <div class="col-xs-12 col-s-12 col-md-12 col-lg-12">
+                            <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
+                        </div>
+
+                        <!-- <p>{{tweet}}</p> -->
+
+                        <p class="screenName">{{tweet.user.name}}</p>
+                        <a ng-href="#" ng-click="twitterUserNameQuery(tweet.user.screen_name)" class="igCardTagLink igLink">@{{tweet.user.screen_name}}</a>
+
+                        <p>{{tweet.user.location}}</p>
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.friends_count | number}}</p>
+                                    <p>following</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.followers_count | number}}</p>
+                                    <p>followers</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.statuses_count | number}}</p>
+                                    <p>Tweets</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+                        </div>
+
+                        <div class="tweetText" ng-bind-html="tweet.text | linky:'_blank':{rel: 'nofollow'}">
+                        </div>
+
+                        <div class="tagContainer">
+                            <p class="boldTheTags">tags:</p>
+                            <div ng-repeat="data in tweet.entities.hashtags" class="inlinetagContainer">
+                                <a ng-href="#" ng-click="twitterTagQuery(data.text)" class="igCardTagLink igLink">#{{data.text}}</a>
+                            </div>
+                        </div>
+
+                        <div class="fullWidthMarginAuto">
+
+                            <div class="customCenter">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.retweet_count | number}}</p>
+                                    <p>Retweet count</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+                        </div>
+
+                        <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
+                        <p>{{tweet.created_at | date : format : timezone}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-xs-12 tweetCardShell" ng-repeat="tweet in twitterData.statuses">
+            <div class="tweetCard addSomeMarginBottom">
+                <div class="cardImage" style="background: url(&quot;{{tweet.user.profile_background_image_url}}&quot;); background-size: cover;">
+
+                    <div class="cardImageOverLay add20pxPadding">
+
+                        <p>TAG SEARCH</p>
+
+                        <div class="tweetCardSpacer"></div>
+                        <div class="igCardHeaderMargin"></div>
+
+                        <div class="col-xs-12 col-s-12 col-md-12 col-lg-12">
+                            <img class="injectedTwitterImage img-circle customCenter" ng-src="{{tweet.user.profile_image_url}}">
+                        </div>
+
+                        <!-- <p>{{tweet}}</p> -->
+
+                        <p class="screenName">{{tweet.user.name}}</p>
+                        <a ng-href="#" ng-click="twitterUserNameQuery(tweet.user.screen_name)" class="igCardTagLink igLink">@{{tweet.user.screen_name}}</a>
+                        <p>{{tweet.user.location}}</p>
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.friends_count | number}}</p>
+                                    <p>following</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.followers_count | number}}</p>
+                                    <p>followers</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.user.statuses_count | number}}</p>
+                                    <p>Tweets</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+                        </div>
+
+                        <div class="tweetText" ng-bind-html="tweet.text | linky:'_blank':{rel: 'nofollow'}">
+                        </div>
+
+                        <div class="tagContainer">
+                            <p class="boldTheTags">tags:</p>
+                            <div ng-repeat="data in tweet.entities.hashtags" class="inlinetagContainer">
+                                <a ng-href="#" ng-click="twitterTagQuery(data.text)" class="igCardTagLink igLink">#{{data.text}}</a>
+                            </div>
+                        </div>
+
+                        <div class="fullWidthMarginAuto">
+
+                            <div class="customCenter">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{tweet.retweet_count | number}}</p>
+                                    <p>Retweet count</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+                        </div>
+
+                        <a class="cardLink" ng-href={{tweet.user.url}} target="_blank">{{tweet.user.url}}</a>
+                        <p>{{tweet.created_at | date : format : timezone}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

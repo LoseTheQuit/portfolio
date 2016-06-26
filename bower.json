@@ -1,12 +1,12 @@
 {
-  "name": "Portfolio",
-  "description": "my-portfolio",
-  "main": "app.js",
-  "authors": [
+    "name": "Portfolio",
+    "description": "my-portfolio",
+    "main": "app.js",
+    "authors": [
     "LTQ"
   ],
-  "license": "ISC",
-  "keywords": [
+    "license": "ISC",
+    "keywords": [
     "lose",
     "the",
     "quit",
@@ -17,15 +17,15 @@
     "angular",
     "nodejs"
   ],
-  "homepage": "https://github.com/LoseTheQuit/my-portfolio",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "^3.3.6",
-    "jquery": "^2.2.3",
-    "polymer": "Polymer/polymer#^1.4.0",
-    "angular-animate": "^1.5.5",
-    "angular-sanitize": "^1.5.5",
-    "angular-material": "master",
-    "bootstrap-material-design": "^0.5.9"
-  }
+    "homepage": "https://github.com/LoseTheQuit/portfolio",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "^3.3.6",
+        "jquery": "^2.2.3",
+        "polymer": "Polymer/polymer#^1.4.0",
+        "angular-animate": "^1.5.5",
+        "angular-sanitize": "^1.5.5",
+        "angular-material": "master",
+        "bootstrap-material-design": "^0.5.9"
+    }
 }

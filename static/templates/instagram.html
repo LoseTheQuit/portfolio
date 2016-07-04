@@ -1,0 +1,143 @@
+<style>
+    .clearFloat {
+        clear: both;
+    }
+    
+    .igCard {
+        min-height: 305px;
+        background: #fff;
+        padding: 0px;
+        height: 100%;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .5);
+        border: 1px solid #fff;
+        color: #fff;
+        transition: all linear .25s;
+    }
+    
+    .igCard:hover {
+        border: 1px solid rgba(0, 0, 0, .5);
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    }
+    
+    .injectedImage {
+        transition: all linear .25s;
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, .5);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+    }
+    
+    .injectedImage:hover {
+        transition: all linear 1;
+        box-shadow: 0 5px 1px rgba(0, 0, 0, .25);
+    }
+    
+    .screenName {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    
+    .fullName {
+        font-style: italic;
+    }
+    
+    .igCardHeaderMargin {
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+    
+    .photoMargin {
+        margin-bottom: 30px;
+    }
+    
+    .boldTheTags {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    
+    .igCardPostLink {
+        color: #fff;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .igCardTagLink {
+        color: #fff;
+    }
+    
+    .inlinetagContainer {
+        display: inline;
+    }
+    
+    .tagContainer {
+        margin-bottom: 15px;
+    }
+    
+    .igCard .col-xs-9,
+    .igCard .col-xs-3 {
+        padding: 15px;
+    }
+    /* The starting CSS styles for the enter animation */
+    
+    .fade.ng-enter {
+        transition: 2.5s linear all;
+        opacity: 0;
+    }
+    /* The finishing CSS styles for the enter animation */
+    
+    .fade.ng-enter.ng-enter-active {
+        opacity: 1;
+    }
+    
+    .search-query {
+        color: black;
+    }
+    
+    .igCardSpacer {
+        margin-bottom: 100px;
+        padding-bottom: 100px;
+    }
+</style>
+
+<div class="bodyWrapper" ng-hide="!hideThisDiv">
+
+    <div class="row">
+        <div class="col-lg-6 col-xs-12">
+            <h3>Instagram:</h3>
+        </div>
+    </div>
+
+    <div class="theWhiteLine"></div>
+    <div class="clearFloat"></div>
+
+    <div class="row">
+        <div class="col-md-6 igCardShell" ng-repeat="data in instagramData.data">
+            <div class="igCard addSomeMarginBottom">
+                <div class="cardImage" style="background: url('{{data.images.low_resolution.url}}') no-repeat center center;  background-size: cover;">
+                    <div class="cardImageOverLay add20pxPadding">
+                        <p>TAG SEARCH</p>
+                        <div ng-bind-html="inputText | linky"></div>
+                        <div class="igCardSpacer"></div>
+                        <div class="igCardHeaderMargin"></div>
+
+
+                        <img ng-src={{data.user.profile_picture}} class="injectedTwitterImage img-circle customCenter">
+                        <p class="screenName">{{data.user.username}}</p>
+                        <p class="fullName">{{data.user.full_name}}</p>
+
+                        <p class="boldTheTags">tags:</p>
+                        <div class="tagContainer">
+                            <div ng-repeat="data in data.tags" class="inlinetagContainer">
+                                <a ng-href="" ng-model="tagQuery" ng-click="tagQuery(data)" class="igCardTagLink igLink">#{{data}}</a>
+                            </div>
+                        </div>
+                        <a class="cardLink" ng-href={{data.link}} target="_blank">{{data.link}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

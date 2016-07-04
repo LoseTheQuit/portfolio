@@ -301,6 +301,20 @@
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/static/js/universal/parallax.min.js"></script>
 
+
+    <!--    -->
+    <!--    -->
+    <!--    -->
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../js/modernizr.custom.min.js"></script>
+    <script src="../js/universal/parallax.js"></script>
+    <script src="../js/parallax.min.js"></script>
+
+    <!--    -->
+    <!--    -->
+    <!--    -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
     <!-- <script src="../js/modernizr.custom.min.js"></script> -->
     <script>
@@ -317,7 +331,10 @@
             }
 
             function screenResize() {
-                myInterval = setInterval(function () {
+
+                if ($(window).width() > 1200) {
+
+                    //   myInterval = setInterval(function () {
                     console.log('it works' + new Date());
 
                     $('.lawOf33').css({
@@ -328,37 +345,23 @@
                         'width': '100%',
                         'height': '100vh'
                     }).addClass('animateMe');
-                }, 5000);
 
-                //                if ($(window).width() > 1200) {
-                //
-                //                    //   myInterval = setInterval(function () {
-                //                    console.log('it works' + new Date());
-                //
-                //                    $('.lawOf33').css({
-                //                        "background": '#ebc993 url(' + randomGenerator() + ') no-repeat',
-                //                        'background-size': '150% auto',
-                //                        // 'background-size': 'cover',
-                //                        'transition': 'all linear 1.50s',
-                //                        'width': '100%',
-                //                        'height': '100vh'
-                //                    }).addClass('animateMe');
-                //
-                //                    //  }, 5000);
-                //
-                //                } else {
-                //
-                //                    $('.lawOf33').css({
-                //                        "background": '#ebc993 url(' + backgroundImageArray[1] + ') no-repeat    ',
-                //                        'background-size': 'cover',
-                //                        'transition': 'all linear 1.50s',
-                //                        'width': '100%',
-                //                        'height': '100vh'
-                //
-                //                    }).removeClass('animateMe');
-                //
-                //                    clearInterval(myInterval);
-                //                }
+                    //  }, 5000);
+
+                } else {
+
+
+                    $('.lawOf33').css({
+                        "background": '#ebc993 url(' + backgroundImageArray[1] + ') no-repeat    ',
+                        'background-size': 'cover',
+                        'transition': 'all linear 1.50s',
+                        'width': '100%',
+                        'height': '100vh'
+
+                    }).removeClass('animateMe');
+
+                    clearInterval(myInterval);
+                }
                 // clearInterval(myInterval);
             }
 

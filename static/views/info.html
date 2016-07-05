@@ -33,24 +33,9 @@
         
         .mainSurface {
             width: 100%;
-            height: 100vh;
+            /*            height: 100vh; */
             /* background: #c4c4cc; */
-            display: table;
-        }
-        
-        .mainSurfaceOverlay {
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 64, 84, .50);
-            background: rgba(0, 0, 0, .2750);
-            background: rgba(0, 0, 0, .50);
-        }
-        
-        .parralaxOverlay {
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, .2750);
-            /*            background: rgba(0, 0, 0, .50);*/
+            /*  display: table; */
         }
         
         .lawOf33 {
@@ -113,13 +98,6 @@
             height: auto;
         }
         
-        .packageContainerOverlay {
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 64, 84, .55);
-            background: rgba(0, 0, 0, .75);
-        }
-        
         .bg-3 {
             background: #c4c4cc;
             background: #ebc993 url('http://blogs-images.forbes.com/allbusiness/files/2014/12/Fotolia_74087814_Subscription_Monthly_M.jpg') no-repeat;
@@ -149,7 +127,7 @@
             margin: 0 auto;
             background: rgba(256, 256, 256, .10);
             background: rgba(256, 256, 256, .75);
-            margin-bottom: 100px;
+            /*            margin-bottom: 100px;*/
         }
         
         .super {
@@ -160,7 +138,7 @@
             margin: 0 auto;
             background: rgba(256, 256, 256, .10);
             background: rgba(256, 256, 256, .75);
-            margin-bottom: 100px;
+            /*            margin-bottom: 100px;*/
         }
         
         .elite {
@@ -171,7 +149,7 @@
             margin: 0 auto;
             background: rgba(256, 256, 256, .10);
             background: rgba(256, 256, 256, .75);
-            margin-bottom: 100px;
+            /*            margin-bottom: 100px;*/
         }
         
         .packageContentHeader {
@@ -186,13 +164,36 @@
             }
             .headLine {
                 font-size: 31px;
-                margin: 41px 0px;
-                margin: 111px 0px;
+                margin: 111px 0px 41px 0px;
             }
             .subHeadLine {
                 font-size: 20px;
-                margin: 111px 0px;
+                margin: 111px 0px 41px 0px;
             }
+        }
+        
+        .mainSurfaceOverlay {
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 64, 84, .50);
+            background: rgba(0, 0, 0, .2750);
+            background: rgba(0, 0, 0, .50);
+        }
+        
+        .parralaxOverlay {
+            /*
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, .75);
+*/
+        }
+        
+        .packageContainerOverlay {
+            width: 100%;
+            height: 100vh;
+            height: 50vh;
+            background: rgba(0, 64, 84, .50);
+            /* background: rgba(0, 0, 0, .75); */
         }
         
         .displayFlex {
@@ -218,17 +219,19 @@
 
 </head>
 
-
-
 <body>
 
-    <div class="mainSurface lawOf33">
+    <div class="lawOf33">
+        <!-- mainSurface lawOf33 -->
         <div class="mainSurfaceOverlay">
+            <!-- mainSurfaceOverlay -->
             <div class="container">
                 <div class="row">
+                    <!--
                     <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
 
                         <h1>LoseTheQuit</h1>
+
                         <p>Websites | Social Media | Mobile Apps</p>
 
                         <div class="beaker">
@@ -243,12 +246,16 @@
 
                         </div>
                     </div>
+-->
                 </div>
             </div>
         </div>
     </div>
-    <!---->
-    <div class="parralaxOverlay mainSurface  parallax-window" data-parallax="scroll" data-image-src="http://vaerconsulting.com/wp-content/uploads/2014/02/programmer_web_development_code_flat_design_vector_illustration_coder_html_website_concept_hands_typing_laptop_objects_desk_workplace-1160x480.jpg" data-position="center" ios-Fix="false" androidFix="false" bleed="0" speed="0.05">
+
+    <!-- parralaxOverlay -->
+    <!--
+
+    <div class="parallax-window mainSurface parralaxOverlay" data-parallax="scroll" data-image-src="http://vaerconsulting.com/wp-content/uploads/2014/02/programmer_web_development_code_flat_design_vector_illustration_coder_html_website_concept_hands_typing_laptop_objects_desk_workplace-1160x480.jpg" data-position="center" ios-Fix="false" androidFix="false" bleed="0" speed="0.05">
         <div class="container colorWhite">
 
             <div class="row">
@@ -290,8 +297,12 @@
 
         </div>
     </div>
+-->
+
+    <!--
     <div class="mainSurface packageContainer">
         <div class="packageContainerOverlay">
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -335,6 +346,7 @@
             </div>
         </div>
     </div>
+-->
 
     <!--
     <div class="mainSurface bg-3">
@@ -353,7 +365,7 @@
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../js/modernizr.custom.min.js"></script>
-    <!--    <script src="../js/universal/parallax.js"></script>-->
+    <!--  <script src="../js/universal/parallax.js"></script> -->
     <script src="../js/universal/parallax.min.js"></script>
 
     <!--    -->

@@ -76,7 +76,7 @@ var generateRandomString = function (length) {
 var stateKey = 'spotify_auth_state';
 var scopes = 'user-read-private user-read-email'
 
-/**
+/* 
  * ROUTING
  * ROUTING
  * ROUTING

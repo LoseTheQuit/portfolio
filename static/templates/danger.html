@@ -1,0 +1,197 @@
+<style>
+    .dangerCardSpacer {
+        margin-bottom: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .dangerCard {
+        min-height: 305px;
+        background: #fff;
+        padding: 0px;
+        height: 100%;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .5);
+        border: 1px solid #fff;
+        color: #fff;
+        transition: all linear .25s;
+    }
+    
+    .dangerCard:hover {
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+        /*        */
+        border: 1px solid rgba(0, 0, 0, .5);
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    }
+    
+    .img-circle {
+        border-radius: 50%;
+    }
+    
+    .injectedTwitterImage {
+        margin: 0 auto;
+        width: 18.2%;
+        margin-bottom: 20px;
+    }
+    
+    .displayFlexRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .fullWidthMarginAuto {
+        width: 100%;
+        height: 50px;
+        margin: 25px 0px;
+    }
+    
+    .fullWidth33MarginAuto {
+        width: 33%;
+        display: inline;
+        height: 50px;
+        margin: 0 auto;
+        float: left;
+    }
+    
+    .dataPartial {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, .0007);
+        text-align: center;
+    }
+    
+    .leDivider {
+        margin: 0 auto;
+        background-color: #f3f3f3;
+        width: 1px;
+        height: 90%;
+        display: block;
+        display: inline;
+        display: inline-table;
+        float: left;
+    }
+    
+    .byTheByNumbers {
+        font-size: 18px;
+    }
+    
+    .dangerText {
+        /* margin: 25px 0px; */
+    }
+    
+    .headLiner {
+        font-size: 61px;
+    }
+</style>
+
+<div class="bodyWrapper">
+    <h1>LOSE THE QUIT</h1>
+    <div class="row">
+        <div class="col-lg-6 col-xs-12">
+            <h3>Georgia Disasters: </h3>
+        </div>
+    </div>
+
+    <div class="theWhiteLine"></div>
+    <div class="clearFloat"></div>
+
+
+    <div class="row">
+        <div class="col-md-6 col-xs-12 dangerCardShell dangerDataCard" ng-repeat="danger in dangerData">
+
+            <div class="dangerCard addSomeMarginBottom">
+                <div class="cardImage" style="background: url(&quot;{{danger.user.profile_background_image_url}}&quot;); background-size: cover;">
+
+                    <div class="cardImageOverLay add20pxPadding">
+
+                        <p>STORM DATA</p>
+
+                        <p>county:</p>
+                        <div class="headLiner">
+                            <p>{{danger.NAME}}</p>
+                        </div>
+                        <p>FIPS CODE: {{danger.FIPS_CODE}}</p>
+
+                        <div class="dangerCardSpacer"></div>
+                        <div class="igCardHeaderMargin"></div>
+
+                        <!--
+                        <div>
+                            $$hashKey : "object:2" CROP_DAMAGE : 0 FATALITIES : 8 FIPS_CODE : 13047 HAZARD_BEGIN_DATE : "4/27/2011" HAZARD_END_DATE : "4/27/2011" HAZARD_TYPE_COMBO : "Tornado" INJURIES : 30 NAME : "Catoosa" POSTAL_CODE : "GA" PROPERTY_DAMAGE : 25000000 REMARKS : 0 hazard_id : 9318282
+                        </div>
+                        -->
+
+                        <!--
+                        
+                        <p>{{danger.CROP_DAMAGE}}</p>
+                        <p>{{danger.FATALITIES}}</p>
+                        -- <p>{{danger.FIPS_CODE}}</p>
+                        -- <p>{{danger.HAZARD_BEGIN_DATE}}</p>
+                        -- <p>{{danger.HAZARD_END_DATE}}</p>
+                        <p>{{danger.HAZARD_TYPE_COMBO}}</p>
+                        -- <p>{{danger.INJURIES}}</p>
+                        <p>{{danger.NAME}}</p>
+                        <p>{{danger.POSTAL_CODE}}</p>
+                        <p>{{danger.PROPERTY_DAMAGE | currency:"USD$": 0}}</p>
+                        <p>{{danger.REMARKS}}</p>
+                        <p>{{danger.hazard_id}}</p>
+                         
+                        -->
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.HAZARD_BEGIN_DATE}}</p>
+                                    <p>start date</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.INJURIES}}</p>
+                                    <p>injuries</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.HAZARD_END_DATE}}</p>
+                                    <p>end date</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+
+                        </div>
+
+                        <div class="tagContainer">
+                            <p class="boldTheTags">tags:</p>
+                            <div ng-repeat="data in danger.entities.hashtags" class="inlinetagContainer">
+                                <a ng-href="#" ng-click="twitterTagQuery(data.text)" class="igCardTagLink igLink">
+
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="fullWidthMarginAuto">
+
+
+                            <div class="clearFloat"></div>
+                        </div>
+
+                        <a class="cardLink" ng-href={{danger.user.url}} target="_blank">{{danger.user.url}}</a>
+                        <p>{{danger.created_at | date : format : timezone}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

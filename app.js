@@ -103,6 +103,16 @@ app.use(express.static('static'))
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
+app.listen(app.get('port'), function () {
+
+    console.log('\n');
+    console.log('********************************************'.black.bgWhite);
+    console.log("The frontend server is running on port 5000!".black.bgWhite);
+    console.log('********************************************'.black.bgWhite);
+    console.log('\n');
+
+});
+
 app.get('/', function (req, res) {
 
     console.log('\n');
@@ -114,15 +124,33 @@ app.get('/', function (req, res) {
 
 });
 
-app.listen(app.get('port'), function () {
+// EMCIEN STUFF
+// EMCIEN STUFF
+// EMCIEN STUFF
 
-    console.log('\n');
-    console.log('********************************************'.black.bgWhite);
-    console.log("The frontend server is running on port 5000!".black.bgWhite);
-    console.log('********************************************'.black.bgWhite);
-    console.log('\n');
+app.post('/emcien', function (req, res) {
+    console.log(req.body);
+    console.log(req.body.storm);
+    console.log('START *** EMCIEN - INCOMING INPUT GET REQUEST - EMCIEN *** START'.black.bgCyan);
+
+    var exampleBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey';
+    var googleImageApiBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=storm' + 'req.body.storm';
+
+    client.get(googleImageApiBaseUrl, function (data, response) {
+
+        console.log(data);
+        res.send(data.items);
+        res.end();
+
+    });
+
+    console.log('END ***** EMCIEN - INCOMING INPUT GET REQUEST - EMCIEN ***** END'.black.bgCyan);
 
 });
+
+// EMCIEN STUFF
+// EMCIEN STUFF
+// EMCIEN STUFF
 
 app.get('/spotify', function (req, res) {
 
@@ -162,8 +190,6 @@ app.get('/views/werkspayce.html/spotify-login', function (req, res) {
     console.log('\n');
 
 });
-
-
 
 app.get('/views/werkspayce.html/spotify-callback', function (req, res) {
 
@@ -242,6 +268,7 @@ app.get('/views/werkspayce.html/spotify-callback', function (req, res) {
                         error: 'invalid_token'
                     }));
             }
+
             console.log('END ******* spotify-callback *** spotify-callback ******* END'.black.bgCyan);
         });
     }

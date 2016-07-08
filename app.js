@@ -76,7 +76,10 @@ var generateRandomString = function (length) {
 var stateKey = 'spotify_auth_state';
 var scopes = 'user-read-private user-read-email'
 
-/**
+/* 
+ * ROUTING
+ * ROUTING
+ * ROUTING
  * ROUTING
  * ROUTING
  * ROUTING
@@ -108,18 +111,6 @@ app.get('/', function (req, res) {
 
     var html = fs.readFileSync('static/views/shell.html');
     res.end(html);
-
-});
-
-app.get('/on-ramp', function (req, res) {
-
-    console.log('\n');
-    console.log('******* INCOMING GET REQUEST - Load Template *******'.black.bgWhite);
-    console.log('\n');
-
-    //  var html = fs.readFileSync('static/views/on-ramp.html');
-    var onRamp = fs.readFileSync('http://go.nthrive.com/rs/099-EMG-811/images/nThrive-banner-001.html');
-    res.end(onRamp);
 
 });
 

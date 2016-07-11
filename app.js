@@ -129,18 +129,33 @@ app.get('/', function (req, res) {
 // EMCIEN STUFF
 
 app.post('/emcien', function (req, res) {
+
+    console.log("1:");
     console.log(req.body);
+    console.log("2:");
     console.log(req.body.storm);
+
     console.log('START *** EMCIEN - INCOMING INPUT GET REQUEST - EMCIEN *** START'.black.bgCyan);
 
     var exampleBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey';
-    var googleImageApiBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=storm' + 'req.body.storm';
+    var googleImageApiBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey' + req.body.storm;
 
-    client.get(googleImageApiBaseUrl, function (data, response) {
+    client.get(exampleBaseUrl, function (data, response) {
 
-        console.log(data);
-        res.send(data.items);
-        res.end();
+
+        for (var key in data) {
+
+            console.log("key: " + key);
+            console.log("key-LOCK: " + key[0]);
+            // console.log("data: " + key + " = " + data[key]);
+
+        }
+
+        // console.log(data);
+        // console.log(response);
+
+        //res.send(data.items);
+        //res.end();
 
     });
 

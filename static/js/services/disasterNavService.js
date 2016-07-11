@@ -1,10 +1,10 @@
 'use strict';
 
-console.log("OUTSIDE disasterService");
+console.log("OUTSIDE disasterNavService");
 
 angular.module("mainModule")
-    .service('disasterService', function ($http) {
-        console.log("INSIDE disasterService");
+    .service('disasterNavService', function ($http) {
+        console.log("INSIDE disasterNavService");
 
         this.getDangerJSON = function (callback) {
 
@@ -13,10 +13,12 @@ angular.module("mainModule")
             .then(callback);
         };
 
-        //this.getDangerStormImage = function (callback) {
-        //$http.get('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey')
-        //.then(callback);
-        //};
+        //        this.getDangerStormImage = function (callback) {
+        //
+        //            $http.get('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey')
+        //
+        //            .then(callback);
+        //        };
 
         this.getDangerImage = function (whichStorm, callback) {
 

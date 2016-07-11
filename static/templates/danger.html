@@ -89,12 +89,16 @@
 </style>
 
 <div class="bodyWrapper">
+
+
     <h1>LOSE THE QUIT</h1>
     <div class="row">
         <div class="col-lg-6 col-xs-12">
             <h3>Georgia Disasters: </h3>
+            <p>STORM DATA</p>
         </div>
     </div>
+
 
     <div class="theWhiteLine"></div>
     <div class="clearFloat"></div>
@@ -108,39 +112,79 @@
 
                     <div class="cardImageOverLay add20pxPadding">
 
-                        <p>STORM DATA</p>
-
                         <p>county:</p>
                         <div class="headLiner">
                             <p>{{danger.NAME}}</p>
                         </div>
-                        <p>FIPS CODE: {{danger.FIPS_CODE}}</p>
+                        <p>state: {{danger.POSTAL_CODE}}</p>
+                        <p>fips code: {{danger.FIPS_CODE}}</p>
+                        <p>{{danger.HAZARD_TYPE_COMBO}}</p>
 
                         <div class="dangerCardSpacer"></div>
                         <div class="igCardHeaderMargin"></div>
 
                         <!--
-                        <div>
-                            $$hashKey : "object:2" CROP_DAMAGE : 0 FATALITIES : 8 FIPS_CODE : 13047 HAZARD_BEGIN_DATE : "4/27/2011" HAZARD_END_DATE : "4/27/2011" HAZARD_TYPE_COMBO : "Tornado" INJURIES : 30 NAME : "Catoosa" POSTAL_CODE : "GA" PROPERTY_DAMAGE : 25000000 REMARKS : 0 hazard_id : 9318282
-                        </div>
-                        -->
-
-                        <!--
-                        
-                        <p>{{danger.CROP_DAMAGE}}</p>
-                        <p>{{danger.FATALITIES}}</p>
+                        DO NOT USE -- <p>{{danger.CROP_DAMAGE | currency:"USD$": 0}}</p>
+                        -- <p>{{danger.FATALITIES}}</p>
                         -- <p>{{danger.FIPS_CODE}}</p>
                         -- <p>{{danger.HAZARD_BEGIN_DATE}}</p>
                         -- <p>{{danger.HAZARD_END_DATE}}</p>
-                        <p>{{danger.HAZARD_TYPE_COMBO}}</p>
+                        -- <p>{{danger.HAZARD_TYPE_COMBO}}</p>
                         -- <p>{{danger.INJURIES}}</p>
-                        <p>{{danger.NAME}}</p>
-                        <p>{{danger.POSTAL_CODE}}</p>
-                        <p>{{danger.PROPERTY_DAMAGE | currency:"USD$": 0}}</p>
+                        -- <p>{{danger.NAME}}</p>
+                        -- <p>{{danger.POSTAL_CODE}}</p>
+                        -- <p>{{danger.PROPERTY_DAMAGE | currency:"USD$": 0}}</p>
                         <p>{{danger.REMARKS}}</p>
                         <p>{{danger.hazard_id}}</p>
-                         
                         -->
+
+                        <!--
+                        <ul class="dataCellContainer">
+                            <li class="dataCell headLiner">{{danger.NAME}}</li>
+                            <li class="dataCell">{{danger.CROP_DAMAGE}}</li>
+                            <li class="dataCell">{{danger.FATALITIES}}</li>
+                            <li class="dataCell">{{danger.FIPS_CODE}}</li>
+                            <li class="dataCell">{{danger.HAZARD_BEGIN_DATE}}</li>
+                            <li class="dataCell">{{danger.HAZARD_END_DATE}}</li>
+                            <li class="dataCell">{{danger.HAZARD_TYPE_COMBO}}</li>
+                            <li class="dataCell">{{danger.INJURIES}}</li>
+                            <li class="dataCell">{{danger.POSTAL_CODE}}</li>
+                            <li class="dataCell">{{danger.PROPERTY_DAMAGE}}</li>
+                            <li class="dataCell">{{danger.REMARKS}}</li>
+                            <li class="dataCell">{{danger.hazard_id}}</li>
+                        </ul>
+                        -->
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.INJURIES}}</p>
+                                    <p>injuries</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.PROPERTY_DAMAGE | currency: "$": 0}}</p>
+                                    <p>property damage</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.FATALITIES}}</p>
+                                    <p>fatalities</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+
+                        </div>
 
                         <div class="fullWidthMarginAuto">
                             <div class="fullWidth33MarginAuto">
@@ -172,21 +216,9 @@
 
                         </div>
 
-                        <div class="tagContainer">
-                            <!-- <p class="boldTheTags">tags:</p> -->
-                            <div ng-repeat="data in danger.entities.hashtags" class="inlinetagContainer">
-                                <a ng-href="#" ng-click="twitterTagQuery(data.text)" class="igCardTagLink igLink">
-
-                                </a>
-                            </div>
-                        </div>
-
                         <div class="fullWidthMarginAuto">
                             <div class="clearFloat"></div>
                         </div>
-
-                        <a class="cardLink" ng-href={{danger.user.url}} target="_blank">{{danger.user.url}}</a>
-                        <p>{{danger.created_at | date : format : timezone}}</p>
 
                     </div>
                 </div>

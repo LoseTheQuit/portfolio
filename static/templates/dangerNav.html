@@ -1,0 +1,149 @@
+<style>
+    .navbar {
+        /*        width: 80%;*/
+        margin: 0 auto;
+    }
+    
+    .navbar,
+    .navbar.navbar-default {
+        padding: 30px;
+        margin-top: 15px;
+        background: rgba(0, 0, 0, .80);
+    }
+    
+    .dataCellContainer {
+        padding: 0px;
+        width: 100%;
+    }
+    
+    .dataCell {
+        display: inline;
+        float: left;
+        text-align: left;
+        list-style: none;
+        width: 8.3%;
+        margin: 0 auto;
+    }
+</style>
+
+
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <h1>LOSE THE QUIT</h1>
+        <div class="row">
+            <div class="col-lg-6 col-xs-12">
+                <h3>Georgia Disasters: </h3>
+                <p>STORM DATA</p>
+            </div>
+        </div>
+
+        <!-- <div class="container"> -->
+
+        <!--
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Project name</a>
+                            </div>
+-->
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <ul class="dataCellContainer">
+
+                <li class="dataCell">NAME</li>
+                <li class="dataCell">CROP_DAMAGE</li>
+                <li class="dataCell">FATALITIES</li>
+                <li class="dataCell">FIPS_CODE</li>
+                <li class="dataCell">HAZARD_BEGIN_DATE</li>
+                <li class="dataCell">HAZARD_END_DATE</li>
+                <li class="dataCell">HAZARD_TYPE_COMBO</li>
+                <li class="dataCell">INJURIES</li>
+                <li class="dataCell">POSTAL_CODE</li>
+                <li class="dataCell">PROPERTY_DAMAGE</li>
+                <li class="dataCell">REMARKS</li>
+                <li class="dataCell">hazard_id</li>
+
+            </ul>
+
+
+        </div>
+
+        <!--
+                        
+                        <p>{{danger.CROP_DAMAGE}}</p>
+                        <p>{{danger.FATALITIES}}</p>
+                        -- <p>{{danger.FIPS_CODE}}</p>
+                        -- <p>{{danger.HAZARD_BEGIN_DATE}}</p>
+                        -- <p>{{danger.HAZARD_END_DATE}}</p>
+                        <p>{{danger.HAZARD_TYPE_COMBO}}</p>
+                        -- <p>{{danger.INJURIES}}</p>
+                        <p>{{danger.NAME}}</p>
+                        <p>{{danger.POSTAL_CODE}}</p>
+                        <p>{{danger.PROPERTY_DAMAGE | currency:"USD$": 0}}</p>
+                        <p>{{danger.REMARKS}}</p>
+                        <p>{{danger.hazard_id}}</p>
+                         
+                        -->
+
+        <!--/.nav-collapse -->
+        <!-- </div> -->
+    </nav>
+</div>
+<script>
+    $(function () {
+
+        function zNation() {
+
+
+            //            $("body").fadeOut(0).fadeIn(500, function () {
+            //                // Animation complete
+            //            });
+
+            var theWhiteLineWidth = $('.theWhiteLine').width();
+            var navBarHeight = $('.navbar').height();
+
+            $('.bodyWrapper').css({
+
+                "margin-top": (navBarHeight + 100) + 'px'
+
+            });
+            $('.navbar').css({
+
+                "width": theWhiteLineWidth + 'px'
+
+            });
+
+            $('.navbar.navbar-default').css({
+
+                "width": theWhiteLineWidth + 'px'
+
+            });
+
+
+
+        }
+
+        setTimeout(function () {
+            zNation();
+        }, 1000);
+
+        setTimeout(function () {
+            zNation();
+        }, 1500);
+
+        setTimeout(function () {
+            zNation();
+        }, 5000);
+
+        $(window).resize(function () {
+            zNation();
+        });
+
+
+    });
+</script>

@@ -180,6 +180,14 @@
 
         </div>
     </div>
+    <script src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('search', '1');
+        google.setOnLoadCallback(function () {
+            new google.search.CustomSearchControl().draw('cse');
+        }, true);
+    </script>
+
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

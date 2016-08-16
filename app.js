@@ -1,5 +1,7 @@
 'use strict';
 
+// A FEW MODULES
+
 let fs = require('fs'),
     colors = require('colors'),
     express = require('express'),
@@ -15,6 +17,7 @@ let fs = require('fs'),
     client = new Client();
 
 // swap dev/production data
+var ignitionSwitch = false;
 
 var instagramAccessCode = 'FOR-TEMPORARY-USE-ONLY';
 var spotifyAccessToken = 'FOR-TEMPORARY-USE-ONLY';
@@ -23,8 +26,6 @@ let instagram_client_secret = 'FOR-TEMPORARY-USE-ONLY';
 let instagram_redirect_uri = 'FOR-TEMPORARY-USE-ONLY';
 let instagramApiURL = 'FOR-TEMPORARY-USE-ONLY';
 let spotify_redirect_uri = 'FOR-TEMPORARY-USE-ONLY';
-
-var ignitionSwitch = true;
 
 if (ignitionSwitch) {
 
@@ -60,8 +61,8 @@ var generateRandomString = function (length) {
 
     /************************************************************
      * Generates a random string containing numbers and letters
-     * @param  {number} length The length of the string 
-     * @return {string} The generated string 
+     * @param  {number} length The length of the string
+     * @return {string} The generated string
      ***********************************************************/
 
     var text = '';
@@ -76,9 +77,7 @@ var generateRandomString = function (length) {
 var stateKey = 'spotify_auth_state';
 var scopes = 'user-read-private user-read-email'
 
-/* 
- * ROUTING
- * ROUTING
+/*
  * ROUTING
  * ROUTING
  * ROUTING
@@ -377,10 +376,64 @@ app.post('/searchTweetsQuery', function (req, res) {
 
 });
 
+
+
+var igEndPoints = {
+    from_the_docs: {
+        url: 'https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + instagramAccessCode,
+        method: 'GET'
+
+    },
+    media_search: {
+        url: 'https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&access_token=' + instagramAccessCode,
+        method: 'GET'
+    },
+
+    popular_media_search: {
+        url: 'https://api.instagram.com/v1/media/popular?access_token=' + instagramAccessCode,
+        method: 'GET'
+    },
+
+    from_SO_search: {
+        url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
+            instagram_redirect_uri + '&access_token=' + instagramAccessCode,
+        method: 'GET'
+    },
+    from_SO_search: {
+        url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
+            instagram_redirect_uri + '&access_token=' + instagramAccessCode,
+        method: 'GET'
+    },
+
+    user_search_by_name: {
+        url: 'https://api.instagram.com/v1/users/search?q=cthagod&access_token=' + instagramAccessCode,
+        method: 'GET'
+    },
+
+    // THESE WORK - thisIsCamelCaseAsAnExample this
+
+    self_search: {
+        url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + instagramAccessCode + '&count=300',
+        method: 'GET'
+    },
+    popular_tag_search: {
+        url: 'https://api.instagram.com/v1/tags/search?q=red&access_token=' + instagramAccessCode,
+        method: 'GET'
+    },
+
+    search_popular_by_tag_name: {
+        url: 'https://api.instagram.com/v1/tags/nodejs?access_token=' + instagramAccessCode,
+        method: 'GET'
+    },
+    popular_tag_search_tag_name_recent: {
+        url: 'https://api.instagram.com/v1/tags/dev/media/recent?access_token=' + instagramAccessCode + '&count=200',
+        method: 'GET'
+    }
+};
+
 app.get('/instagram-login', function (req, res) {
 
     res.redirect(instagramApiURL);
-
     res.end();
 });
 
@@ -393,13 +446,13 @@ app.post('/ig', function (req, res, next) {
         console.log('INSTAGRAM ACCESS_CODE NOT AVAILABLE'.white.bgRed);
 
         // if the access code IS NOT available
-        // STOP the process of making a call to the 
+        // STOP the process of making a call to the
         // instagram api
 
     } else {
 
         // if the access code IS available
-        // START the process of making a call to the 
+        // START the process of making a call to the
         // instagram api
 
         let ACCESS_CODE = req.body.token;
@@ -429,7 +482,7 @@ app.post('/ig', function (req, res, next) {
             var parsedBody = JSON.parse(body);
 
             //  console.log('*******************************************************'.black.bgRed);
-            //  console.log(parsedBody); 
+            //  console.log(parsedBody);
             //  console.log('*******************************************************'.black.bgRed);
 
             if (response.statusCode != 200) {
@@ -499,7 +552,10 @@ app.post('/ig', function (req, res, next) {
                 };
 
                 //&min_id=678453535718114828_919796408
-
+                console.log(igEndPoints.self_search);
+                console.log(igEndPoints.self_search);
+                console.log(self_search);
+                console.log(self_search);
                 request(self_search, function (error, response, body) {
                     if (error && response.statusCode != 200) {
                         console.error(error);
@@ -533,7 +589,6 @@ app.post('/instaInputQuery', function (req, res, next) {
 
 
     let inputQueryFromHTML = req.body.query;
-
 
     var from_the_docs = {
         url: 'https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + instagramAccessCode,

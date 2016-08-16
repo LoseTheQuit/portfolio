@@ -12,6 +12,21 @@ angular.module("mainModule")
 
         };
 
+        this.getTwitter = function (callback) {
+
+            $http({
+                url: '/userTimeLineQuery',
+                method: "POST",
+                data: {
+                    screen_name: 'hashtags',
+                    count: 10
+                }
+            })
+
+            .then(callback);
+
+        };
+
         this.getSpotify = function (params, callback) {
             console.log("success from getSpotify");
             console.log(params);
@@ -43,21 +58,5 @@ angular.module("mainModule")
             console.log('q: ' + params.q)
 
         };
-
-
-        this.doSomethingExtended = function (params, callback) {
-            console.log("success from doSomethingExtended");
-            console.log(params);
-
-            $http({
-                url: 'http://go.medassets.com/RB-CO-5-1-2-LP.html',
-                method: "GET"
-            })
-
-            .then(callback);
-
-        };
-
-
 
     });

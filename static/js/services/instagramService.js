@@ -6,7 +6,7 @@ angular.module("mainModule")
     .service('instagramService', function ($http) {
 
         console.log("INSIDE dataService");
-
+        // REST CALLS TO EVOKE RESONSE OBJECTS
         this.tapInsta = function (access_token, callback) {
 
             $http({
@@ -52,13 +52,14 @@ angular.module("mainModule")
         this.getWindowInfo = function () {
             /////////////////////
             var windowLocation = window.location.href;
-
+            // THIS FIRST CHECKS WHETHER LOSE THE QUIT IS IN THE URL
+            // IF SO/IF NOT - PARSE THE AUTH CODE AND SEND IT TO THE SERVER
             if (windowLocation.indexOf("losethequit") != -1) {
                 var windowLocationWithToken = windowLocation.replace("https://losethequit.herokuapp.com/views/werkspayce.html?code=", "");
             } else {
                 var windowLocationWithToken = windowLocation.replace("http://localhost:5000/views/werkspayce.html?code=", "");
             }
-            ///////////////////// 
+            /////////////////////
             return windowLocationWithToken;
 
         };

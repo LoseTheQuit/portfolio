@@ -17,7 +17,8 @@ let fs = require('fs'),
     client = new Client();
 
 // swap dev/production data
-var ignitionSwitch = false;
+var ignitionSwitch = true;
+// if true - prod / if true - dev
 
 var instagramAccessCode = 'FOR-TEMPORARY-USE-ONLY';
 var spotifyAccessToken = 'FOR-TEMPORARY-USE-ONLY';

@@ -16,7 +16,9 @@ angular.module("mainModule")
             alert('You swiped right!!');
         };
 
-        // THE INSTAGRAM SERVICE IS USED TO SNATCH THE URL FROM AND PARSE IT FOR
+        // THE INSTAGRAM SERVICE MTHOD IS USED TO SNATCH T
+        // HE URL FROM BROWSER WIDNOW AND PARSE IT FOR LATER USE
+        
         $scope.windowInfoWithToken = instagramService.getWindowInfo();
         // THIS GRABS THE INDEX OF THE MENU ITEM SELECTED
         $scope.getTwitterDropDownNumberIndex = sidebarService.getTwitterDropDownNumberIndex();

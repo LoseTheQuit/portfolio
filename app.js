@@ -18,7 +18,11 @@ let fs = require('fs'),
 
 // swap dev/production data
 var ignitionSwitch = true;
-// if true - prod / if true - dev
+// IG-ONLY: if true - prod / if true - dev
+
+//  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
+//  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
+//  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
 
 var instagramAccessCode = 'FOR-TEMPORARY-USE-ONLY';
 var spotifyAccessToken = 'FOR-TEMPORARY-USE-ONLY';
@@ -55,8 +59,12 @@ var twitterClient = new Twitter({
 
 });
 
-var spotify_client_id = '099060b613284cc0af0210f5199dcb0c'; // Your client id
-var spotify_client_secret = '42c98e7bfcf6426dbf25888204456dce'; // Your secret
+var spotify_client_id = '099060b613284cc0af0210f5199dcb0c';
+var spotify_client_secret = '42c98e7bfcf6426dbf25888204456dce';
+
+//  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
+//  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
+//  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
 
 var generateRandomString = function (length) {
 
@@ -88,7 +96,10 @@ var scopes = 'user-read-private user-read-email'
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static('/static'))
+// app.use(express.static('/static'))
+//     .use(cookieParser());
+
+app.use(express.static('static'))
     .use(cookieParser());
 
 app.use(bodyParser.json());
@@ -96,9 +107,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
-app.use(express.static('static'))
-    .use(cookieParser());
 
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
@@ -112,7 +120,11 @@ app.listen(app.get('port'), function () {
     console.log('\n');
 
 });
-//THE HOMEPAGE
+
+// THE HOMEPAGE
+// THE HOMEPAGE
+// THE HOMEPAGE
+
 app.get('/', function (req, res) {
 
     console.log('\n');
@@ -123,7 +135,11 @@ app.get('/', function (req, res) {
     res.end(html);
 
 });
+
 // THE HOMEPAGE
+// THE HOMEPAGE
+// THE HOMEPAGE
+
 // EMCIEN STUFF
 // EMCIEN STUFF
 // EMCIEN STUFF
@@ -141,7 +157,6 @@ app.post('/emcien', function (req, res) {
     var googleImageApiBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey' + req.body.storm;
 
     client.get(exampleBaseUrl, function (data, response) {
-
 
         for (var key in data) {
 
@@ -167,6 +182,8 @@ app.post('/emcien', function (req, res) {
 // EMCIEN STUFF
 // EMCIEN STUFF
 
+
+// THIS IS USED TO LOAD GENERIC SPOTIFY DATA WITHOUT AUTHENTICATION
 app.get('/spotify', function (req, res) {
 
     console.log('START *** SPOTIFY - INCOMING INPUT GET REQUEST - SPOTIFY *** START'.black.bgCyan);
@@ -181,6 +198,7 @@ app.get('/spotify', function (req, res) {
 
 });
 
+// THE INITIAL SPOTIFY LOGIN ENDPOINT
 app.get('/views/werkspayce.html/spotify-login', function (req, res) {
 
     console.log('START *** spotify-login *** START'.black.bgCyan);
@@ -200,7 +218,8 @@ app.get('/views/werkspayce.html/spotify-login', function (req, res) {
             redirect_uri: spotify_redirect_uri,
             state: state
         }));
-
+    // 'https://losethequit.herokuapp.com/views/werkspayce.html/spotify-callback' IS THE REDIRECT URL
+    // AND IS THE SUBSEQUENT METHOD BELOW THIS ONE
     console.log('END ***** spotify-login ***** END'.black.bgCyan);
     console.log('\n');
 
@@ -233,6 +252,11 @@ app.get('/views/werkspayce.html/spotify-callback', function (req, res) {
                 redirect_uri: spotify_redirect_uri,
                 grant_type: 'authorization_code'
             },
+
+            // console.log(Buffer.from("Hello World").toString('base64'));
+            // console.log(Buffer.from("SGVsbG8gV29ybGQ=", 'base64').toString('ascii'));
+            // ENCODE THE ID AND SECRET USING BASE64 TO SEND TO SPOTIFY
+
             headers: {
                 'Authorization': 'Basic ' + (new Buffer(spotify_client_id + ':' + spotify_client_secret).toString('base64'))
             },
@@ -254,22 +278,9 @@ app.get('/views/werkspayce.html/spotify-callback', function (req, res) {
                 console.log('SPOTIFY ACCESS TOKEN:'.white.bgCyan);
                 console.log('\n');
 
-                //                var options = {
-                //                    // url: 'https://api.spotify.com/v1/me',
-                //                    url: 'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist',
-                //                    headers: {
-                //                        'Authorization': 'Bearer ' + access_token
-                //                    },
-                //                    json: true
-                //                };
-                //
-                //                // use the access token to access the Spotify Web API
-                //                request.get(options, function (error, response, body) {
-                //                    console.log(body);
-                //                });
-                //
-                //                // we can also pass the token to the browser to make requests from there
-                //                // res.redirect('/views/werkspayce.html?' +
+
+                // IF EVERYTHING GOES WELL
+                // PROCEED TO AUTHENTICATE IG
 
                 res.redirect('/instagram-login?' +
                     querystring.stringify({
@@ -289,6 +300,8 @@ app.get('/views/werkspayce.html/spotify-callback', function (req, res) {
     }
 
 });
+
+// A STAND ALONE END POINT TO PING SPOTIFY FOR ARTIST DATA
 
 app.post('/spotify-input-query', function (req, res) {
 
@@ -312,7 +325,6 @@ app.post('/spotify-input-query', function (req, res) {
     request.get(options, function (error, response, body) {
 
         if (response.statusCode === 200) {
-
             res.send(body.artists.items);
         } else {
             console.log(response.body)
@@ -324,8 +336,7 @@ app.post('/spotify-input-query', function (req, res) {
 
 });
 
-
-
+// ENDPOINT TO RETRIEVE TWITTER USER TIMELINE DATA
 app.post('/userTimeLineQuery', function (req, res) {
 
     console.log('\n');
@@ -348,15 +359,12 @@ app.post('/userTimeLineQuery', function (req, res) {
     });
 
 });
-
+// ENDPOINT TO RETRIEVE ALL TWITTER TIMELINE DATA
 app.post('/searchTweetsQuery', function (req, res) {
     console.log('TWITTER - INPUTQUERY - START - TWITTER'.white.bgBlue);
 
     console.log('\n');
     console.log('INCOMING INPUT GET REQUEST - search-tweets-query'.white.bgBlue);
-    console.log(req.body);
-    console.log(req.body);
-    console.log(req.body);
     console.log(req.body);
     console.log('INCOMING INPUT GET REQUEST - search-tweets-query'.white.bgBlue);
     console.log('\n');
@@ -377,60 +385,6 @@ app.post('/searchTweetsQuery', function (req, res) {
 
 });
 
-
-
-var igEndPoints = {
-    from_the_docs: {
-        url: 'https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + instagramAccessCode,
-        method: 'GET'
-
-    },
-    media_search: {
-        url: 'https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&access_token=' + instagramAccessCode,
-        method: 'GET'
-    },
-
-    popular_media_search: {
-        url: 'https://api.instagram.com/v1/media/popular?access_token=' + instagramAccessCode,
-        method: 'GET'
-    },
-
-    from_SO_search: {
-        url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
-            instagram_redirect_uri + '&access_token=' + instagramAccessCode,
-        method: 'GET'
-    },
-    from_SO_search: {
-        url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
-            instagram_redirect_uri + '&access_token=' + instagramAccessCode,
-        method: 'GET'
-    },
-
-    user_search_by_name: {
-        url: 'https://api.instagram.com/v1/users/search?q=cthagod&access_token=' + instagramAccessCode,
-        method: 'GET'
-    },
-
-    // THESE WORK - thisIsCamelCaseAsAnExample this
-
-    self_search: {
-        url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + instagramAccessCode + '&count=300',
-        method: 'GET'
-    },
-    popular_tag_search: {
-        url: 'https://api.instagram.com/v1/tags/search?q=red&access_token=' + instagramAccessCode,
-        method: 'GET'
-    },
-
-    search_popular_by_tag_name: {
-        url: 'https://api.instagram.com/v1/tags/nodejs?access_token=' + instagramAccessCode,
-        method: 'GET'
-    },
-    popular_tag_search_tag_name_recent: {
-        url: 'https://api.instagram.com/v1/tags/dev/media/recent?access_token=' + instagramAccessCode + '&count=200',
-        method: 'GET'
-    }
-};
 
 app.get('/instagram-login', function (req, res) {
 
@@ -500,37 +454,6 @@ app.post('/ig', function (req, res, next) {
                 console.log('instagramAccessCode:'.white.bgGreen);
                 console.log('\n');
 
-                var from_the_docs = {
-                    url: 'https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + instagramAccessCode,
-                    method: 'GET'
-
-                };
-                var media_search = {
-                    url: 'https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&access_token=' + instagramAccessCode,
-                    method: 'GET'
-                };
-
-                var popular_media_search = {
-                    url: 'https://api.instagram.com/v1/media/popular?access_token=' + instagramAccessCode,
-                    method: 'GET'
-                };
-
-                var from_SO_search = {
-                    url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
-                        instagram_redirect_uri + '&access_token=' + instagramAccessCode,
-                    method: 'GET'
-                }
-                var from_SO_search = {
-                    url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
-                        instagram_redirect_uri + '&access_token=' + instagramAccessCode,
-                    method: 'GET'
-                }
-
-                var user_search_by_name = {
-                    url: 'https://api.instagram.com/v1/users/search?q=cthagod&access_token=' + instagramAccessCode,
-                    method: 'GET'
-                }
-
                 // THESE WORK - thisIsCamelCaseAsAnExample this
 
                 var self_search = {
@@ -538,25 +461,13 @@ app.post('/ig', function (req, res, next) {
                     method: 'GET'
                 };
 
-                var popular_tag_search = {
-                    url: 'https://api.instagram.com/v1/tags/search?q=red&access_token=' + instagramAccessCode,
-                    method: 'GET'
-                };
-
-                var search_popular_by_tag_name = {
-                    url: 'https://api.instagram.com/v1/tags/nodejs?access_token=' + instagramAccessCode,
-                    method: 'GET'
-                };
-                var popular_tag_search_tag_name_recent = {
-                    url: 'https://api.instagram.com/v1/tags/dev/media/recent?access_token=' + instagramAccessCode + '&count=200',
-                    method: 'GET'
-                };
-
                 //&min_id=678453535718114828_919796408
-                console.log(igEndPoints.self_search);
-                console.log(igEndPoints.self_search);
+
+                //console.log(igEndPoints.self_search);
+                //console.log(igEndPoints.self_search);
                 console.log(self_search);
                 console.log(self_search);
+
                 request(self_search, function (error, response, body) {
                     if (error && response.statusCode != 200) {
                         console.error(error);
@@ -566,6 +477,7 @@ app.post('/ig', function (req, res, next) {
 
                     } else {
                         var JSONObjectArray = JSON.parse(body);
+
                         // turns off back end logging of user JSONObjectArray
                         // console.log(JSONObjectArray);
 
@@ -582,62 +494,16 @@ app.post('/ig', function (req, res, next) {
 
 });
 
+
+// AFTER AUTHENTICATION - THIS METHOD PINGS IF FOR
+// DATA SPECIFIED BY THE  "REQUEST OPTION"
 app.post('/instaInputQuery', function (req, res, next) {
 
     console.log('\n');
     console.log('START - *** - IG - InputQuery - IG - *** - START'.black.bgGreen);
     console.log(req.body);
 
-
     let inputQueryFromHTML = req.body.query;
-
-    var from_the_docs = {
-        url: 'https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + instagramAccessCode,
-        method: 'GET'
-
-    };
-    var media_search = {
-        url: 'https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&access_token=' + instagramAccessCode,
-        method: 'GET'
-    };
-
-    var popular_media_search = {
-        url: 'https://api.instagram.com/v1/media/popular?access_token=' + instagramAccessCode,
-        method: 'GET'
-    };
-
-    var from_SO_search = {
-        url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
-            instagram_redirect_uri + '&access_token=' + instagramAccessCode,
-        method: 'GET'
-    }
-    var from_SO_search = {
-        url: 'https://api.instagram.com/v1/tags/res/media/recent?client_id=' + instagram_client_id + '&callback=' +
-            instagram_redirect_uri + '&access_token=' + instagramAccessCode,
-        method: 'GET'
-    }
-
-    var user_search_by_name = {
-        url: 'https://api.instagram.com/v1/users/search?q=cthagod&access_token=' + instagramAccessCode,
-        method: 'GET'
-    }
-
-    // THESE WORK
-
-    var self_search = {
-        url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + instagramAccessCode + '&count=300',
-        method: 'GET'
-    };
-
-    var popular_tag_search = {
-        url: 'https://api.instagram.com/v1/tags/search?q=red&access_token=' + instagramAccessCode,
-        method: 'GET'
-    };
-
-    var search_popular_by_tag_name = {
-        url: 'https://api.instagram.com/v1/tags/' + req.body.query + '?access_token=' + instagramAccessCode,
-        method: 'GET'
-    };
 
     var popular_tag_search_tag_name_recent = {
         url: 'https://api.instagram.com/v1/tags/' + req.body.query + '/media/recent?access_token=' + instagramAccessCode + '&count=200',

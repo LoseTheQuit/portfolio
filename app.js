@@ -112,7 +112,7 @@ app.listen(app.get('port'), function () {
     console.log('\n');
 
 });
-
+//THE HOMEPAGE
 app.get('/', function (req, res) {
 
     console.log('\n');
@@ -123,7 +123,7 @@ app.get('/', function (req, res) {
     res.end(html);
 
 });
-
+// THE HOMEPAGE
 // EMCIEN STUFF
 // EMCIEN STUFF
 // EMCIEN STUFF

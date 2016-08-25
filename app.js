@@ -17,7 +17,7 @@ let fs = require('fs'),
     client = new Client();
 
 // swap dev/production data
-var ignitionSwitch = false;
+var ignitionSwitch = true;
 
 // IG-ONLY: if true - prod / if true - dev
 
@@ -438,7 +438,7 @@ app.post('/ig', function (req, res, next) {
             var parsedBody = JSON.parse(body);
 
             //  console.log('*******************************************************'.black.bgRed);
-            //  console.log(parsedBody); 
+            //  console.log(parsedBody);
             //  console.log('*******************************************************'.black.bgRed);
 
             if (response.statusCode != 200) {

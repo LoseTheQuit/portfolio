@@ -17,7 +17,8 @@ let fs = require('fs'),
     client = new Client();
 
 // swap dev/production data
-var ignitionSwitch = true;
+var ignitionSwitch = false;
+
 // IG-ONLY: if true - prod / if true - dev
 
 //  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
@@ -437,7 +438,7 @@ app.post('/ig', function (req, res, next) {
             var parsedBody = JSON.parse(body);
 
             //  console.log('*******************************************************'.black.bgRed);
-            //  console.log(parsedBody);
+            //  console.log(parsedBody); 
             //  console.log('*******************************************************'.black.bgRed);
 
             if (response.statusCode != 200) {

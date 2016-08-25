@@ -18,11 +18,10 @@ angular.module("mainModule")
 
         // THE INSTAGRAM SERVICE MTHOD IS USED TO SNATCH T
         // HE URL FROM BROWSER WIDNOW AND PARSE IT FOR LATER USE
-        
+
         $scope.windowInfoWithToken = instagramService.getWindowInfo();
         // THIS GRABS THE INDEX OF THE MENU ITEM SELECTED
         $scope.getTwitterDropDownNumberIndex = sidebarService.getTwitterDropDownNumberIndex();
-
 
         // THIS IS THE GRAND SEARCH METHOD - PINGING THE THREE MAJOR API'S I'M WORKING WITH
         $scope.getIgandTwitterApiData = function () {

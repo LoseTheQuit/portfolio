@@ -1,0 +1,6 @@
+Greg Hanson   waffle iron   80    2
+Greg Hanson   donut maker   100    1
+Greg Hanson   cooler   800    1
+Lisa Townsend   flour   20    10
+Lisa Townsend   sugar   40    20
+Lisa Townsend   baking soda   10    10

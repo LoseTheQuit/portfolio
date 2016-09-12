@@ -17,7 +17,7 @@ let fs = require('fs'),
     client = new Client();
 
 // swap dev/production data
-var ignitionSwitch = true;
+var ignitionSwitch = false;
 
 // IG-ONLY: if true - prod / if true - dev
 
@@ -134,6 +134,18 @@ app.get('/', function (req, res) {
 
     var html = fs.readFileSync('static/views/shell.html');
     res.end(html);
+
+});
+
+app.get('/data', function (req, res) {
+
+    console.log('\n');
+    console.log('******* INCOMING GET DATA.TXT REQUEST - Load Template *******'.black.bgWhite);
+    console.log('\n');
+
+    var data = fs.readFileSync('static/mock/data.txt', 'utf8');
+    console.log(data)
+    res.end(data);
 
 });
 

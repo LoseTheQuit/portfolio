@@ -18,6 +18,7 @@
     "express": "^4.13.4",
     "fs": "0.0.2",
     "instagram-node": "^0.5.8",
+    "lodash": "^4.15.0",
     "mongoose": "^4.4.12",
     "node-rest-client": "^1.8.0",
     "querystring": "^0.2.0",

@@ -55,7 +55,7 @@
                     var imgContainer = document.createElement('div');
                     var title = document.createElement('div');
 
-                    // We use titleNoFormatting so that no HTML tags are left in the 
+                    // We use titleNoFormatting so that no HTML tags are left in the
                     // title
                     title.innerHTML = result.titleNoFormatting;
                     var newImg = document.createElement('img');
@@ -79,7 +79,7 @@
             // Create an Image Search instance.
             imageSearch = new google.search.ImageSearch();
 
-            // Set searchComplete as the callback function when a search is 
+            // Set searchComplete as the callback function when a search is
             // complete.  The imageSearch object will have results in it.
             imageSearch.setSearchCompleteCallback(this, searchComplete, null);
 

@@ -17,7 +17,7 @@ let fs = require('fs'),
     client = new Client();
 
 // swap dev/production data
-var ignitionSwitch = false;
+var ignitionSwitch = true;
 
 // IG-ONLY: if true - prod / if true - dev
 

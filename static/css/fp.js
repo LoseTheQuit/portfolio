@@ -6,7 +6,24 @@ const {width, height, scale} = Dimensions.get("window"),
     vmax = Math.max(vw, vh);
 
 export default StyleSheet.create({
+    "body": {
+        "background": "url('http://kurld.com/images/wallpapers/blurred-wallpaper/blurred-wallpaper-23.jpg') no-repeat center center",
+        "backgroundSize": "cover"
+    },
     "bodyWrapper": {
-        "width": 1300
+        "height": 100 * vh
+    },
+    "flashCard": {
+        "width": "80%",
+        "marginTop": 100,
+        "marginRight": "auto",
+        "marginBottom": 0,
+        "marginLeft": "auto",
+        "border": "1px solid rgba(0, 0, 0, .250)",
+        "paddingTop": "2%",
+        "paddingRight": "2%",
+        "paddingBottom": "2%",
+        "paddingLeft": "2%",
+        "background": "rgba(0, 0, 0, .25)"
     }
 });

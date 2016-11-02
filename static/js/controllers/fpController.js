@@ -5,6 +5,18 @@ angular.module("mainModule")
   .controller('fpController', function($scope, fpService) {
     console.log("INSIDE fpController");
 
+    function converttext() {
+      inputtext = document.getElementById('codeconverter').inputtext.value;
+      out = inputtext.replace(/\&/g, '&amp;')
+      out = out.replace(/\</g, '&lt;')
+      out = out.replace(/\>/g, '&gt;')
+      out = out.replace(/\"/g, '&quot;')
+      out = out.replace(/\'/g, '&#39;')
+      out = out.replace(/\|/g, '&#124;')
+      out = '<div style="BORDER: #cccccc 1px dashed; PADDING: 5px; WIDTH: 95%; BACKGROUND: #f0f0f0; COLOR: #000000; FONT-SIZE: 12px; OVERFLOW: auto; height:auto"><pre>' + out + '</pre></div>'
+      document.getElementById('codeconverter').outputtext.value = out;
+    }
+
     var json = (x) => {
       return JSON.stringify(x, null, 2)
     }
@@ -19,7 +31,7 @@ angular.module("mainModule")
 
     fpService.getDataOther(function(response) {
       var ratchhhh = Math.floor(Math.random() * 100)
-      log(ratchhhh)
+      // log(ratchhhh)
       var tweets = response;
       var ranDomIdTotal = 0;
       tweets = response.data
@@ -32,7 +44,7 @@ angular.module("mainModule")
           ranDomIdTotal += line.id
           return line
         })
-      log(ranDomIdTotal)
+      //  log(ranDomIdTotal)
       var ranDomSetOfObjects = [{
         num: Math.floor(Math.random() * 100)
       }, {
@@ -40,8 +52,8 @@ angular.module("mainModule")
       }, {
         num: Math.floor(Math.random() * 100)
       }]
-      console.log(tweets);
-      console.log(ranDomSetOfObjects);
+      //console.log(tweets);
+      // console.log(ranDomSetOfObjects);
       // TWITTER DATA USED TO PAINT THE CANVAS
       $scope.twitterData = tweets;
 
@@ -156,7 +168,11 @@ angular.module("mainModule")
 
     // functions are values - and can be passed into other funtions
 
-    var log = (x) => console.log(x)
+    var log = (x) => {
+      // document.write(x)
+      // document.write("\n")
+      console.log(x)
+    }
 
     var triple = (x) => x * 3
     var waffle = triple;
@@ -918,5 +934,27 @@ angular.module("mainModule")
     }
 
     var howToGetWebDesignClients = ["You have to be worth the money you are asking", 'Find out who makes the decisions', 'you have to grab attention', 'repetitive appearance matters', 'Directly approach the people you want to work with']
+    // var answer = prompt('Hello')
+    log("/////////////////////////")
+    log("/////////////////////////")
+    log("/////////////////////////")
+    log("/////////////////////////")
+    log("/////////////////////////")
+    var exStrinG = "0Nine5678Nine"
+    // finding the last index of a char in a string
+    log(exStrinG.lastIndexOf("Nine"))
+    // search finds the first index a queried char
+    log(exStrinG.search("Nine"))
 
+    var clientMapping = howToGetWebDesignClients.filter((x) => {
+      return x.length >= howToGetWebDesignClients[0].length
+
+    })
+    log(howToGetWebDesignClients[0].length)
+    log(clientMapping)
+    for (var iiiiii = 0; iiiiii < howToGetWebDesignClients.length; iiiiii++) {
+      log(howToGetWebDesignClients[iiiiii].length)
+    }
+    log(howToGetWebDesignClients)
+    log(howToGetWebDesignClients.reverse())
   });

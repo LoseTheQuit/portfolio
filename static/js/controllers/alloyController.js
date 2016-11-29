@@ -200,66 +200,65 @@ angular.module("mainModule")
 
         });
 
-        instagramService.tapInsta($scope.windowInfoWithToken, function (response) {
-
-            $scope.instagramData = response.data;
-            window.alert(response.data);
-            window.alert(response.data.access_token);
-            // debugger;
-
-            // IF THE TOKEN IS NOT UNDEFINED - ASSIGN THE VALUE TO A SCOPE VARIABLE
-            // IF NOT DO NOT SHOW THE DASHBOARD
-            if (!response.data.access_token == undefined) {
-
-                $scope.instagramDataWithToken = response.data.access_token;
-
-            } else {
-                $scope.hideThisDiv = true;
-            }
-
-            if (windowLocation.indexOf("code") != -1) {
-                $scope.hideThisDiv = true;
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-                console.log("YES")
-            } else {
-                $scope.hideThisDiv = true;
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-                console.log("NO")
-
-            }
 
 
-            console.warn('tapInsta:');
-            console.info(response.data);
-            console.warn('tapInsta:');
+        $scope.doThisNow = function () {
+            instagramService.tapInsta($scope.windowInfoWithToken, function (response) {
 
-        });
+                $scope.instagramData = response.data;
+                window.alert(response.data);
+                window.alert(response.data.access_token);
+                // debugger;
 
-        // TRYING TO SHOW OFF THE APP WITHOUT HAVING TO AUTHENTICATE
-        $scope.forLizz = function () {
-            $scope.hideThisDiv = true;
+                // IF THE TOKEN IS NOT UNDEFINED - ASSIGN THE VALUE TO A SCOPE VARIABLE
+                // IF NOT DO NOT SHOW THE DASHBOARD
+                if (!response.data.access_token == undefined) {
+
+                    $scope.instagramDataWithToken = response.data.access_token;
+
+                } else {
+                    $scope.hideThisDiv = true;
+                }
+
+                if (windowLocation.indexOf("code") != -1) {
+                    $scope.hideThisDiv = true;
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                    console.log("YES")
+                } else {
+                    $scope.hideThisDiv = true;
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+                    console.log("NO")
+
+                }
+
+
+                console.warn('tapInsta:');
+                console.info(response.data);
+                console.warn('tapInsta:');
+
+            });
         }
-
+        $scope.doThisNow();
 
     });

@@ -37,9 +37,9 @@ if (ignitionSwitch) {
 
     instagram_client_id = "b23670e220f14f1c89c11f627c9f9953";
     instagram_client_secret = "dd78c7ffbadd4a10a49f24675356c4d2";
-    instagram_redirect_uri = 'https://losethequit.herokuapp.com/views/werkspayce.html';
-    instagramApiURL = 'http://www.instagram.com/oauth/authorize?client_id=b23670e220f14f1c89c11f627c9f9953&redirect_uri=https://losethequit.herokuapp.com/views/werkspayce.html&response_type=code&scope=basic+public_content+follower_list+comments+relationships+likes';
-    spotify_redirect_uri = 'https://losethequit.herokuapp.com/views/werkspayce.html/spotify-callback';
+    instagram_redirect_uri = 'http://www.losethequit.me/views/werkspayce.html';
+    instagramApiURL = 'http://www.instagram.com/oauth/authorize?client_id=b23670e220f14f1c89c11f627c9f9953&redirect_uri=http://www.losethequit.me/views/werkspayce.html&response_type=code&scope=basic+public_content+follower_list+comments+relationships+likes';
+    spotify_redirect_uri = 'http://www.losethequit.me/views/werkspayce.html/spotify-callback';
 
 } else {
 
@@ -231,7 +231,7 @@ app.get('/views/werkspayce.html/spotify-login', function (req, res) {
             redirect_uri: spotify_redirect_uri,
             state: state
         }));
-    // 'https://losethequit.herokuapp.com/views/werkspayce.html/spotify-callback' IS THE REDIRECT URL
+    // 'http://www.losethequit.me/views/werkspayce.html/spotify-callback' IS THE REDIRECT URL
     // AND IS THE SUBSEQUENT METHOD BELOW THIS ONE
     console.log('END ***** spotify-login ***** END'.black.bgCyan);
     console.log('\n');

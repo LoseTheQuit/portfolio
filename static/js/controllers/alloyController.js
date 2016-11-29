@@ -203,8 +203,9 @@ angular.module("mainModule")
         instagramService.tapInsta($scope.windowInfoWithToken, function (response) {
 
             $scope.instagramData = response.data;
-            alert(response.data.access_token)
-            debugger;
+            window.alert(response.data);
+            window.alert(response.data.access_token);
+            // debugger;
 
             // IF THE TOKEN IS NOT UNDEFINED - ASSIGN THE VALUE TO A SCOPE VARIABLE
             // IF NOT DO NOT SHOW THE DASHBOARD

@@ -1,0 +1,27 @@
+body {
+    /*background: #000;*/
+    background: #f0f0f0;
+    background: url('http://kurld.com/images/wallpapers/blurred-wallpaper/blurred-wallpaper-23.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.bodyWrapper {
+    /* width: 1300px; */
+    /* background: rgba(256, 256, 256, .850); */
+    /*background: #f0f0f0;*/
+    height: 100vh;
+}
+
+.flashCard {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid rgba(0, 0, 0, .250);
+    padding: 2%;
+    background: rgba(0, 0, 0, .25);
+    /*-webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);*/
+}

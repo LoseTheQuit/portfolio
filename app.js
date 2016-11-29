@@ -97,8 +97,6 @@ var scopes = 'user-read-private user-read-email'
 
 app.set('port', (process.env.PORT || 5000));
 
-// app.use(express.static('/static'))
-//     .use(cookieParser());
 
 app.use(express.static('static'))
     .use(cookieParser());

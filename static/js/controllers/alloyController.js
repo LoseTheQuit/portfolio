@@ -217,6 +217,39 @@ angular.module("mainModule")
                 $scope.hideThisDiv = true;
             }
 
+            if (windowLocation.indexOf("code") != -1) {
+                $scope.hideThisDiv = true;
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+                console.log("YES")
+            } else {
+                $scope.hideThisDiv = true;
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+                console.log("NO")
+
+            }
+
+
             console.warn('tapInsta:');
             console.info(response.data);
             console.warn('tapInsta:');

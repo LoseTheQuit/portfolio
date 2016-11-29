@@ -467,17 +467,28 @@ app.post('/ig', function (req, res, next) {
                 console.log('instagramAccessCode:'.white.bgGreen);
                 console.log('\n');
 
+<<<<<<< HEAD
                 // THESE WORK - thisIsCamelCaseAsAnExample
+=======
+                // THESE WORK - thisIsCamelCaseAsAnExample this
+>>>>>>> 5ce6c3f5808c0fb2829037267591f8b7411f757b
 
                 var self_search = {
                     url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + instagramAccessCode + '&count=300',
                     method: 'GET'
                 };
 
+<<<<<<< HEAD
                 // &min_id=678453535718114828_919796408
 
                 // console.log(igEndPoints.self_search);
                 // console.log(igEndPoints.self_search);
+=======
+                //&min_id=678453535718114828_919796408
+
+                //console.log(igEndPoints.self_search);
+                //console.log(igEndPoints.self_search);
+>>>>>>> 5ce6c3f5808c0fb2829037267591f8b7411f757b
                 console.log(self_search);
                 console.log(self_search);
 

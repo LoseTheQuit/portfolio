@@ -1,0 +1,76 @@
+.iceWhite {
+    color: rgba(241, 241, 241, .65);
+    transition: all linear 1.00s;
+    float: right;
+}
+.mediumBlue {
+    color: #007db6;
+    transition: all linear 1.00s;
+}
+.lightBlue {
+    color: #009ddc;
+    transition: all linear 1.00s;
+}
+.iceWhite:hover {
+    color: #007db6;
+    color: rgba(241, 241, 241, .50);
+    transition: all linear 1.00s;
+}
+..nav>li>a:focus, .nav>li>a:hover {
+    color: rgba(0, 0, 0, .50);
+    background-color: : rgba(0, 0, 0, .50);
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    color: rgba(0, 0, 0, .50) !important;
+    background-color: : rgba(0, 0, 0, .50) !important;
+}
+.addSomeMargin {
+    margin-bottom: 20px;
+}
+.dividingLine {
+    background-color: #009ddc;
+    width: 80%;
+    height: 3px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    opacity: .15;
+}
+.navbar {
+    height: 70px;
+    padding-top: 20px;
+}
+.dropdown-menu {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+.dropdown-menu li>a {
+    color: white;
+}
+.dropdown-menu>li {
+    padding: 5px;
+}
+.dropdown-menu li>a:hover {
+    background: white;
+}
+.mashUpCallOut {
+    height: 100vh;
+    color: white;
+    background: #00a3e0;
+}
+.navbar-global .navbar-toggle {
+    border-color: #777;
+}
+.navbar-global .navbar-toggle li {
+    display: block;
+}
+.navbar-global .navbar-toggle .icon-bar {
+    background-color: #777;
+}
+.dropdown-header {
+    color: #fff;
+}
+.headLine {
+    color: white;
+    font-size: 89;
+}

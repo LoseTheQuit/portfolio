@@ -21,6 +21,31 @@ gulp.task('watch-sass', function () {
     console.log('GULP WATCH FINISH');
 });
 
+gulp.task('compileSassWATCH', ['clean'], function () {
+    gulp.src('static/sass/**/*')
+        .pipe(maps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(maps.write('./'))
+        .pipe(gulp.dest('dist/css'))
+});
+
+gulp.task('minifyCssWATCH', ['compileSassWATCH'], function () {
+    gulp.src('dist/**/*.css')
+        .pipe(cssmin())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('static/css'));
+});
+
+
+
+// DEPRECATED
+// DEPRECATED
+// DEPRECATED
+// DEPRECATED
+// DEPRECATED
+
 gulp.task('watch', function () {
     console.log('GULP WATCH');
     gulp.watch(['static/sass/**/*', 'static/js/ng/**/*'], ['minifyCssWATCH', 'concat-scripts']);
@@ -105,22 +130,6 @@ gulp.task('minifyCss', ['compileSass'], function () {
 //         .pipe(gulp.dest('static/js'));
 // });
 
-gulp.task('compileSassWATCH', ['clean'], function () {
-    gulp.src('static/sass/**/*')
-        .pipe(maps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(maps.write('./'))
-        .pipe(gulp.dest('static/css'))
-});
-
-gulp.task('minifyCssWATCH', ['compileSassWATCH'], function () {
-    gulp.src('static/**/*.css')
-        .pipe(cssmin())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest('static/css'));
-});
 
 gulp.task('run', function (cb) {
     runSequence('concat-scripts',

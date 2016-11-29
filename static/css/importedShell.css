@@ -79,8 +79,6 @@ a:hover {
     padding: 25px 0 27px 25px;
 }
 
-
-/*
 input[type="checkbox"] {
     display: none;
 }
@@ -91,10 +89,10 @@ input[type="checkbox"] + span {
     height: 19px;
     margin: -1px 4px 0 0;
     vertical-align: middle;
-    background: url(checkbox-empty.svg) left top no-repeat;
+    background: url('http://www.photo4life.biz/public/assets/global/ionicons/v2.0.1/src/android-checkbox-outline-blank.svg') left top no-repeat;
     cursor: pointer;
 }
 
 input[type="checkbox"]:checked + span {
-    background: url(checkbox-filled.svg) left top no-repeat;
-}*/
+    background: url('http://www.photo4life.biz/public/assets/global/ionicons/v2.0.1/src/android-checkbox-outline.svg') left top no-repeat;
+}

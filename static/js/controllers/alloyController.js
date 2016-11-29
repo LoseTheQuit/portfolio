@@ -7,7 +7,7 @@ angular.module("mainModule")
 
         console.log("INSIDE alloyController");
 
-       // THIS WILL BE USED TO SWIPE BETWEEN SOCIAL PLATFORMS
+        // THIS WILL BE USED TO SWIPE BETWEEN SOCIAL PLATFORMS
 
         $scope.onSwipeLeft = function (ev) {
             alert('You swiped left!!');
@@ -28,8 +28,8 @@ angular.module("mainModule")
 
             if ($scope.inputSearchTweetsAndInstagramQuery.length >= 1) {
 
-               // THE PARSED TOKEN PLUS THE QUERY IS SENT TO THE SERIVCE WHICH THENS MAKES A REST CALL TO THE BACK END
-               // A CALL BACK IS PASSED TO RECEIVE THE DATA SENT BACK FROM THE BACK END - WE SET THE RESPONCE TO INSTAGRAMDATA
+                // THE PARSED TOKEN PLUS THE QUERY IS SENT TO THE SERIVCE WHICH THENS MAKES A REST CALL TO THE BACK END
+                // A CALL BACK IS PASSED TO RECEIVE THE DATA SENT BACK FROM THE BACK END - WE SET THE RESPONCE TO INSTAGRAMDATA
                 instagramService.tapInstaExtended($scope.windowInfoWithToken, $scope.inputSearchTweetsAndInstagramQuery, function (response) {
 
                     // console.info(response.data);
@@ -203,8 +203,8 @@ angular.module("mainModule")
         instagramService.tapInsta($scope.windowInfoWithToken, function (response) {
 
             $scope.instagramData = response.data;
-
-            // debugger;
+            alert(response.data.access_token)
+            debugger;
 
             // IF THE TOKEN IS NOT UNDEFINED - ASSIGN THE VALUE TO A SCOPE VARIABLE
             // IF NOT DO NOT SHOW THE DASHBOARD

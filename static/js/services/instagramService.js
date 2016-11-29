@@ -55,12 +55,9 @@ angular.module("mainModule")
             // THIS FIRST CHECKS WHETHER LOSE THE QUIT IS IN THE URL
             // IF SO/IF NOT - PARSE THE AUTH CODE AND SEND IT TO THE SERVER
             if (windowLocation.indexOf("losethequit") != -1) {
-                alert('ITS LSTQ')
                 var windowLocationWithToken = windowLocation.replace("http://losethequit.me/views/werkspayce.html?code=", "");
             } else {
                 var windowLocationWithToken = windowLocation.replace("http://localhost:5000/views/werkspayce.html?code=", "");
-                alert('ITS localhost')
-
             }
             /////////////////////
             return windowLocationWithToken;

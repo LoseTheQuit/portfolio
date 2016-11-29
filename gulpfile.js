@@ -15,17 +15,13 @@ var jshint = require('gulp-jshint');
 var babel = require('gulp-babel');
 var runSequence = require('run-sequence');
 
-gulp.task('watch', function () {
+gulp.task('watch-sass', function () {
     console.log('GULP WATCH START');
     gulp.watch(['static/sass/**/*'], ['minifyCssWATCH']);
     console.log('GULP WATCH FINISH');
-
-    //    gulp.watch(['static/sass/**/*', 'static/js/ng/**/*'], ['minifyCssWATCH', 'concat-scripts']);
-    // gulp.start('clean');
-    // gulp.watch('static/**/*', ['default']);
 });
 
-gulp.task('watch-sass', function () {
+gulp.task('watch', function () {
     console.log('GULP WATCH');
     gulp.watch(['static/sass/**/*', 'static/js/ng/**/*'], ['minifyCssWATCH', 'concat-scripts']);
     // gulp.start('clean');

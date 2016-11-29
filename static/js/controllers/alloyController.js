@@ -201,7 +201,7 @@ angular.module("mainModule")
         });
 
 
-
+        var windowLocation = window.location.href;
         $scope.doThisNow = function () {
             instagramService.tapInsta($scope.windowInfoWithToken, function (response) {
 

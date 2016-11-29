@@ -1,0 +1,229 @@
+<style>
+    .dangerCardSpacer {
+        margin-bottom: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .dangerCard {
+        min-height: 305px;
+        background: #fff;
+        padding: 0px;
+        height: 100%;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .5);
+        border: 1px solid #fff;
+        color: #fff;
+        transition: all linear .25s;
+    }
+    
+    .dangerCard:hover {
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+        /*        */
+        /*        */
+        /*        */
+        border: 1px solid rgba(0, 0, 0, .5);
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    }
+    
+    .img-circle {
+        border-radius: 50%;
+    }
+    
+    .injectedTwitterImage {
+        margin: 0 auto;
+        width: 18.2%;
+        margin-bottom: 20px;
+    }
+    
+    .displayFlexRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .fullWidthMarginAuto {
+        width: 100%;
+        height: 50px;
+        margin: 25px 0px;
+    }
+    
+    .fullWidth33MarginAuto {
+        width: 33%;
+        display: inline;
+        height: 50px;
+        margin: 0 auto;
+        float: left;
+    }
+    
+    .dataPartial {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, .0007);
+        text-align: center;
+    }
+    
+    .leDivider {
+        margin: 0 auto;
+        background-color: #f3f3f3;
+        width: 1px;
+        height: 90%;
+        display: block;
+        display: inline;
+        display: inline-table;
+        float: left;
+    }
+    
+    .byTheByNumbers {
+        font-size: 18px;
+    }
+    
+    .dangerText {
+        /* margin: 25px 0px; */
+    }
+    
+    .headLiner {
+        font-size: 61px;
+    }
+</style>
+
+<div class="bodyWrapper">
+
+
+    <h1>LOSE THE QUIT</h1>
+    <div class="row">
+        <div class="col-lg-6 col-xs-12">
+            <h3>Georgia Disasters: </h3>
+            <p>STORM DATA</p>
+        </div>
+    </div>
+
+
+    <div class="theWhiteLine"></div>
+    <div class="clearFloat"></div>
+
+
+    <div class="row">
+        <div class="col-md-6 col-xs-12 dangerCardShell dangerDataCard" ng-repeat="danger in dangerData">
+
+            <div class="dangerCard addSomeMarginBottom">
+                <div class="cardImage" style="background: url(&quot;{{danger.user.profile_background_image_url}}&quot;); background-size: cover;">
+
+                    <div class="cardImageOverLay add20pxPadding">
+
+                        <p>county:</p>
+                        <div class="headLiner">
+                            <p>{{danger.NAME}}</p>
+                        </div>
+                        <p>state: {{danger.POSTAL_CODE}}</p>
+                        <p>fips code: {{danger.FIPS_CODE}}</p>
+                        <p>{{danger.HAZARD_TYPE_COMBO}}</p>
+
+                        <div class="dangerCardSpacer"></div>
+                        <div class="igCardHeaderMargin"></div>
+
+                        <!--
+                        DO NOT USE -- <p>{{danger.CROP_DAMAGE | currency:"USD$": 0}}</p>
+                        -- <p>{{danger.FATALITIES}}</p>
+                        -- <p>{{danger.FIPS_CODE}}</p>
+                        -- <p>{{danger.HAZARD_BEGIN_DATE}}</p>
+                        -- <p>{{danger.HAZARD_END_DATE}}</p>
+                        -- <p>{{danger.HAZARD_TYPE_COMBO}}</p>
+                        -- <p>{{danger.INJURIES}}</p>
+                        -- <p>{{danger.NAME}}</p>
+                        -- <p>{{danger.POSTAL_CODE}}</p>
+                        -- <p>{{danger.PROPERTY_DAMAGE | currency:"USD$": 0}}</p>
+                        <p>{{danger.REMARKS}}</p>
+                        <p>{{danger.hazard_id}}</p>
+                        -->
+
+                        <!--
+                        <ul class="dataCellContainer">
+                            <li class="dataCell headLiner">{{danger.NAME}}</li>
+                            <li class="dataCell">{{danger.CROP_DAMAGE}}</li>
+                            <li class="dataCell">{{danger.FATALITIES}}</li>
+                            <li class="dataCell">{{danger.FIPS_CODE}}</li>
+                            <li class="dataCell">{{danger.HAZARD_BEGIN_DATE}}</li>
+                            <li class="dataCell">{{danger.HAZARD_END_DATE}}</li>
+                            <li class="dataCell">{{danger.HAZARD_TYPE_COMBO}}</li>
+                            <li class="dataCell">{{danger.INJURIES}}</li>
+                            <li class="dataCell">{{danger.POSTAL_CODE}}</li>
+                            <li class="dataCell">{{danger.PROPERTY_DAMAGE}}</li>
+                            <li class="dataCell">{{danger.REMARKS}}</li>
+                            <li class="dataCell">{{danger.hazard_id}}</li>
+                        </ul>
+                        -->
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.INJURIES}}</p>
+                                    <p>injuries</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.PROPERTY_DAMAGE | currency: "$": 0}}</p>
+                                    <p>property damage</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.FATALITIES}}</p>
+                                    <p>fatalities</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+
+                        </div>
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.HAZARD_BEGIN_DATE}}</p>
+                                    <p>start date</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.INJURIES}}</p>
+                                    <p>injuries</p>
+                                </div>
+                            </div>
+
+                            <div class="leDivider"></div>
+
+                            <div class="fullWidth33MarginAuto">
+                                <div class="dataPartial">
+                                    <p class="byTheByNumbers">{{danger.HAZARD_END_DATE}}</p>
+                                    <p>end date</p>
+                                </div>
+                            </div>
+
+                            <div class="clearFloat"></div>
+
+                        </div>
+
+                        <div class="fullWidthMarginAuto">
+                            <div class="clearFloat"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

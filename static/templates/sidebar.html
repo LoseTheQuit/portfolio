@@ -1,0 +1,884 @@
+<style>
+    .sidebar {
+        width: 100%;
+        height: 90%;
+        background: rgba(0, 0, 0, .5);
+        border: 1px solid #fff;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        transition: all linear .25s;
+        z-index: 1;
+    }
+
+    .sidebar:hover {
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    }
+
+    .sideBarHover {
+        transition: all linear .75;
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    }
+
+    .sidebarStyle {
+        width: 100%;
+        height: 90%;
+        background: rgba(0, 0, 0, .5);
+        border: 1px solid #fff;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        transition: all linear .25s;
+        z-index: 1;
+    }
+
+    .affix-top,
+    .affix {
+        position: static;
+    }
+
+    .inputBox {
+        width: 70%;
+        width: 55%;
+        height: 40px;
+        height: 45px;
+        color: #000;
+        padding: 10px;
+        border: solid 1px rgba(0, 0, 0, .25);
+        box-shadow: inset 0 0 0 1px #707070;
+        transition: box-shadow 0.3s, border 0.3s;
+        margin-bottom: 10px;
+        vertical-align: middle;
+        margin: 0 auto;
+        display: inline;
+        /* float: right; */
+    }
+
+    .form-group {
+        width: 80%;
+        height: 45px;
+        color: #000;
+        padding-bottom: 7px;
+        margin: 0 auto;
+        /* margin: 28px 0 0 0;*/
+    }
+
+    .inputBox:focus,
+    .inputBox input[type="text"].focus {
+        border: solid 1px rgba(0, 0, 0, .50);
+    }
+
+    @media (min-width: 990px) {
+        .container {
+            width: 95%;
+        }
+        .jumboTronContainer {
+            width: 40%;
+        }
+        .sidebar.affix-top {
+            position: static;
+            width: 228px;
+        }
+        .sidebar.affix {
+            position: fixed;
+            top: 5%;
+            width: 228px;
+        }
+        .socialDataWrapper {
+            position: static;
+            margin-top: 0px;
+            z-index: -1;
+        }
+        .displayFlex {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .searchIconSideBar {
+            width: 15%;
+            margin: 15px;
+        }
+        .socialIconSideBar {
+            width: 15%;
+            margin: 10px;
+        }
+        .inputBox {
+            width: 40%;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .container {
+            width: 100%;
+        }
+        .jumboTronContainer {
+            width: 50%;
+        }
+        .sideBarContainer {
+            width: 95%;
+        }
+        .sidebar.affix-top {
+            position: relative;
+            margin-top: -20px;
+            width: 100%;
+        }
+        .sidebar.affix {
+            position: relative;
+            top: 0%;
+            width: 100%;
+            margin-top: -20px;
+        }
+        .custom-dropdown .open {
+            margin: 0 auto;
+        }
+        .socialDataWrapper {
+            position: static;
+            /* margin-top: 200px; */
+            margin-top: 0px;
+            z-index: -1;
+        }
+        .displayFlex {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .searchIconSideBar {
+            width: 100%;
+            margin: 0px;
+        }
+        .socialIconSideBar {
+            width: 10%;
+            margin: 10px;
+        }
+        .inputBox {
+            width: 55%;
+        }
+    }
+
+    @media (max-width:1200px) {
+        .navbar-nav {
+            float: none;
+            margin: 0;
+            margin: 0 auto;
+            margin: 7.5px 15px;
+        }
+        .navbar-collapse.in {
+            overflow-y: visible
+        }
+        .navbar-nav li {
+            float: none;
+        }
+        .navbar-nav li a {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .inputBox {
+            width: 40%;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .sideBarHeadLine {
+            font-size: 10px;
+            width: 100%;
+            display: block;
+            display: inline-block;
+            white-space: inherit;
+            /*
+        white-space: normal;
+        white-space: pre;
+        white-space: pre-line;
+        white-space: pre-wrap;
+        white-space: initial;
+        white-space: nowrap;
+            */
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .sideBarHeadLine {
+            font-size: 24px;
+            width: 100%;
+            display: block;
+            display: inline-block;
+            white-space: inherit;
+        }
+    }
+
+    .beaker {
+        width: 100%;
+        height: 100%;
+    }
+    /*--***** DROPDOWN STYLES *****--*/
+    /*--***** DROPDOWN STYLES *****--*/
+    /*--***** DROPDOWN STYLES *****--*/
+    /*--***** DROPDOWN STYLES *****--*/
+    /*--***** DROPDOWN STYLES *****--*/
+
+    .dropdown button,
+    .dropdown button:hover,
+    .dropdown button:active,
+    .dropdown button:focus {
+        position: relative;
+        background-color: transparent;
+        color: #fff;
+        overflow: hidden;
+        padding: 0px;
+        border: 0px;
+    }
+
+    .dropdown:focus button {
+        position: relative;
+        background-color: transparent;
+        color: #fff;
+        overflow: hidden;
+        border-radius: 0px;
+        padding: 0px;
+    }
+
+    .dropdown-menu a {
+        color: rgba(255, 255, 255, .95);
+    }
+
+    .custom-dropdown {
+        /* margin: 0 auto; */
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        line-height: 50px;
+        display: block;
+        margin-bottom: 25px;
+        margin-top: 25px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+        background: rgba(0, 45, 114, .07);
+        border: 1px solid rgba(0, 163, 224, .37);
+    }
+
+    .custom-dropdown:hover {
+        box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+        text-decoration: none;
+        color: #fff;
+        transition: all linear .50s;
+    }
+
+    .custom-dropdown a {
+        color: transparent;
+    }
+
+    .custom-dropdown a:hover,
+    .custom-dropdown a:focus {
+        text-decoration: none;
+    }
+
+    .custom-dropdown .open a {
+        background-color: transparent;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .custom-dropdown .open a:hover,
+    .custom-dropdown .open a:focus {
+        /* background-color: transparent; */
+        background-color: rgba(255, 255, 255, .10);
+        text-decoration: none;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+        color: #fff;
+    }
+
+    .custom-dropdown .icon-bar {
+        border: 1px solid #fff;
+    }
+
+    .custom-dropdown .open li a {
+        transition: all linear .50s;
+        margin: 0 auto;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .primaryDropDownText {
+        display: inline-block;
+        /* margin: 10px; */
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    .displayFlexBottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .customDropDownButtonWrapper {
+        margin: 0 auto;
+    }
+
+    .dropup,
+    .dropdown li {
+        margin: 0 auto;
+    }
+
+    .dropup,
+    .dropdown {
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .showButton {
+        margin-right: 2%;
+    }
+
+    .searchIconSideBarContainer {
+        display: inline;
+    }
+    /*
+    .sideBarHeadLine {
+        font-size: 24px;
+        width: 100%;
+        display: block;
+        display: inline-block;
+        white-space: inherit;
+        white-space: normal;
+        white-space: pre;
+        white-space: pre-line;
+        white-space: pre-wrap;
+        white-space: initial;
+        white-space: nowrap;
+
+    }
+*/
+
+    .customCenter {
+        display: block;
+        text-align: -webkit-center;
+    }
+
+    .demo-swipe {
+        margin: 0 auto;
+        width: 30%;
+        font-size: 14px;
+        color: black;
+        background: #c3c3c3;
+    }
+    /* CUSTOM */
+
+    .form-group.label-static label.control-label,
+    .form-group.label-floating.is-focused label.control-label,
+    .form-group.label-floating:not(.is-empty) label.control-label {
+        top: -30px;
+        left: 0;
+        font-size: 12px;
+        line-height: 1.07142857;
+        color: #00a3e0;
+    }
+
+    .hamburgerMenu {
+        margin-left: 20px;
+    }
+
+    .menuitem {
+        color: #fff;
+    }
+</style>
+
+
+<div class="container" ng-hide="!hideThisDiv">
+
+    <div class="leftCol">
+
+        <ul class="nav nav-stacked sidebarFinder sidebar" id="sidebar">
+            <div class="beaker displayFlex">
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <div class="dropDownController custom-dropdown">
+
+                        <center>
+
+
+                            <div class="hideThisDiv">
+                                <div class="searchIconSideBarContainer">
+                                    <img class="searchIconSideBar" src="../img/svg/search.svg">
+                                </div>
+
+                                <div class="form-group label-floating">
+                                    <label for="i182" class="control-label">#search</label>
+                                    <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                                </div>
+                            </div>
+
+
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
+                                <span class="sr-only">LTQ</span>
+
+                                <a href="javascript:void(0)" class="btn btn-info btn-fab">
+                                    <i class="material-icons">
+                                    <img class="searchIconSideBar" src="../img/svg/search.svg">
+                                    </i>
+                                </a>
+
+                            </button>
+
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <center>
+                                        <li role="presentation" class="">
+                                            <div class="form-group label-floating nestedInputField">
+
+                                                <label for="i182" class="control-label">#search</label>
+                                                <!-- placeholder="#search" -->
+                                                <input id="i182" type="text" class="form-control col-sm-8" ng-model-options='{ debounce: 250 }' class="inputBox" ng-model="inputSearchTweetsAndInstagramQuery" ng-change="getIgandTwitterApiData()">
+                                            </div>
+                                        </li>
+
+                                        <li role="presentation" class=" ">
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <img class="socialIconSideBar" src="../img/svg/twitter.svg">
+                                                    <span class="primaryDropDownText">
+                                        <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
+                                                    <b class="caret"></b>
+                                                    </span>
+                                                </button>
+
+                                                <ul class="dropdown-menu">
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                            <!--  LIST ITEMS FOR THE OTHER SOCIAL PLATFORMS-->
+                                            <!--
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <img class="socialIconSideBar" src="../img/svg/instagram.svg">
+                                                    <span class="primaryDropDownText">
+                                        <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
+                                                    <b class="caret"></b>
+                                                    </span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <img class="socialIconSideBar" src="../img/svg/soundcloud.svg">
+                                                    <span class="primaryDropDownText">
+                                                <span>{{getTwitterDropDownText(getTwitterDropDownNumber)}}</span>
+                                                    <b class="caret"></b>
+                                                    </span>
+
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(1)><span>user timeline</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(2)><span>search tweets</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="customCenter">
+                                                        <a class="menuitem" role="menuitem" ng-click=getTwitterDropDownText(3)><span>coming soon</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            -->
+
+                                        </li>
+                                        <li role="presentation" class=" ">
+                                            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                                                <div class="displayFlexBottom">
+                                                    <center>
+                                                        <h1 class="sideBarHeadLine">
+                                <span>werkspayce</span>
+                                </h1>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </center>
+                                </ul>
+
+                            </div>
+
+                        </center>
+
+                    </div>
+
+                </div>
+
+                <!--
+                    <div class="col-lg-12 col-md-12">
+                        <div class="swipeController" ng-cloak layout="row">
+                            <div flex>
+                                <div class="demo-swipe" md-swipe-left="onSwipeLeft()">
+                                    <span class="no-select">Swipe me to the left</span>
+                                    <md-icon md-font-icon="android" aria-label="android"></md-icon>
+                                </div>
+                                <md-divider></md-divider>
+                                <div class="demo-swipe" md-swipe-right="onSwipeRight()">
+                                    <span class="no-select">Swipe me to the right</span>
+                                </div>
+                            </div>
+                            <md-divider></md-divider>
+
+                        </div>
+                    </div>
+                 -->
+
+            </div>
+
+        </ul>
+    </div>
+
+
+    <script>
+        //  $(functionfunction () { });
+        $(function() {
+            try {
+
+                var isTheSideBarLargerThan1200 = true;
+                var stickyLine = document.querySelector('.stickyLine');
+                var stickyLinePosition = stickyLine.getBoundingClientRect().top;
+
+                console.log(stickyLinePosition)
+
+                $('.sidebar').affix({
+                    offset: {
+                        top: -10
+                    }
+                });
+
+                var $body = $(document.body);
+                var navHeight = $('.navbar').outerHeight(true) + 10;
+
+                $body.scrollspy({
+                    target: '.leftCol',
+                    offset: navHeight
+                });
+
+                var instaCardWidth = $('.igCard').width();
+                var tweetCardWidth = $('.cardImage').width();
+                var theWhiteLineWidth = $('.theWhiteLine').width();
+
+                function sideBarAppear() {
+
+                    $('.sidebar').css({
+                        "background": 'rgba(0, 0, 0, .87)',
+                        "transition": 'all linear .25s',
+                        "border": '1px solid #fff',
+                        "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
+                        "height": 'auto',
+                        "width": theWhiteLineWidth + 'px',
+                        "top": '5%',
+                        "position": "fixed"
+                    });
+
+                    $('.sidebar.affix').css({
+                        "margin-top": '-20px'
+                    });
+
+                    $('.btn-info').removeClass('btn-raised');
+
+                }
+
+                function sideBarDisAppear() {
+
+
+                    $('.sidebar').css({
+                        "background": 'rgba(0, 0, 0, .00)',
+                        "border": 'none',
+                        "box-shadow": '0 0px 0px rgba(0, 0, 0, .00)',
+                        "transition": 'all linear .25s',
+                        "height": 'auto',
+                        "width": theWhiteLineWidth + 'px',
+                        "top": '5%',
+                        "position": "fixed"
+                    });
+
+                    $('.sidebar.affix').css({
+                        "margin-top": '-30px'
+                    });
+
+                    $('.btn-info').addClass('btn-raised');
+
+                }
+
+                function sideBarResize() {
+
+                    instaCardWidth = $('.igCard').width();
+                    tweetCardWidth = $('.cardImage').width();
+                    theWhiteLineWidth = $('.theWhiteLine').width();
+
+                    var tweetCardShellPaddingRight = function() {
+
+                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                            return 15;
+                        } else {
+
+                            return parseInt($('.tweetCardShell').css('padding-right').replace('px', ''));
+                        }
+                    };
+
+                    var tweetCardShellPaddingLeft = function() {
+
+
+                        if (parseInt($('.tweetCardShell').css('padding-right') === undefined)) {
+                            return 15;
+                        } else {
+
+                            return parseInt($('.tweetCardShell').css('padding-left').replace('px', ''));
+                        }
+                    };
+
+
+                    if (($(window).width() + 17) > 1200) {
+
+                        isTheSideBarLargerThan1200 = true;
+                        $('.dropDownController').addClass('custom-dropdown');
+
+                        $('.navbar-toggle').addClass('collapsed');
+
+                        $('.hideThisDiv').css('display', 'block');
+
+                        $('.swipeController').css('display', 'none');
+                        $('.nestedInputField').css('display', 'none');
+                        $('.dropDownController').addClass('custom-dropdown');
+
+                        $('.row').css({
+                            "margin-right": '-15px',
+                            "margin-left": '-15px'
+                        });
+
+                        $('.sidebar').css({
+
+                            "top": '5%',
+                            "width": '100%',
+                            "height": '90%',
+                            "z-index": '1',
+                            "background": 'rgba(0, 0, 0, .5)',
+                            "transition": 'all linear .25s',
+                            "height": '90%',
+                            "box-shadow": '0 10px 10px rgba(0, 0, 0, .25)',
+                            "border": '1px solid #fff'
+
+                        });
+
+                        $('.sidebar.affix').css({
+                            "margin-top": '0px'
+                        });
+
+                        if (tweetCardWidth <= 101) {
+                            $('.sidebar').css('width', 300 - 75);
+                        } else {
+                            $('.sidebar').css('width', tweetCardWidth - ((15 + 15) * 2.5));
+                            // $('.sidebar').css('width', (tweetCardWidth / 2) - ((15 + 15) * 2.5));
+                        }
+
+                    } else {
+
+                        isTheSideBarLargerThan1200 = false;
+
+                        $('.dropDownController').removeClass('custom-dropdown');
+                        $('.hideThisDiv').css('display', 'none');
+
+                        $('.swipeController').css('display', 'block');
+                        $('.nestedInputField').css('display', 'block');
+
+                        if (($('.navbar-toggle').hasClass('collapsed'))) {
+
+                            sideBarDisAppear();
+
+                        } else {
+
+                            sideBarAppear();
+                        }
+
+                        $('.row').css({
+                            "margin-right": '-27px',
+                            "margin-left": '-27px'
+                        });
+
+                        $(window).scroll(function() {
+
+                            if (!(isTheSideBarLargerThan1200)) {
+
+                                if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                    $('.navbar-toggle:visible').click();
+                                    sideBarAppear();
+
+                                } else {
+
+                                    sideBarDisAppear();
+
+                                }
+                            }
+
+                        });
+
+                    }
+
+                    if (tweetCardWidth <= 240) {
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+                        console.log('tweetCardWidth <= 240');
+
+                        $('.fullWidth33MarginAuto').css({
+                            "width": '32%'
+                        });
+
+                        $('.byTheByNumbers').css({
+                            "font-size": '15px;'
+                        });
+
+                    }
+
+
+                    console.log('\n');
+                    console.log('WINDA: ' + ($(window).width() + 17));
+                    console.log('INSTA: ' + instaCardWidth);
+                    console.log('TWEET: ' + tweetCardWidth);
+                    console.log('SIDEBAR: ' + $('.sidebar').width());
+                    console.log('\n');
+
+                }
+
+                $('.btn-info').click(function() {
+
+                    if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                        sideBarDisAppear();
+                    } else {
+                        sideBarAppear();
+                    }
+
+                });
+
+                $('.sidebar').hover(
+
+                    function() {
+
+                        if (($(window).width() + 17) > 1200) {
+
+                            $('.sidebar').css({
+                                'transition': 'all linear .25s',
+                                'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
+                            });
+
+                        } else {
+
+                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 7px 1px rgba(0, 0, 0, .25)'
+                                });
+
+                            } else {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
+                                });
+                            }
+
+                        }
+
+                    },
+                    function() {
+                        if (($(window).width() + 17) > 1200) {
+                            $('.sidebar').css({
+                                'transition': 'all linear .25s',
+                                'box-shadow': '0 10px 10px rgba(0,0, 0, .25)'
+                            });
+                        } else {
+
+                            if (!($('.navbar-toggle').hasClass('collapsed'))) {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 10px 10px rgba(0, 0, 0, .25)'
+                                });
+                            } else {
+
+                                $('.sidebar').css({
+                                    'transition': 'all linear .25s',
+                                    'box-shadow': '0 0px 0px rgba(0, 0, 0, .00)'
+                                });
+                            }
+
+                        }
+
+                    }
+                );
+
+                setTimeout(function() {
+                    sideBarResize();
+                }, 1000);
+
+                setTimeout(function() {
+                    sideBarResize();
+                }, 1500);
+
+                setTimeout(function() {
+                    sideBarResize();
+                }, 5000);
+
+                $(window).resize(function() {
+                    sideBarResize();
+                });
+
+                $.material.init();
+
+                $('.sidebar').click(function() {
+
+                    if (!($('.navbar-toggle').hasClass('collapsed'))) {
+                        $('.btn-info').addClass('btn-raised');
+                        console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                        console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+                        console.log('IT DOES HAVE THE CLASS COLLAPSED SO TURN THE BUTTON BLUE SO THE BAR WONT CLOSE')
+
+                    }
+
+                });
+
+                $('body').on('touchstart.dropdown', '.dropdown-menu', function(e) {
+                    e.stopPropagation();
+                }).on('touchstart.dropdown', '.navbar-toggle', function(e) {
+                    e.stopPropagation();
+                });
+            } catch (e) {
+                alert(e.name + " " + e.message)
+            }
+
+        });
+    </script>

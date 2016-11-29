@@ -1,0 +1,184 @@
+@-webkit-keyframes bgMove {
+    0% {
+        background-position: 4000px 0;
+    }
+    50% {
+        background-position: -4000px 0;
+    }
+    100% {
+        background-position: 4000px 0;
+    }
+}
+
+@-webkit-keyframes fgMove {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+/*.bodyOverlay {
+    margin-top: 100px;
+    position: sticky;
+    -webkit-animation: fgMove 500s infinite;
+    animation: fgMove 500s infinite;
+    background: url('../img/customJumbotronoverlay.svg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    height: auto;
+    min-height: 1500px;
+}*/
+
+h2 {
+    font-weight: 300;
+    font-size: 67px;
+}
+
+.hold_off_on_that {
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 0%, #27a2f4 21%, #2085c9 48%, #21b8d3 77%, #017bbc 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%, #27a2f4 21%, #2085c9 48%, #21b8d3 77%, #017bbc 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%, #27a2f4 21%, #2085c9 48%, #21b8d3 77%, #017bbc 100%);
+}
+
+
+/*000000000000000*/
+
+
+/*000000000000000*/
+
+
+/*000000000000000*/
+
+
+/**/
+
+
+/**/
+
+
+/**/
+
+.cardStyle {
+    padding: 3%;
+    color: #fff;
+    word-wrap: break-word;
+}
+
+.cardOverlay1 {
+    background: rgba(0, 107, 148, .75);
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(256, 256, 256, .25);
+}
+
+.cardOverlay2 {
+    background: rgba(0, 126, 173, .75);
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(256, 256, 256, .25);
+}
+
+.cardOverlay3 {
+    background: rgba(0, 144, 199, .75);
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(256, 256, 256, .25);
+}
+
+.cardOverlay4 {
+    background: rgba(0, 163, 224, .75);
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(256, 256, 256, .25);
+}
+
+.cardOverlay5 {
+    background: rgba(0, 182, 250, .75);
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(256, 256, 256, .25);
+}
+
+.cardOverlay6 {
+    background: rgba(20, 191, 255, .75);
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(256, 256, 256, .25);
+}
+
+.cardOverlay7 {
+    background: rgba(46, 198, 255, .75);
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(256, 256, 256, .25);
+}
+
+._blur {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.thta_missing_padding {
+    padding: 100px 10px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        max-width: 100%;
+        height: 100%
+    }
+}
+
+@media (min-width: 1200px) {
+    .affix {
+        /* top: 50px; */
+        /* background: rgba(255, 255, 255, .5); */
+        /* height: 100%; */
+        position: fixed;
+    }
+}
+
+.theDividingLine {
+    display: block;
+    height: 3px;
+    width: 90%;
+    background: #fff;
+}
+
+.cardOverRide {
+    padding: 3%;
+    background: rgba(0, 0, 0, .005);
+}
+
+.theWire {
+    background: rgba(0, 172, 0, .5);
+    width: 100%;
+    height: 100%;
+}
+
+.theExceptionalP {
+    line-height: 10px;
+}
+
+.inVisionBG {
+    background: -moz-linear-gradient(top, rgba(162, 146, 199, 0.5) 0%, rgba(129, 119, 157, 0.5) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(162, 146, 199, 0.5) 0%, rgba(129, 119, 157, 0.5) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(162, 146, 199, 0.5) 0%, rgba(129, 119, 157, 0.5) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}

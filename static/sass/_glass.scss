@@ -1,0 +1,238 @@
+/*.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    filter: blur(20px);
+    background: rgba(0, 0, 0, .25);
+}*/
+
+.poll_question_container {
+    margin: 0px 0px 100px;
+    /*border: 1px solid #d4d4d4;*/
+    color: white;
+    display: block;
+    /*background-image: url('https://cdn3.vox-cdn.com/uploads/chorus_asset/file/4387649/Golden-Gate-Bridge_-San-Francisco_-CA.-Creative-Commons-by-Thomas-Hawk..0.jpg');
+    background-size: cover;*/
+}
+
+.card {
+    width: 100%;
+    transition: all linear .25s;
+    padding: 25px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+    display: inline-block;
+    flex-direction: column;
+    background: rgba(0, 107, 148, .1);
+    /*background: rgba(0, 107, 148, .05);*/
+    /*background: rgba(0, 107, 148, .075);*/
+    border-radius: 0px;
+    border: 1px solid hsla(0, 0%, 100%, .5);
+    border: 1px solid hsla(0, 0%, 100%, .25);
+    background-clip: padding-box;
+}
+
+.card--graph {
+    /*
+    width: 100%;
+    transition: all linear .25s;
+    padding: 50px;
+    */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+    display: block;
+    /*background: rgba(0, 107, 148, .05);*/
+    border-radius: 0px;
+    /*
+    border: 5px solid hsla(0, 0%, 100%, .5);
+    background-clip: padding-box;
+    */
+}
+
+.card:hover {
+    transition: all linear .25s;
+    border: 1px solid rgba(255, 255, 255, .75);
+    box-shadow: 0 7px 1px rgba(0, 0, 0, .25);
+    border: 1px solid hsla(0, 0%, 100%, .60);
+    background-clip: padding-box;
+}
+
+.card-overlay {
+    background-color: rgba(0, 0, 0, .750);
+    width: 100%;
+    height: 100%;
+}
+
+.background_overlay {
+    background-color: rgba(0, 0, 0, .750);
+    width: 100vw;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.ghost-botton {
+    border: 1px solid #fff;
+    padding: 10px 40px;
+    color: white;
+    margin: 20px 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0px;
+}
+
+.ghost-botton--state-select {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    min-width: 250px;
+}
+
+.scroll-top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.poll-response {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.poll-question {
+    text-align: left;
+    font-size: 34px;
+}
+
+.stats_container {
+    /*display: inline-block;*/
+    margin: 50px 0px 250px;
+}
+
+.hide {
+    display: none;
+}
+
+.the_other_hide {
+    width: 0px;
+    height: 0px
+}
+
+.dropdown-menu {
+    /*color: #fff;*/
+    /*position: relative;*/
+}
+
+.screen-1 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+    .jumbo_text {
+        font-size: 82px;
+        margin: 0px 0px 50px;
+    }
+    .poll-question {
+        text-align: left;
+        font-size: 27px;
+    }
+    .card {
+        padding: 15px;
+    }
+}
+
+.fixedPosition {
+    position: fixed;
+}
+
+.btn-group[disabled],
+.btn.disabled,
+.btn:disabled,
+.btn[disabled] {
+    color: rgba(255, 255, 255, .25);
+}
+
+.footer {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.footer a:link,
+.footer a:hover,
+.footer a::active,
+.footer a::focus {
+    color: white;
+}
+
+.footerContent {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    float: right;
+}
+
+svg {
+    border: 1px solid #000;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.svgContainer {
+    width: 100%;
+    height: auto;
+}
+
+.card-row-data {
+    border-bottom: 1px solid hsla(0, 0%, 100%, .5);
+    background-clip: padding-box;
+    margin: 50px 0px;
+    display: inline-block;
+}
+
+@media screen and (max-height: 992px) and (min-width: 480px) {
+    .container {
+        width: 80%;
+    }
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after,
+.hamburger-inner {
+    background: #fff;
+    width: 30px;
+}
+
+.ghost-botton * {
+    display: block;
+    text-align: center;
+}
+
+.full-page-container {
+    a:focus,
+    a:hover {
+        color: #fff;
+    }
+}
+
+.card {
+    .btn.active,
+    .btn.focus,
+    .btn:active,
+    .btn:focus,
+    .btn:hover,
+    {
+        color: #fff;
+    }
+}

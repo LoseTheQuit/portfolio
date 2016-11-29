@@ -1,0 +1,264 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,latin-ext,greek-ext,greek,vietnamese,cyrillic,cyrillic-ext);
+.display_flex {
+    display: flex;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+}
+
+.display-block {
+    display: block;
+}
+
+.flex-item-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.bodyWrapper:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -100;
+    display: block;
+    /*background-image: url('https://cdn3.vox-cdn.com/uploads/chorus_asset/file/4387649/Golden-Gate-Bridge_-San-Francisco_-CA.-Creative-Commons-by-Thomas-Hawk..0.jpg');*/
+    background-image: url('../img/sanFran.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+}
+
+.bodyWrapper {
+    position: relative;
+    z-index: 0;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    background: #1e5799;
+    align-items: center;
+    margin: 0 auto;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    font-weight: lighter;
+}
+
+.hamburger-menu {
+    font-size: 25px;
+    cursor: pointer;
+    color: #fff;
+    /*border: 1px solid #fff;*/
+    padding: 3px;
+    /*background-color: #fff;*/
+}
+
+.navWrapper {
+    padding: 20px 0px 150px;
+}
+
+
+/*090909090909*/
+
+
+/*090909090909*/
+
+
+/*090909090909*/
+
+
+/*.navbar-toggle {
+    background: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    margin: 28px 6px 10px;
+    padding: 12px 14px;
+    border: 2px solid black;
+    color: #000;
+}
+
+.btn-navbar:hover {
+    background-color: transparent;
+    background-image: none;
+    border-radius: 0;
+    border: 0 !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding-top: 23px;
+}
+
+.btn.btn-primary {
+    color: #fff;
+}
+
+.btn.btn-primary:focus {
+    color: #fff;
+}
+
+.open>.btn-primary.dropdown-toggle:focus,
+.open>.btn-primary.dropdown-toggle:hover {
+    color: #fff;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.axis path {
+    display: none;
+}*/
+
+.robotoh1 {
+    font-size: 112px;
+    font-weight: lighter;
+}
+
+.robotoh2 {
+    font-size: 67px;
+    font-weight: lighter;
+}
+
+.robotoh3 {
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.robotoh4 {
+    font-size: 37px;
+    font-weight: lighter;
+}
+
+.robotoh5 {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.text_red_glaze {
+    color: rgb(255, 186, 186);
+}
+
+.text_blue_glaze {
+    color: rgb(204, 210, 252);
+}
+
+.secretNavWrapper {
+    padding: 20px 0px 100px;
+}
+
+.robotoh7 {
+    font-size: 28px;
+    font-weight: lighter;
+}
+
+.full-page-container {
+    width: 100%;
+    height: 75vh;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+}
+
+.jumbo_text {
+    font-size: 182px;
+    margin: 0px 0px 100px;
+    font-weight: lighter;
+}
+
+.stats_container {
+    .robotoh2 {
+        font-size: 50px;
+        display: inline-block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navWrapper {
+        padding: 20px 0px 100px;
+    }
+    .full-page-container {
+        width: 100%;
+        height: 85vh;
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        .jumbo_text {
+            font-size: 90px;
+        }
+        .robotoh4 {
+            font-size: 60px;
+        }
+    }
+    .poll_container {
+        margin: 50px 0px;
+    }
+    .secretNavWrapper {
+        padding: 0px;
+    }
+    .robotoh1 {
+        font-size: 87px;
+    }
+    .robotoh1 span {
+        text-align: center;
+    }
+    .poll-response .card {
+        margin-top: 50px;
+    }
+    .stats_container {
+        .vote-button {
+            margin: 40px 0px 50px;
+        }
+        .robotoh4 {
+            font-size: 32px;
+            text-align: center;
+        }
+        .robotoh5 {
+            text-align: center;
+        }
+        .robotoh2 {
+            font-size: 55px;
+            display: block;
+            text-align: center;
+        }
+        .robotoh1 {
+            text-align: center;
+            font-size: 45px;
+        }
+    }
+    .container {
+        width: 80%;
+    }
+}
+
+.robotoHeader {
+    font-weight: 700;
+    font-size: 25x;
+}
+
+
+/*
+@media screen and (max-height: 992px) and (min-width: 480px) {
+    .robotoh4 {
+        font-size: 32px;
+        text-align: center;
+    }
+    .container {
+        width: 80%;
+    }
+}
+*/
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.padding_0 {
+    padding: 0px;
+}

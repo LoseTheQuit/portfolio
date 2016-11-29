@@ -28,5 +28,9 @@
   "engines": {
     "node": "^5.10.1",
     "npm": "^2.1.x"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^2.0.4",
+    "jshint": "^2.9.4"
   }
 }

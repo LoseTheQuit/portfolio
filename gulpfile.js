@@ -148,7 +148,7 @@ gulp.task('clean', function () {
 //        'uglify-scripts',
 //        cb);
 //});
-//
+
 //gulp.task('build', ['run'], function () {
 //    // return gulp.src(['static/views/**/*', 'static/dist/**/*',
 //    //         'static/views/**/*', 'static/img/**/*'
@@ -164,7 +164,7 @@ gulp.task('clean', function () {
 //            .pipe(gulp.dest('dist'))
 //    }, 2500)
 //});
-//
+
 //gulp.task('default', ['clean'], function () {
 //    gulp.start('build');
 //});

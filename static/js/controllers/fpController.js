@@ -5,6 +5,161 @@ angular.module("mainModule")
   .controller('fpController', function($scope, fpService) {
     console.log("INSIDE fpController");
 
+    function loadImg(url) {
+      return new Promise((resolve, reject) => {
+        let image = new Image();
+
+        image.onload = function() {
+          resolve(image);
+        }
+
+        image.onerror = function() {
+          let message = "ERROR: " + url;
+          reject(new Error(message));
+        }
+
+        image.src = url;
+
+      });
+
+    }
+
+    Promise.all([
+      loadImg('http://www.deltbf.com/wp-content/uploads/2015/12/slide1-image-tablet.png')
+    ]).then((images) => {
+      images.forEach(img => addImg(img.src))
+    }).catch((err0r) => {
+      // 
+    })
+
+
+    let addImg = (src) => {
+      let imgElement = document.createElement('img');
+      imgElement.src = src;
+      document.body.appendChild(imgElement);
+    }
+
+
+    // loadImagePromised('http://www.deltbf.com/wp-content/uploads/2015/12/slide1-image-tablet.png')
+    // .then(img) => {
+
+    //   var imgElement = document.createElement('img');
+    //   imgElement.src = img.src;
+    //   document.body.appendChild(imgElement);
+
+    // };
+
+    // DEC 9
+
+    // DEC 8TH 
+    var cirlceArea = (r) => {
+      var PI = 3.14;
+      return PI * (r * r);
+    }
+    console.log(cirlceArea(55));
+    // TEMPLATE LITERAL
+    var stringASAName = 'Brendan';
+    console.log("My name is " + stringASAName + " Carr")
+    console.log(`My name is ${stringASAName} Carr`)
+
+    var addNumbers = (a, b, c) => {
+      console.log(a + b + c);
+    };
+
+    var numZ = [3, 4, 5];
+    console.log(numZ[0], numZ[1], numZ[2]);
+    console.log(...numZ);
+
+
+    // SPREAD OPERATOR
+    var foreignFoods = ['beef patty', 'lo mein'];
+    var foods = ['cranberry', 'chicken', 'bbq'];
+    console.log(foods);
+    var foods = ['cranberry', ...foreignFoods, 'chicken', 'bbq'];
+    console.log(foods);
+
+    // CLASSES
+    class Person {
+
+      constructor(name, age, weight) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+
+      }
+
+      displayName() {
+        console.log(this.name)
+
+      }
+      displayAge() {
+        console.log(this.age)
+
+      }
+      displayWeight() {
+        console.log(this.weight)
+
+      }
+
+    }
+
+    var triston = new Person('Triston', 10, 110);
+
+    triston.displayName();
+    triston.displayAge();
+    triston.displayWeight();
+
+    // INHERITANCE
+    class Programmer extends Person {
+
+      constructor(name, age, weight, language) {
+        super(name, age, weight);
+        this.language = language;
+      }
+      displayLanguage() {
+        console.log(this.language)
+      }
+    }
+    var brendan = new Programmer('Brendan', 29, 150, `JS`);
+    brendan.displayLanguage();
+
+    // GENERATORS
+
+    function* simpleGenerator() {
+
+      yield `apples`;
+      yield `bacon`;
+      console.log(`this is the line after bacon...`);
+      yield `corn`;
+    };
+
+    let sample = simpleGenerator();
+
+    console.log(sample.next().value);
+    console.log(sample.next().value);
+    console.log(sample.next().value);
+    console.log(sample.next().value);
+
+    function* getNextID() {
+
+      let id = 0
+      while (id < 3) {
+        yield id++
+      }
+
+    };
+
+    let createUser = getNextID();
+
+    console.log(createUser.next().value);
+    console.log(createUser.next().value);
+    console.log(createUser.next().value);
+    console.log(createUser.next().value);
+
+    // DEC 8TH 
+    /*
+    
+    
     function converttext() {
       inputtext = document.getElementById('codeconverter').inputtext.value;
       out = inputtext.replace(/\&/g, '&amp;')
@@ -31,30 +186,30 @@ angular.module("mainModule")
 
     fpService.getDataOther(function(response) {
       var ratchhhh = Math.floor(Math.random() * 100)
-      // log(ratchhhh)
+        // log(ratchhhh)
       var tweets = response;
       var ranDomIdTotal = 0;
       tweets = response.data
         .filter((line) => {
           // log(Object.keys(line).length)
           return line.text.length > ratchhhh
-        // line.text.length > 0
+            // line.text.length > 0
         })
         .map((line) => {
           ranDomIdTotal += line.id
           return line
         })
-      //  log(ranDomIdTotal)
+        //  log(ranDomIdTotal)
       var ranDomSetOfObjects = [{
-        num: Math.floor(Math.random() * 100)
-      }, {
-        num: Math.floor(Math.random() * 100)
-      }, {
-        num: Math.floor(Math.random() * 100)
-      }]
-      //console.log(tweets);
-      // console.log(ranDomSetOfObjects);
-      // TWITTER DATA USED TO PAINT THE CANVAS
+          num: Math.floor(Math.random() * 100)
+        }, {
+          num: Math.floor(Math.random() * 100)
+        }, {
+          num: Math.floor(Math.random() * 100)
+        }]
+        //console.log(tweets);
+        // console.log(ranDomSetOfObjects);
+        // TWITTER DATA USED TO PAINT THE CANVAS
       $scope.twitterData = tweets;
 
     });
@@ -89,7 +244,7 @@ angular.module("mainModule")
     // mapped to a key, by copyying the key letter for letter
     // using brackets
 
-    var {rar, raz} = foo;
+    var { rar, raz } = foo;
 
     console.log(rar)
     console.log(raz)
@@ -108,10 +263,10 @@ angular.module("mainModule")
 
     var oldMovieV1 = {
 
-      just: "Just",
-      cause: "Cause"
-    }
-    //  console.log(oldMovieV1);
+        just: "Just",
+        cause: "Cause"
+      }
+      //  console.log(oldMovieV1);
 
     var oldMovieV2 = {
 
@@ -124,11 +279,11 @@ angular.module("mainModule")
 
     // I'm going to have to revisit this.
 
-    var printObject = ({fParam, sParam}) => {
+    var printObject = ({ fParam, sParam }) => {
       //  console.log(fParam + " " + sParam);
     }
 
-    var {just, cause} = oldMovieV2
+    var { just, cause } = oldMovieV2
 
     console.log(just + " " + cause);
     console.log(typeof just + " " + typeof cause);
@@ -184,32 +339,26 @@ angular.module("mainModule")
       {
         name: "Geoff",
         species: 'Giraffe'
-      },
-      {
+      }, {
         name: "Harold",
         species: 'Dog',
         age: (Math.floor(Math.random() * 15))
-      },
-      {
+      }, {
         name: "Kumar",
         species: 'Dog',
         age: (Math.floor(Math.random() * 15))
-      },
-      {
+      }, {
         name: "Bill",
         species: 'Dog',
         age: (Math.floor(Math.random() * 15))
-      },
-      {
+      }, {
         name: "Ted",
         species: 'Dog',
         age: (Math.floor(Math.random() * 15))
-      },
-      {
+      }, {
         name: "SpongBob",
         species: 'Sponge Fish'
-      },
-      {
+      }, {
         name: "Lina",
         species: 'Lion'
       }
@@ -220,7 +369,7 @@ angular.module("mainModule")
 
     animals.filter((animal) => {
       if (animal.species == "Dog")
-        //dogs.push(json(json(json(animal))))
+      //dogs.push(json(json(json(animal))))
         dogs.push(json(animal))
     })
 
@@ -240,7 +389,7 @@ angular.module("mainModule")
     log("FRON FILTER WITH MAP: ")
     log(dogs)
     log(dogs.join(' - - - - - - - - - '))
-    // var dogs = animals.filter((animal) => animal.species)
+      // var dogs = animals.filter((animal) => animal.species)
 
     log("---")
     log(JSON.stringify(dogs, null, 2))
@@ -266,20 +415,15 @@ angular.module("mainModule")
 
     log(names)
 
-    var orders = [
-      {
-        amount: 250
-      },
-      {
-        amount: 1350
-      },
-      {
-        amount: 400
-      },
-      {
-        amount: 7000
-      },
-    ]
+    var orders = [{
+      amount: 250
+    }, {
+      amount: 1350
+    }, {
+      amount: 400
+    }, {
+      amount: 7000
+    }, ]
 
     var totalAmount = orders.reduce((sum, order) => {
       console.log("AMOUNTS: $" + sum, order)
@@ -346,24 +490,19 @@ angular.module("mainModule")
     console.log(lastlyNow)
 
     // currying a function returninga funtion
-    let dragons = [
-      {
-        name: "Drake",
-        element: "lightning"
-      },
-      {
-        name: "Oscar",
-        element: "lightning"
-      },
-      {
-        name: "Frank",
-        element: "ice"
-      },
-      {
-        name: "Mac",
-        element: "cheese"
-      }
-    ]
+    let dragons = [{
+      name: "Drake",
+      element: "lightning"
+    }, {
+      name: "Oscar",
+      element: "lightning"
+    }, {
+      name: "Frank",
+      element: "ice"
+    }, {
+      name: "Mac",
+      element: "cheese"
+    }]
 
     // var hasElement = _.curry((element, obj) => {return obj.element === element})
     var hasElement = (element, obj) => {
@@ -383,72 +522,55 @@ angular.module("mainModule")
 
     //  console.log(countDown(10))
 
-    var categories = [
-      {
-        id: 'animals',
-        parent: null
-      },
-      {
-        id: 'mammals',
-        parent: 'animals'
-      },
-      {
-        id: 'reptiles',
-        parent: 'animals'
-      },
-      {
-        id: 'frog',
-        parent: 'reptiles'
-      },
-      {
-        id: 'snake',
-        parent: 'reptiles'
-      },
-      {
-        id: 'cats',
-        parent: 'mammals'
-      },
-      {
-        id: 'dog',
-        parent: 'mammals'
-      },
-      {
-        id: 'cobra',
-        parent: 'snake'
-      },
-      {
-        id: 'python',
-        parent: 'snake'
-      },
-      {
-        id: 'Boxer',
-        parent: 'dog'
-      },
-      {
-        id: 'Pitt Bull',
-        parent: 'dog'
-      },
-      {
-        id: 'German Shepherd',
-        parent: 'dog'
-      },
-      {
-        id: 'Chihuahua',
-        parent: 'dog'
-      },
-      {
-        id: 'Labrador',
-        parent: 'dog'
-      },
-      {
-        id: 'persian',
-        parent: 'cats'
-      },
-      {
-        id: 'siamese',
-        parent: 'cats'
-      }
-    ]
+    var categories = [{
+      id: 'animals',
+      parent: null
+    }, {
+      id: 'mammals',
+      parent: 'animals'
+    }, {
+      id: 'reptiles',
+      parent: 'animals'
+    }, {
+      id: 'frog',
+      parent: 'reptiles'
+    }, {
+      id: 'snake',
+      parent: 'reptiles'
+    }, {
+      id: 'cats',
+      parent: 'mammals'
+    }, {
+      id: 'dog',
+      parent: 'mammals'
+    }, {
+      id: 'cobra',
+      parent: 'snake'
+    }, {
+      id: 'python',
+      parent: 'snake'
+    }, {
+      id: 'Boxer',
+      parent: 'dog'
+    }, {
+      id: 'Pitt Bull',
+      parent: 'dog'
+    }, {
+      id: 'German Shepherd',
+      parent: 'dog'
+    }, {
+      id: 'Chihuahua',
+      parent: 'dog'
+    }, {
+      id: 'Labrador',
+      parent: 'dog'
+    }, {
+      id: 'persian',
+      parent: 'cats'
+    }, {
+      id: 'siamese',
+      parent: 'cats'
+    }]
 
     var figTree = categories.filter(line => line.parent === "dogs")
       //returns the whole object not just line by line
@@ -542,9 +664,9 @@ angular.module("mainModule")
     log(TEST.substring(0, TEST.length - 1))
     log(TEST.charAt(TEST.length - 1))
     log(TEST.substring(1, 5))
-    // first grabs the char at give index
-    // stops and doens't return a char at
-    // given second index
+      // first grabs the char at give index
+      // stops and doens't return a char at
+      // given second index
 
     let baconDrifter = "0 is the First index";
     log(baconDrifter.substring(2, 10))
@@ -578,7 +700,7 @@ angular.module("mainModule")
     log("I AM THE " + THISOTHERTEST.replace('T', "B") + " EVER")
     log("I AM THE " + THISOTHERTEST.replace('T', "B") + " EVER".toLowerCase())
     log("I AM THE " + THISOTHERTEST.replace('T', "B") + " EVER".toUpperCase())
-    // all of these strings a immutable - these methods return new strings
+      // all of these strings a immutable - these methods return new strings
 
 
     // REGEX
@@ -608,7 +730,7 @@ angular.module("mainModule")
 
 
     // null
-      // come back to this
+    // come back to this
 
     // The Global Object
     // global props - undefined, Infinity, NaN
@@ -634,9 +756,9 @@ angular.module("mainModule")
     console.log(greet("World"))
     console.log(greet("World"))
     console.log(greet("World"))
-    // closures!!
-    // closures!!
-    // closures!!
+      // closures!!
+      // closures!!
+      // closures!!
 
 
     //VIDEO
@@ -646,9 +768,9 @@ angular.module("mainModule")
     log(.1 + .1)
     log(Number("007"))
     log(parseInt("08"), 10)
-    // log("CONSTRUCTORS BEGIN WITH CAPITAL LETTER")
-    // && The guard operator -
-    // || The default operator -
+      // log("CONSTRUCTORS BEGIN WITH CAPITAL LETTER")
+      // && The guard operator -
+      // || The default operator -
 
     // var a = {}
     //
@@ -666,8 +788,8 @@ angular.module("mainModule")
     // Immutable Primative Values and Mutable Object Refernce
 
     var wackyJackie = "Wen\'t to water!"
-    // scope
-    // blocks don't have scope - fucntions have scope
+      // scope
+      // blocks don't have scope - fucntions have scope
 
     var myCar = "BMW"
     log(myCar);
@@ -867,16 +989,16 @@ angular.module("mainModule")
     log(superHeroes.length)
     superHeroes.length = 3
     log(superHeroes.length)
-    // superHeroes[69] = 69
-    // superHeroes[-7] = -7
-    // superHeroes[2.5] = 2.5
-    // superHeroes['clxxxii'] = 'clxxxii'
+      // superHeroes[69] = 69
+      // superHeroes[-7] = -7
+      // superHeroes[2.5] = 2.5
+      // superHeroes['clxxxii'] = 'clxxxii'
     log(superHeroes)
     superHeroes.push(4, 5, 6, 7, 8, 9, (+'10'))
     superHeroes.unshift('-3', -2, (+'-1'), 0)
     log(superHeroes)
     log(superHeroes.indexOf(0))
-    // type sensitive
+      // type sensitive
     log(superHeroes.indexOf('0'))
     var obbbj1 = {
       a: 1
@@ -898,7 +1020,7 @@ angular.module("mainModule")
     log([obbbj1, obbbj2].indexOf(obbbj1))
     log([obbbj1, obbbj2].indexOf(obbbj2))
     log([1, 2, 3, 4, 5, 4, 7, 8, 9].indexOf(3))
-    // 4 is which index to search from
+      // 4 is which index to search from
     log([1, 2, 3, 4, 5, 4, 7, 8, 9, 3].indexOf(3, 4))
     var someMonths = ['jan', 'feb', 'mar', 'apr', 'may', 'jun']
     log(someMonths)
@@ -927,23 +1049,23 @@ angular.module("mainModule")
     log(String.fromCharCode(97, 98, 99, 120, 121, 122))
     var n = 'Brendan'.replace("Brendan", "Ben");
     log(n)
-
+  
     var sentence = "Hi, my name is Sam!"
-    if (sentence.indexOf("Sam") != -1) {
+    if (sentence.indexOf("Sam") != -1) {  
       log("Sam is in there!")
     }
 
     var howToGetWebDesignClients = ["You have to be worth the money you are asking", 'Find out who makes the decisions', 'you have to grab attention', 'repetitive appearance matters', 'Directly approach the people you want to work with']
-    // var answer = prompt('Hello')
+      // var answer = prompt('Hello')
     log("/////////////////////////")
     log("/////////////////////////")
     log("/////////////////////////")
     log("/////////////////////////")
     log("/////////////////////////")
     var exStrinG = "0Nine5678Nine"
-    // finding the last index of a char in a string
+      // finding the last index of a char in a string
     log(exStrinG.lastIndexOf("Nine"))
-    // search finds the first index a queried char
+      // search finds the first index a queried char
     log(exStrinG.search("Nine"))
 
     var clientMapping = howToGetWebDesignClients.filter((x) => {
@@ -957,4 +1079,6 @@ angular.module("mainModule")
     }
     log(howToGetWebDesignClients)
     log(howToGetWebDesignClients.reverse())
+
+    */
   });

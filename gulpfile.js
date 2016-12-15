@@ -15,39 +15,58 @@ var jshint = require('gulp-jshint');
 var babel = require('gulp-babel');
 var runSequence = require('run-sequence');
 
-gulp.task('watch-sass', function () {
-    console.log('GULP WATCH START');
-    gulp.watch(['static/sass/**/*'], ['minifyCssWATCH']);
-    console.log('GULP WATCH FINISH');
+gulp.task('watch-sass', function() {
+  console.log('GULP WATCH START');
+  gulp.watch(['static/sass/**/*'], ['minifyCssWATCH']);
+  console.log('GULP WATCH FINISH');
+});
+gulp.task('watch-all', function() {
+  console.log('GULP WATCH START');
+  gulp.watch(['static/sass/**/*', 'static/js/controllers/**/*'], ['minifyCssWATCH', 'concat-scripts']);
+  console.log('GULP WATCH FINISH');
 });
 
-gulp.task('compileSassWATCH', ['clean'], function () {
-    gulp.src('static/sass/**/*')
-        .pipe(maps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(maps.write('./'))
-        // .pipe(gulp.dest('static/css/final'))
-        .pipe(gulp.dest('dist/css'))
+gulp.task('concat-scripts', function() {
+  gulp.src([
+      'static/js/controllers/**/*'
+    ])
+    .pipe(concat('app.js'))
+    //this fixed a shorthand javascript error
+    .pipe(babel({
+      presets: ['es2015'],
+      compact: true
+    }))
+    //this fixed a shorthand javascript error
+    .pipe(gulp.dest('static/js/final'));
 });
 
-gulp.task('minifyCssWATCH', ['compileSassWATCH'], function () {
-    // gulp.src('static/css/final/**/*.css')
-    gulp.src('dist/css/**/*.css')
-        .pipe(cssmin())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest('static/css'));
+gulp.task('compileSassWATCH', ['clean'], function() {
+  gulp.src('static/sass/**/*')
+    .pipe(maps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(maps.write('./'))
+    // .pipe(gulp.dest('static/css/final'))
+    .pipe(gulp.dest('dist/css'))
 });
 
-gulp.task('clean', function () {
-    return gulp.src([
-        'dist',
-        // 'static/css/final',
-        'static/js/app.js'
-    ], {
-        read: false
-    }).pipe(clean());
+gulp.task('minifyCssWATCH', ['compileSassWATCH'], function() {
+  // gulp.src('static/css/final/**/*.css')
+  gulp.src('dist/css/**/*.css')
+    .pipe(cssmin())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('static/css'));
+});
+
+gulp.task('clean', function() {
+  return gulp.src([
+    'dist',
+    // 'static/css/final',
+    'static/js/app.js'
+  ], {
+    read: false
+  }).pipe(clean());
 });
 
 // DEPRECATED

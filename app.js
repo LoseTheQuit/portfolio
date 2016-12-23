@@ -2,6 +2,10 @@
 
 // A FEW MODULES
 
+let HyperbolicTimeChamber = './Factory';
+var curry = require('lodash/curry');
+var _ = require('lodash');
+
 let fs = require('fs'),
   fetch = require('node-fetch'),
   colors = require('colors'),
@@ -96,7 +100,7 @@ var scopes = 'user-read-private user-read-email'
  * ROUTING
  */
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 7000));
 
 
 app.use(express.static('static'))
@@ -115,7 +119,7 @@ app.listen(app.get('port'), function() {
 
   console.log('\n');
   console.log('********************************************'.black.bgWhite);
-  console.log("The frontend server is running on port 5000!".black.bgWhite);
+  console.log("The frontend server is running on port 7000!".black.bgWhite);
   console.log('********************************************'.black.bgWhite);
   console.log('\n');
 
@@ -651,31 +655,175 @@ let birdStore = (obj) => {
 
 birdStore(birdObj);
 
-// let midTwo = yield fetch('http://flonoware.herokuapp.com/outermost')
-//   .then(function(data) {
-//     var json = data.json();
-//     return json;
-//   });
 
-// the first call of next executes from the start of the function
-// until the first yield statement
+let log = (x) => console.log(x);
+let json = (x) => {
+  return JSON.stringify(x, null, 2);
+};
 
-// gen.next();
-// gen.next('pretzel'); // pretzel
-// gen.next('california'); // california
-// gen.next('mayonnaise'); // mayonnaise
+let Flock = function(n) {
+  this.hawks = n;
+};
 
-// function* numbers() {
-//   yield 1;
-//   yield 2;
-//   return 3;
-//   yield 4;
-// }
+Flock.prototype.conjoin = function(other) {
+  this.hawks += other.hawks;
+  return this;
+};
 
-// var g = numbers();
-// console.log(g.next());
-// // <- { done: false, value: 1 }
-// console.log(g.next());
-// // <- { done: false, value: 2 }
-// console.log(g.next());
-// // <- { done: true, value: 3 }
+Flock.prototype.breed = function(other) {
+  this.hawks = this.hawks * other.hawks;
+  return this;
+};
+
+
+let flock_a = new Flock(4);
+let flock_b = new Flock(2);
+let flock_c = new Flock(0);
+
+let result = flock_a.conjoin(flock_c).breed(flock_b)
+  .conjoin(flock_a.breed(flock_b)).hawks;
+
+console.log(result)
+
+let add = (x, y) => x + y;
+
+let multiply = (x, y) => x * y;
+
+flock_a = 4;
+flock_b = 2;
+flock_c = 0;
+
+result = add(multiply(flock_b, add(flock_a, flock_c)), multiply(flock_a, flock_b));
+
+console.log(result);
+result = multiply(flock_b, add(flock_a, flock_a));
+console.log(result);
+
+
+let hi = (x) => {
+  return console.log(x);
+};
+
+let greeting = function(x) {
+  return hi(x)
+}
+
+greeting("Sup!")
+
+let curryAdd = (x) => (y) => x + y;
+let increment = curryAdd(1);
+let addTen = curryAdd(10);
+console.log(addTen(40))
+console.log(curryAdd(10)(100))
+
+// let match = curry((what, str) => str.match(what));
+// let match = ((what) => (str) => str.match(what));
+
+let match = (what) => {
+  return (str) => {
+    return str.match(what)
+
+  }
+}
+
+let replace = curry((what, rplcmt, str) => str.replace(what, rplcmt));
+let filter = curry((f, arr) => arr.filter(f));
+let map = curry((f, arr) => arr.map(f))
+log(match(/\s+/g, 'hello world'));
+log(match(/\s+/g)('My name is Brendan'));
+let hasSpaces = match(/\s+/g);
+log(hasSpaces("I love Chanel"))
+log(filter(hasSpaces, ['tori_spelling', 'tori amos']));
+
+var compose = function(x, y) {
+  return function(z) {
+    return x(y(z));
+  };
+};
+
+const toUpperCase = function(x) {
+  return x.toUpperCase();
+};
+const exclaim = (x) => x + '!';
+
+const shout = compose(exclaim, toUpperCase);
+log(shout("bring me the money"));
+// CH 4:
+// 
+// 
+
+const albumSales = (x, b) => {
+
+  return (y) => {
+    log(y)
+    log((x * y) + y)
+
+    return (x * y) + y
+  }
+};
+
+albumSales(.1208)(Math.random() * 1000);
+
+let Container = function(x) {
+  // log(x);
+  this._value = x;
+};
+Container.prototype.map = function(f) {
+  return Container.of(f(this._value));
+};
+
+Container.of = (x) => {
+  return new Container(x);
+};
+
+Container.of(2).map((x) => x * 10);
+
+log(Container.of('protocol oriented programming').map((foo) => foo.toUpperCase()));
+log(Container.of('bombs away').map((foo) => shout(foo)));
+
+// CH 5:
+// CH 6:
+// CH 7:
+// CH 8:
+
+let Maybe = function(x) {
+  this._value = x;
+}
+
+Maybe.of = (x) => {
+  return new Maybe(x);
+};
+
+Maybe.prototype.isNothing = function() {
+  // this returns true if _value is null or undefined
+  return (this._value === null || this._value === undefined);
+};
+
+Maybe.prototype.map = function(f) {
+  return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this._value));
+};
+
+
+log(Maybe.of('Anna Anaa').map(match(/n/ig)));
+log(Maybe.of(null).map(match(/a/ig)));
+
+log(Maybe.of("who whoa").map((x) => shout(x)));
+
+// CH 8.2 LEARNING PROTOTYPES
+function timRR(x) {
+  return x * 25
+}
+log(timRR(5))
+
+let Booger = function(x) {
+  this._value = x;
+}
+Booger.prototype.timRR = function(cb) {
+  return cb(this._value);
+};
+
+let booger = new Booger(100);
+
+log(booger.timRR((x) => {
+  return x * 3
+}));

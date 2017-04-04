@@ -9,8 +9,6 @@
   "author": "LTQ",
   "license": "MIT",
   "dependencies": {
-    "angular-animate": "^1.5.5",
-    "angular-material": "^1.1.0-rc4-master-06e7e99",
     "babel-preset-es2015": "^6.18.0",
     "body-parser": "^1.15.0",
     "bower": "^1.7.9",

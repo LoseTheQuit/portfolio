@@ -17,6 +17,14 @@
     display: block;
     margin: 0 14px;
   }
+  /* .nav>li>a:focus, .nav>li>a:hover {
+    color: rgba(0, 0, 0, .50);
+    background-color: rgba(0, 0, 0, .50);
+  } */
+  /* .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    color: rgba(0, 0, 0, .50) !important;
+    background-color: rgba(0, 0, 0, .50) !important;
+  } */
 }
 
 .mediumBlue {

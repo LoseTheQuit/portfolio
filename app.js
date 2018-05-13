@@ -634,7 +634,7 @@ run(function*() {
   let url = 'http://flonoware.herokuapp.com/homebrew'
   let response = yield fetch(url);
   const resData = yield response.json();
-  // let stepTwo = yield getLocation; 
+  // let stepTwo = yield getLocation;
   let coordsData = yield fetchWrapper();
   // let stepOne = yield setUserName(randomiZer());
 });
@@ -749,8 +749,8 @@ const exclaim = (x) => x + '!';
 const shout = compose(exclaim, toUpperCase);
 log(shout("bring me the money"));
 // CH 4:
-// 
-// 
+//
+//
 
 const albumSales = (x, b) => {
 

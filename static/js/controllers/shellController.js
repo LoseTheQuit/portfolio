@@ -18,15 +18,8 @@ angular.module("shell")
                 dataToSend.userAgent = navigator.userAgent
                 dataToSend.platform = navigator.platform
                 dataToSend.language = navigator.language
-                dataToSend.geolocation = navigator.geolocation
                 dataToSend.hostname = window.location.hostname
-                dataToSend.href = window.location.href
-                dataToSend.port = window.location.port
-                dataToSend.origin = window.location.origin
 
-                console.log(window.location);
-                console.log(navigator);
-                console.log(navigator.geolocation);
 
                 if (document.referrer) {
                     dataToSend.referrer = document.referrer

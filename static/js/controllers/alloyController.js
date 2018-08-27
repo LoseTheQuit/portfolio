@@ -7,6 +7,8 @@ angular.module("mainModule")
 
         console.log("INSIDE alloyController");
 
+
+
         // THIS WILL BE USED TO SWIPE BETWEEN SOCIAL PLATFORMS
 
         $scope.onSwipeLeft = function (ev) {
@@ -228,6 +230,7 @@ angular.module("mainModule")
             });
         }
         $scope.doThisNow();
+
         if (windowLocation.indexOf("code") != -1) {
             $scope.hideThisDiv = true;
             console.log("YES")

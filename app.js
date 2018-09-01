@@ -72,7 +72,7 @@ var spotify_client_secret = '42c98e7bfcf6426dbf25888204456dce';
 //  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
 //  CLIENT IDS, KEYS AND TOKENS FOR INSTAGRAM TWITTER AND SPOTIFY
 
-var generateRandomString = function(length) {
+var generateRandomString = function (length) {
 
   /************************************************************
    * Generates a random string containing numbers and letters
@@ -115,7 +115,7 @@ app.use(bodyParser.urlencoded({
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
 
   console.log('\n');
   console.log('********************************************'.black.bgWhite);
@@ -129,18 +129,18 @@ app.listen(app.get('port'), function() {
 // THE HOMEPAGE
 // THE HOMEPAGE
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
 
   console.log('\n');
   console.log('******* INCOMING GET REQUEST - Load Template *******'.black.bgWhite);
   console.log('\n');
-
+  // var html = fs.readFileSync('static/views/danika.html');
   var html = fs.readFileSync('static/views/shell.html');
   res.end(html);
 
 });
 
-app.get('/data', function(req, res) {
+app.get('/data', function (req, res) {
 
   console.log('\n');
   console.log('******* INCOMING GET DATA.TXT REQUEST - Load Template *******'.black.bgWhite);
@@ -160,7 +160,7 @@ app.get('/data', function(req, res) {
 // EMCIEN STUFF
 // EMCIEN STUFF
 
-app.post('/emcien', function(req, res) {
+app.post('/emcien', function (req, res) {
 
   console.log("1:");
   console.log(req.body);
@@ -172,7 +172,7 @@ app.post('/emcien', function(req, res) {
   var exampleBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey';
   var googleImageApiBaseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey' + req.body.storm;
 
-  client.get(exampleBaseUrl, function(data, response) {
+  client.get(exampleBaseUrl, function (data, response) {
 
     for (var key in data) {
 
@@ -200,11 +200,11 @@ app.post('/emcien', function(req, res) {
 
 
 // THIS IS USED TO LOAD GENERIC SPOTIFY DATA WITHOUT AUTHENTICATION
-app.get('/spotify', function(req, res) {
+app.get('/spotify', function (req, res) {
 
   console.log('START *** SPOTIFY - INCOMING INPUT GET REQUEST - SPOTIFY *** START'.black.bgCyan);
   var spotifyApiUrl = 'https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums?album_type=SINGLE&offset=20&limit=20';
-  client.get(spotifyApiUrl, function(data, response) {
+  client.get(spotifyApiUrl, function (data, response) {
     // console.log(data.items);
     res.send(data.items);
     res.end();
@@ -215,7 +215,7 @@ app.get('/spotify', function(req, res) {
 });
 
 // THE INITIAL SPOTIFY LOGIN ENDPOINT
-app.get('/views/werkspayce.html/spotify-login', function(req, res) {
+app.get('/views/werkspayce.html/spotify-login', function (req, res) {
 
   console.log('START *** spotify-login *** START'.black.bgCyan);
 
@@ -241,7 +241,7 @@ app.get('/views/werkspayce.html/spotify-login', function(req, res) {
 
 });
 
-app.get('/views/werkspayce.html/spotify-callback', function(req, res) {
+app.get('/views/werkspayce.html/spotify-callback', function (req, res) {
 
   console.log('START ***** spotify-callback *** spotify-callback ***** START'.black.bgCyan);
 
@@ -279,7 +279,7 @@ app.get('/views/werkspayce.html/spotify-callback', function(req, res) {
       json: true
     };
 
-    request.post(authOptions, function(error, response, body) {
+    request.post(authOptions, function (error, response, body) {
       if (!error && response.statusCode === 200) {
 
         var access_token = body.access_token;
@@ -319,7 +319,7 @@ app.get('/views/werkspayce.html/spotify-callback', function(req, res) {
 
 // A STAND ALONE END POINT TO PING SPOTIFY FOR ARTIST DATA
 
-app.post('/spotify-input-query', function(req, res) {
+app.post('/spotify-input-query', function (req, res) {
 
   console.log('START *** INSIDE spotify-input-query INSIDE ***'.black.bgCyan);
   console.log('\n');
@@ -338,7 +338,7 @@ app.post('/spotify-input-query', function(req, res) {
   };
 
   // use the access token to access the Spotify Web API
-  request.get(options, function(error, response, body) {
+  request.get(options, function (error, response, body) {
 
     if (response.statusCode === 200) {
       res.send(body.artists.items);
@@ -353,14 +353,14 @@ app.post('/spotify-input-query', function(req, res) {
 });
 
 // ENDPOINT TO RETRIEVE TWITTER USER TIMELINE DATA
-app.post('/userTimeLineQuery', function(req, res) {
+app.post('/userTimeLineQuery', function (req, res) {
 
   console.log('\n');
   console.log('START *** INCOMING INPUT GET REQUEST - search-tweets-query *** START'.white.bgBlue);
   console.log('INPUT QUERY: ' + '\n' + JSON.stringify(req.body));
   console.log('INCOMING INPUT GET REQUEST - search-tweets-query'.white.bgBlue);
   console.log('\n');
-  twitterClient.get('statuses/user_timeline', req.body, function(error, tweets, response) {
+  twitterClient.get('statuses/user_timeline', req.body, function (error, tweets, response) {
 
     if (!error) {
       res.json(tweets);
@@ -376,7 +376,7 @@ app.post('/userTimeLineQuery', function(req, res) {
 
 });
 // ENDPOINT TO RETRIEVE ALL TWITTER TIMELINE DATA
-app.post('/searchTweetsQuery', function(req, res) {
+app.post('/searchTweetsQuery', function (req, res) {
   console.log('TWITTER - INPUTQUERY - START - TWITTER'.white.bgBlue);
 
   console.log('\n');
@@ -385,7 +385,7 @@ app.post('/searchTweetsQuery', function(req, res) {
   console.log('INCOMING INPUT GET REQUEST - search-tweets-query'.white.bgBlue);
   console.log('\n');
 
-  twitterClient.get('search/tweets', req.body, function(error, tweets, response) {
+  twitterClient.get('search/tweets', req.body, function (error, tweets, response) {
 
     if (!error) {
       res.json(tweets);
@@ -402,13 +402,13 @@ app.post('/searchTweetsQuery', function(req, res) {
 });
 
 
-app.get('/instagram-login', function(req, res) {
+app.get('/instagram-login', function (req, res) {
 
   res.redirect(instagramApiURL);
   res.end();
 });
 
-app.post('/ig', function(req, res, next) {
+app.post('/ig', function (req, res, next) {
 
   console.log('\n');
   console.log('START ***** - IG INCOMING POST REQUEST - IG ***** START'.black.bgGreen);
@@ -448,7 +448,7 @@ app.post('/ig', function(req, res, next) {
       form: post_data
     };
 
-    request(post_options, function(error, response, body) {
+    request(post_options, function (error, response, body) {
 
       var parsedBody = JSON.parse(body);
 
@@ -484,7 +484,7 @@ app.post('/ig', function(req, res, next) {
         console.log(self_search);
         console.log(self_search);
 
-        request(self_search, function(error, response, body) {
+        request(self_search, function (error, response, body) {
           if (error && response.statusCode != 200) {
             console.error(error);
 
@@ -513,7 +513,7 @@ app.post('/ig', function(req, res, next) {
 
 // AFTER AUTHENTICATION - THIS METHOD PINGS IF FOR
 // DATA SPECIFIED BY THE  "REQUEST OPTION"
-app.post('/instaInputQuery', function(req, res, next) {
+app.post('/instaInputQuery', function (req, res, next) {
 
   console.log('\n');
   console.log('START - *** - IG - InputQuery - IG - *** - START'.black.bgGreen);
@@ -526,7 +526,7 @@ app.post('/instaInputQuery', function(req, res, next) {
     method: 'GET'
   };
 
-  request(popular_tag_search_tag_name_recent, function(error, response, body) {
+  request(popular_tag_search_tag_name_recent, function (error, response, body) {
 
     if (error || response.statusCode != 200) {
       error = error || response;
@@ -552,7 +552,7 @@ app.post('/instaInputQuery', function(req, res, next) {
 console.log("\n");
 
 function fetchWrapper() {
-  return fetch('http://flonoware.herokuapp.com/outermost').then(function(res) {
+  return fetch('http://flonoware.herokuapp.com/outermost').then(function (res) {
     return res.json();
   });
 }
@@ -630,7 +630,7 @@ function run(generator) {
   // console.warn(promise)
 }
 
-run(function*() {
+run(function* () {
   let url = 'http://flonoware.herokuapp.com/homebrew'
   let response = yield fetch(url);
   const resData = yield response.json();
@@ -661,16 +661,16 @@ let json = (x) => {
   return JSON.stringify(x, null, 2);
 };
 
-let Flock = function(n) {
+let Flock = function (n) {
   this.hawks = n;
 };
 
-Flock.prototype.conjoin = function(other) {
+Flock.prototype.conjoin = function (other) {
   this.hawks += other.hawks;
   return this;
 };
 
-Flock.prototype.breed = function(other) {
+Flock.prototype.breed = function (other) {
   this.hawks = this.hawks * other.hawks;
   return this;
 };
@@ -704,7 +704,7 @@ let hi = (x) => {
   return console.log(x);
 };
 
-let greeting = function(x) {
+let greeting = function (x) {
   return hi(x)
 }
 
@@ -735,13 +735,13 @@ let hasSpaces = match(/\s+/g);
 log(hasSpaces("I love Chanel"))
 log(filter(hasSpaces, ['tori_spelling', 'tori amos']));
 
-var compose = function(x, y) {
-  return function(z) {
+var compose = function (x, y) {
+  return function (z) {
     return x(y(z));
   };
 };
 
-const toUpperCase = function(x) {
+const toUpperCase = function (x) {
   return x.toUpperCase();
 };
 const exclaim = (x) => x + '!';
@@ -764,11 +764,11 @@ const albumSales = (x, b) => {
 
 albumSales(.1208)(Math.random() * 1000);
 
-let Container = function(x) {
+let Container = function (x) {
   // log(x);
   this._value = x;
 };
-Container.prototype.map = function(f) {
+Container.prototype.map = function (f) {
   return Container.of(f(this._value));
 };
 
@@ -786,7 +786,7 @@ log(Container.of('bombs away').map((foo) => shout(foo)));
 // CH 7:
 // CH 8:
 
-let Maybe = function(x) {
+let Maybe = function (x) {
   this._value = x;
 }
 
@@ -794,12 +794,12 @@ Maybe.of = (x) => {
   return new Maybe(x);
 };
 
-Maybe.prototype.isNothing = function() {
+Maybe.prototype.isNothing = function () {
   // this returns true if _value is null or undefined
   return (this._value === null || this._value === undefined);
 };
 
-Maybe.prototype.map = function(f) {
+Maybe.prototype.map = function (f) {
   return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this._value));
 };
 
@@ -815,10 +815,10 @@ function timRR(x) {
 }
 log(timRR(5))
 
-let Booger = function(x) {
+let Booger = function (x) {
   this._value = x;
 }
-Booger.prototype.timRR = function(cb) {
+Booger.prototype.timRR = function (cb) {
   return cb(this._value);
 };
 

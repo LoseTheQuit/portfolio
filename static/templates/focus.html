@@ -1,0 +1,254 @@
+<style>
+  /* OLD GOLD:  ded1c1 */
+
+  /* NEW GOLD: e5c596 */
+
+  /* OLD GREY:  2d2b29 */
+
+  /* NEW GREY:  2c2d32 */
+  body {
+    /* overflow-y: scroll; */
+    margin: 0px;
+    background: #fff;
+  }
+
+  .jumbotronSceneOne {
+    /* flex-wrap: nowrap; */
+    height: 100vh;
+    display: inline-flex;
+    width: 100%;
+  }
+
+  .jumbotronSceneTWO {
+    /* height: 100vh; */
+    /* flex-wrap: nowrap; */
+    /* display: inline-flex; */
+    /* width: 100%; */
+    /* position: absolute; */
+    /* z-index: -1; */
+  }
+
+  .rbPanel {
+    /* align-items: center; */
+    /* justify-content: center; */
+    height: 100vh;
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+
+  .rbPanel_half {
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+
+  .rbPanel_one {
+    background: #00A3E0;
+  }
+
+  .rbPanel_two {
+    background: #0A63C9;
+  }
+
+  .rbPanel_three {
+    background: #0B36E0;
+  }
+
+  .rbPanel_four {
+    background: #FDF438;
+    height: 50vh;
+  }
+
+  .rbPanel_five {
+    background: #fff;
+    height: 50vh;
+  }
+
+  .rbPanel_six {
+    background: #4C26F5;
+    color: white;
+    height: 50vh;
+  }
+
+  .headline_text_one {
+    align-items: center;
+    justify-content: center;
+    display: contents;
+    opacity: 0;
+  }
+
+  .headline_text_two {
+    color: #fff;
+    display: contents;
+    display: inline-flex;
+    flex-direction: column;
+    opacity: 0;
+  }
+
+  .parallax-window {
+    min-height: 400px;
+    background: transparent;
+  }
+</style>
+<style>
+  .relative_container {
+    display: inline-block;
+  }
+</style>
+
+<div class="jumbotronSceneOne">
+  <div class="rbPanel rbPanel_one"></div>
+  <div class="rbPanel rbPanel_two"></div>
+  <div class="rbPanel rbPanel_three"></div>
+</div>
+
+<div class="jumbotronSceneTwo">
+
+  <div class="rbPanel rbPanel_four">
+    <div class="headline_text_one">
+      <div class="col-md-3">BRENDAN CARR</div>
+      <div class="col-md-9"></div>
+    </div>
+  </div>
+
+  <div class="rbPanel  rbPanel_five relative_container">
+    <!-- <div class="parallax-window" data-parallax="scroll" data-image-src="../img/werkspayce-bg.png"> -->
+
+    <div class="headline_text_two">
+
+      <div class="col-md-3">BRENDAN CARR</div>
+      <div class="col-md-9">FULL STACK WEB DEVELOPER</div>
+      <div class="col-md-3">BRENDAN CARR</div>
+      <div class="col-md-9">FULL STACK WEB DEVELOPER</div>
+
+    </div>
+
+    <!-- </div> -->
+  </div>
+
+  <!--
+      <div class="rbPanel rbPanel_six"></div>
+    -->
+
+</div>
+
+<script src="../js/universal/parallax.min.js"></script>
+<script>
+  const init = () => {
+
+
+    const timeLine = new TimelineMax({
+      onUpdate: updateSlider
+    });
+
+    const timeLineInterval_SUPER_SHORT = .25;
+    const timeLineInterval_SHORT = .5;
+    const timeLineInterval = .75;
+    const timeLineIntervalLong = 1.5;
+    const timeLineInterval_SUPER_Long = 2;
+
+    const globalEase = Expo.easeIn;
+
+    // SCENE ONE
+    timeLine.from('.rbPanel_one', timeLineInterval, {
+        opacity: 0,
+        y: -500,
+        ease: globalEase,
+      }).from('.rbPanel_two', timeLineInterval, {
+        opacity: 0,
+        y: -500,
+        ease: globalEase,
+      }, `-=${timeLineInterval_SHORT}`)
+      .from('.rbPanel_three', timeLineInterval, {
+        opacity: 0,
+        y: -500,
+        ease: globalEase,
+      }, `-=${timeLineInterval_SHORT}`)
+      .to('.rbPanel_one', timeLineInterval, {
+        opacity: 0,
+        y: 500,
+        ease: globalEase,
+      }, `-=${timeLineInterval_SUPER_SHORT}`)
+      .to('.rbPanel_two', timeLineInterval, {
+        opacity: 0,
+        y: 500,
+        ease: globalEase,
+      }, `-=${timeLineInterval_SHORT}`)
+      .to('.rbPanel_three', timeLineInterval, {
+        opacity: 0,
+        y: 500,
+        ease: globalEase,
+        onComplete: () => {
+
+          $('.jumbotronSceneOne').css({
+            display: "none"
+          });
+          //
+          // $('.jumbotronSceneTWO').css({
+          //   display: "flex"
+          // });
+
+        }
+      }, `-=${timeLineInterval_SHORT}`)
+
+      // SCENE TWO
+      .from('.rbPanel_four', timeLineInterval, {
+        opacity: 0,
+        y: -500,
+        ease: globalEase,
+      })
+      .from('.headline_text_one', timeLineInterval, {
+        opacity: 1,
+        color: "#FDF438",
+        ease: globalEase,
+      })
+      .to('.rbPanel_four', timeLineInterval, {
+        opacity: 1,
+        y: -500,
+        height: 0,
+        ease: globalEase,
+        onComplete: () => {
+
+          $('.rbPanel_four').css({
+            display: "none"
+          });
+
+        }
+      }, `+=${timeLineIntervalLong}`)
+      .to('.rbPanel_five', timeLineInterval, {
+        ease: globalEase,
+        onComplete: () => {
+
+          $('body').css({
+            background: "#4C26F5"
+          });
+
+        }
+      }, `-=${timeLineInterval}`)
+
+      // SCENE THREE
+      // .from('.rbPanel_six', timeLineInterval, {
+      //   opacity: 0,
+      //   ease: globalEase,
+      // }, `-=${timeLineInterval * 2 }`)
+
+      .to('.headline_text_two', timeLineInterval, {
+        opacity: 1,
+        color: "#000",
+        ease: globalEase
+      })
+
+
+    function updateSlider() {}
+
+  };
+  init();
+</script>

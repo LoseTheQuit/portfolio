@@ -12,6 +12,7 @@ angular.module("shell")
 
             $.get('https://api.ipify.org?format=json', function (data, error) {
 
+                dataToSend.site = "LTQ";
                 dataToSend.ip = data.ip
                 dataToSend.referrer = document.referrer
                 dataToSend.vendor = navigator.vendor

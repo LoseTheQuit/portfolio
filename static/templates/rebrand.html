@@ -8,30 +8,233 @@
   /* NEW GREY:  2c2d32 */
   body {
     /* overflow-y: scroll; */
-    /* margin: 0px; */
+    margin: 0px;
     background: #fff;
+    /* background: #fff !important; */
   }
 
-  .container {
-    /* overflow-y: scroll; */
-    /* margin: 0px; */
-    background: #000;
-    color: #fff
+  .jumbotron_scene_one {
+    flex-wrap: nowrap;
+    height: 100vh;
+    display: inline-flex;
+    width: 100%;
   }
-</style>
-<style>
+
+  .rbPanel {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+
+  .rbPanel_one {
+    background: #00A3E0;
+  }
+
+  .rbPanel_two {
+    background: #0A63C9;
+  }
+
+  .rbPanel_three {
+    background: #0B36E0;
+  }
+
+  .rbPanel_four {
+    background: #FDF438;
+    height: 50vh;
+  }
+
+  .rbPanel_five {
+    background: #fff;
+    height: 100%;
+  }
+
+  .rbPanel_glaze {
+    height: 50vh;
+    display: block;
+    background: #fff url('https://cdn-images-1.medium.com/max/2000/1*OF0xEMkWBv-69zvmNs6RDQ.gif') no-repeat center center;
+  }
+
+  /*
+  .rbPanel_six {
+    background: #4C26F5;
+    color: white;
+    height: 50vh;
+  }
+  */
+
+  .headline_text_one {
+    align-items: center;
+    justify-content: center;
+    display: contents;
+    opacity: 0;
+  }
+
+  .navbar-trans {
+    display: none;
+  }
+
+  .headline_text_two {
+    color: #fff;
+    display: contents;
+    flex-direction: column;
+    background: #fff url('https://cdn-images-1.medium.com/max/2000/1*OF0xEMkWBv-69zvmNs6RDQ.gif') no-repeat center center;
+    /* opacity: 0; */
+    /* display: inline-flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+
+  .parallax-window {
+    min-height: 400px;
+    background: transparent;
+  }
+
   .relative_container {
     display: inline-block;
   }
 </style>
 
-<div class="row">
+<style>
+  /* OVER RIDES */
+  /* OVER RIDES */
+  /* OVER RIDES */
 
-  <div class=" ">
-    <div>BRENDAN CARR</div>
-    <div>FULL STACK WEB DEVELOPER</div>
-    <div>BRENDAN CARR</div>
-    <div>FULL STACK WEB DEVELOPER</div>
+  .navbar a {
+    color: #505050 font-weight: 700;
+  }
 
+  .the-white-out {
+    color: #505050 !important;
+  }
+
+  .iceWhite {
+    color: #505050 !important;
+  }
+</style>
+
+<div class="jumbotron_scene_one">
+  <div class="rbPanel rbPanel_one"></div>
+  <div class="rbPanel rbPanel_two"></div>
+  <div class="rbPanel rbPanel_three"></div>
+</div>
+
+<div class="rbPanel rbPanel_four">
+  <div class="headline_text_one">
+    <div>
+      <h1>REAL</h1>
+    </div>
   </div>
 </div>
+
+<div class="rbPanel_glaze">
+  <div class="rbPanel rbPanel_five relative_container">
+    <div class="headline_text_two">
+      <navbar></navbar>
+      <!--
+      <div class="col-md-3">BRENDAN CARR</div>
+      <div class="col-md-9">FULL STACK WEB DEVELOPER</div>
+      <div class="col-md-12">GOOD</div>
+      -->
+
+
+    </div>
+  </div>
+
+  <script src="../js/universal/parallax.min.js"></script>
+  <script>
+    const init = () => {
+      const timeLine = new TimelineMax({
+        onUpdate: updateSlider
+      });
+      const timeLineInterval_SUPER_SHORT = .25;
+      const timeLineInterval_SHORT = .5;
+      const timeLineInterval = .75;
+      const timeLineIntervalLong = 1.5;
+      const
+        timeLineInterval_SUPER_Long = 2;
+      const globalEase = Expo.easeIn; // SCENE ONE
+      timeLine.from('.rbPanel_one', timeLineInterval, {
+          opacity: 0,
+          y: -500,
+          ease: globalEase,
+        }).from('.rbPanel_two', timeLineInterval, {
+          opacity: 0,
+          y: -500,
+          ease: globalEase,
+        }, `-=${timeLineInterval_SHORT}`).from('.rbPanel_three',
+          timeLineInterval, {
+            opacity: 0,
+            y: -500,
+            ease: globalEase,
+          },
+          `-=${timeLineInterval_SHORT}`).to('.rbPanel_one', timeLineInterval, {
+          opacity: 0,
+          y: 500,
+          ease: globalEase,
+        }, `-=${timeLineInterval_SUPER_SHORT}`)
+        .to('.rbPanel_two', timeLineInterval, {
+            opacity: 0,
+            y: 500,
+            ease: globalEase,
+          },
+          `-=${timeLineInterval_SHORT}`).to('.rbPanel_three', timeLineInterval, {
+          opacity: 0,
+          y: 500,
+          ease: globalEase,
+          onComplete: () => {
+            $('.jumbotron_scene_one').css({
+              display: "none"
+            });
+          }
+        }, `-=${timeLineInterval_SHORT}`) // SCENE TWO
+        .from('.rbPanel_four', timeLineInterval, {
+          opacity: 0,
+          y: -500,
+          ease: globalEase,
+        }).from('.headline_text_one', timeLineInterval, {
+          opacity: 1,
+          color: "#FDF438",
+          ease: globalEase,
+        }).to('.rbPanel_four', timeLineInterval, {
+            opacity: 1,
+            y: -500,
+            height: 0,
+            ease: globalEase,
+            onComplete: () => {
+              $('.rbPanel_four').css({
+                display: "none"
+              });
+
+              $('.navbar-trans').css({
+                display: "contents"
+                // display: "inline-block"
+              });
+
+              $('.rbPanel_five').css({
+                background: "rgba(255, 255, 255, .95)"
+              });
+            }
+          },
+          `+=${timeLineIntervalLong}`).to('.rbPanel_five', timeLineInterval, {
+            ease: globalEase,
+            onComplete: () => {
+              $('body').css({
+                background: "#4C26F5"
+              });
+            }
+          },
+          `-=${timeLineInterval}`).to('.headline_text_two', timeLineInterval, {
+          opacity: 1,
+          color: "#000",
+          ease: globalEase
+        })
+
+      function updateSlider() {}
+    };
+    init();
+  </script>

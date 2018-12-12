@@ -11,16 +11,11 @@ const app = angular
     "ngCookies",
     "ngLodash"
   ])
-  .config(function($routeProvider, $mdThemingProvider, $mdAriaProvider) {
+  .config(function ($routeProvider, $mdThemingProvider, $mdAriaProvider) {
     $mdThemingProvider
       .theme("default")
       .primaryPalette("grey")
       .accentPalette("indigo");
-
-    // $routeProvider.when("/home", {
-    //   templateUrl: "../templates/inject.html",
-    //   controller: "alloyController"
-    // });
 
     $routeProvider.when("/home", {
       templateUrl: "../templates/portfolio.html",

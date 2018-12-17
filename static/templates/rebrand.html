@@ -123,6 +123,10 @@
     opacity: 0;
   }
 
+  .headline_text_one h2 {
+   text-align: center;
+  }
+
   .headline_text_two {
     /* color: #fff; */
     display: flex;
@@ -295,6 +299,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   .headline_message {
@@ -332,9 +337,9 @@
 }
 
 .flash_icon { 
-   flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   display: none;
 }
 </style>
@@ -351,7 +356,8 @@
     <div class="rbPanel_donut">
       <div class="headline_text_one">
         <div>
-          <h1>SLANT</h1>
+          <h1>WEB/MOBILE</h1>
+          <h2>6 years of experience</h2>
         </div>
       </div>
     </div>
@@ -421,17 +427,18 @@
   <div class="ft_container">
     <div class="rbPanel ft_image">
       <div class="ftPanel_one">
-        <!-- <h1>test</h1> -->
-        <!-- <i class="fa fa-linkedin"></i> -->
-
         <a href="https://www.linkedin.com/in/brendan-carr-182/" target="nofollow">
           <i class="fa fa-linkedin"></i>
           LinkedIn
         </a>
-        <i class="fa fa-linkedin flash_icon"></i>
+
+        <a class="flash_icon" href="https://www.linkedin.com/in/brendan-carr-182/" target="nofollow">
+          <i class="fa fa-linkedin flash_icon"></i>
+        </a>
       </div>
     </div>
   </div>
+
   <div class="ft_container">
     <div class="rbPanel ft_image">
       <div class="ftPanel_two">
@@ -439,18 +446,27 @@
           <i class="fa fa-github"></i>
           GitHub
         </a>
-        <i class="fa fa-github flash_icon"></i>
+
+        <a class="flash_icon" href="https://github.com/LoseTheQuit" target="nofollow">
+          <i class="fa fa-github flash_icon"></i>
+        </a>
       </div>
     </div>
   </div>
+
   <div class="ft_container">
     <div class="rbPanel ft_image">
       <div class="ftPanel_three">
+
         <a href="https://twitter.com/losethequit?lang=en" target="nofollow">
           <i class="fa fa-twitter"></i>
           @losethequit
         </a>
-        <i class="fa fa-twitter flash_icon"></i>
+
+        <a class="flash_icon" href="https://twitter.com/losethequit?lang=en" target="nofollow">
+          <i class="fa fa-twitter flash_icon"></i>
+        </a>
+
       </div>
     </div>
   </div>
@@ -537,7 +553,6 @@
             });
 
             $('.rbPanel_five').css({
-              // background: "rgba(229, 197, 150, .90)"
               background: "rgba(44, 45, 50, .90)"
             });
 
@@ -585,47 +600,43 @@
           .to(`${str} .flash_icon`, timeLineInterval_SUPER_SHORT / 5, {
             display: "inline-block",
             opacity: 1,
-            fontSize: `${$(str).height() /2}px`,
+            fontSize: `${$(str).height() / 2}px`,
             x: 0,
-            y: -20,
+            y: -10,
             ease: globalEase,
           })
       }
 
-      const iconAppear = str => {
+      const iconAppear = (str, X) => {
         timeLine
-          .to('${str} a', timeLineInterval_SUPER_SHORT, {
+          .to(`${str} a`, timeLineInterval_SUPER_SHORT, {
             opacity: 1,
             x: 0,
             ease: globalEase,
           }, `-=${timeLineInterval_SHORT }`)
-          .to('${str} .flash_icon', timeLineInterval_SUPER_SHORT, {
+          .to(`${str} .flash_icon`, timeLineInterval_SUPER_SHORT, {
             display: "none",
             opacity: 0,
             fontSize: `${0}px`,
-            x: -500,
+            x: X,
 
             ease: globalEase,
           })
       }
+
       $(".ftPanel_one").hover(
         () => iconDisappear('.ftPanel_one'),
-        () => {
-          timeLine
-            .to('.ftPanel_one a', timeLineInterval_SUPER_SHORT, {
-              opacity: 1,
-              x: 0,
-              ease: globalEase,
-            }, `-=${timeLineInterval_SHORT }`)
-            .to('.ftPanel_one .flash_icon', timeLineInterval_SUPER_SHORT, {
-              display: "none",
-              opacity: 0,
-              fontSize: `${0}px`,
-              x: -500,
+        () => iconAppear('.ftPanel_one', -500)
+      );
 
-              ease: globalEase,
-            })
-        }
+      $(".ftPanel_two").hover(
+        () => iconDisappear('.ftPanel_two'),
+        () => iconAppear('.ftPanel_two', 0)
+      );
+
+      $(".ftPanel_three").hover(
+        () => iconDisappear('.ftPanel_three'),
+        () => iconAppear('.ftPanel_three', 500)
       );
 
     };

@@ -325,9 +325,13 @@
 .videoBlock {
   width: 100%; height: 100%;  display: flex;  justify-content: center; align-items: center;
   /* background: rgba(229, 197, 150, .90); */
-  background-size: cover;
+  /* background-size: cover; */
 }
-.video_message {width: 100%; height:100%; position: absolute; top: 0; left: 0;} 
+.video_message {width: 100%; height:100%; position: absolute; top: 0; left: 0;
+  background: rgba(229, 197, 150, .90);
+  background: rgba(0, 0, 0, .75);
+  
+  } 
  
 .video_headline {
   height: 100%;
@@ -336,6 +340,13 @@
   justify-content: center;
   flex-direction: column;
 
+}
+
+.video_glaze{
+  height: 100%;
+  width: 100%;
+  background: red;
+  display: flex;
 }
 
 .fa {
@@ -379,7 +390,7 @@
       <div class="headline_text_one">
 
         <h1>DATA SCIENCE/MACHINE LEARNING</h1>
-        <h2>1 years of experience</h2>
+        <h2>1 year of experience</h2>
 
       </div>
     </div>
@@ -400,26 +411,30 @@
 
             <video autoplay muted loop>
               <source src="../vids/ltq_intro_000.mp4" type="video/mp4">
+
               </source>
-            </video>
 
-            <div class="video_message">
-              <div class="video_headline">
+          </div>
+          </video>
 
-                <h1>MEA(r)N</h1>
-                <h1>STACK</h1>
-                <h1>DEVELOPER</h1>
 
-              </div>
+          <div class="video_message">
+            <div class="video_headline">
+
+              <h1>MEA(r)N</h1>
+              <h1>STACK</h1>
+              <h1>DEVELOPER</h1>
 
             </div>
 
           </div>
-        </div>
 
+        </div>
       </div>
+
     </div>
   </div>
+</div>
 </div>
 
 <div class="rbPanel_seven">

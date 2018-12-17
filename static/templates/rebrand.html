@@ -41,22 +41,29 @@
 
   .rbPanel_one {
     background: #00A3E0;
+    background: #C1E5FF;
   }
 
   .rbPanel_two {
     background: #0A63C9;
+    background: #96C4E5;
   }
 
   .rbPanel_three {
     background: #0B36E0;
+    background: #557C98;
   }
 
   .rbPanel_four {
-    background: rgba(222, 209, 193, 1);
+    /* background: rgba(222, 209, 193, 1); */
+    height: 50vh;
+  }
+  .rbPanel_five {
+    /* background: rgba(222, 209, 193, 1); */
     height: 50vh;
   }
 
-  .rbPanel_five {
+  .rbPanel_six {
     display: none;
     background: #fff;
     height: 100%;
@@ -64,7 +71,7 @@
 
   }
 
-  .rbPanel_six {
+  .rbPanel_seven {
     /* background: rgba(44, 45, 50, .75); */
     /* color: white; */
     height: 50vh;
@@ -80,7 +87,7 @@
     position: absolute;
   }
 
-  .rbPanel_six  a {
+  .rbPanel_seven  a {
     color: #505050;
     color: #fff;
     text-decoration: none;
@@ -89,6 +96,7 @@
     flex-direction: column;
     /* transition: transform 0.1s ease-in-out; */
     font-size: 18px;
+    mix-blend-mode: exclusion;
   }
  
 
@@ -99,6 +107,22 @@
     background: #fff;
     background: url('https://cdn-images-1.medium.com/max/2000/1*OF0xEMkWBv-69zvmNs6RDQ.gif') no-repeat center center;
   }
+  .rbPanel_glaze_2 {
+    width: 100%;
+    height: 50vh; 
+    display: block;
+
+    background: #fff;
+    background: url('https://media.giphy.com/media/120erm75U0YpvW/giphy.gif') no-repeat center center;
+    background-size: cover;
+  }
+  .rbPanel_glaze_2 h1
+   {
+    color: #fff;
+  }
+    .rbPanel_glaze_2 h2 {
+    color: #E8E8E8;
+  }
   .rbPanel_donut{
     width: 100%;
     height:100%;
@@ -107,6 +131,16 @@
     justify-content: center;
     flex-direction: column; 
     background: rgba(229, 197, 150, .90);
+   }
+  .rbPanel_donut_2{
+    width: 100%;
+    height:100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    background: rgba(44, 45, 50, .90);
+    color: #fff;
    }
 
   .rbPanel_container {
@@ -153,45 +187,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-  }
-</style>
-
-<style>
-  .links {
-    display: contents;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-    margin: 20px 0 0 0;
-    opacity: 1;
-    transform: translateY(-120px);
-    will-change: transform;
-  }
-
-  .links li {
-    display: inline-block;
-  }
-
-  .links li a {
-    color: #505050;
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-    padding: 10px 20px;
-    display: inline-block;
-    transition: transform 0.1s ease-in-out;
-  }
-
-  .links li a:hover {
-    transform: scale(1.2);
-  }
-
-
-  .fa {
-    transform: translateY(-1px);
-    display: inline-block;
-    color: #505055;
-    color: #fff;
   }
 </style>
 
@@ -251,12 +246,10 @@
 </style>
 
 <style>
-  .ft_image {
-    /* background: url('https://tracsoft.com/wp-content/uploads/2016/06/html-accessible-websites.png') no-repeat center center; */
-  }
-.ft_container{
+
+  .ft_container{
     /* background: #00A3E0; */
-    background: #000;
+    background: #fff;
     height: 50vh;
     width: 100%;
     display: flex;
@@ -267,6 +260,9 @@
     /* background: #00A3E0; */
     background: rgba(0, 163, 224, .75);
     background: rgba(198, 173, 159, .75);
+    /* background: rgba(192, 125, 85, .75); */
+    background: #C1E5FF;
+
     /* background: rgba(198, 173, 159, 1); */
     height: 50vh;
     width: 100%;
@@ -280,6 +276,10 @@
     /* background: #0A63C9; */
     background: rgba(10, 99, 201, .75);
     background: rgba(161, 135, 119, .75);
+    background: rgba(229, 197, 150, .75);
+    /* background: rgba(255, 230, 193, .75); */
+    background: #96C4E5;
+
     /* background: rgba(161, 135, 119, 1); */
     height: 50vh;
     width: 100%;
@@ -293,6 +293,9 @@
     /* background: #0B36E0; */
     background: rgba(11, 54, 224, .75);
     background: rgba(139, 109, 95, .75);
+    /* background: rgba(229, 197, 150, .75); */
+    background: #557C98;
+
     /* background: rgba(139, 109, 95, 1); */
     height: 50vh;
     width: 100%;
@@ -313,7 +316,6 @@
     text-align: center;
   }
  
- 
 </style>
 
 <style>
@@ -324,6 +326,7 @@
 
 .videoBlock {
   width: 100%; height: 100%;  display: flex;  justify-content: center; align-items: center;
+  background: rgba(229, 197, 150, .90);
 }
 .video_message {width: 100%; height:100%; position: absolute; top: 0; left: 0;} 
  
@@ -336,7 +339,15 @@
 
 }
 
-.flash_icon { 
+.fa {
+    transform: translateY(-1px);
+    display: inline-block;
+    color: #505055;
+    color: #fff;
+  }
+
+.flash_icon {     
+  mix-blend-mode: exclusion;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -350,15 +361,27 @@
   <div class="rbPanel rbPanel_three"></div>
 </div>
 
-
 <div class="rbPanel rbPanel_four">
   <div class="rbPanel_glaze">
     <div class="rbPanel_donut">
       <div class="headline_text_one">
-        <div>
-          <h1>WEB/MOBILE</h1>
-          <h2>6 years of experience</h2>
-        </div>
+
+        <h1>WEB/MOBILE</h1>
+        <h2>6 years of experience</h2>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rbPanel rbPanel_five">
+  <div class="rbPanel_glaze_2">
+    <div class="rbPanel_donut_2">
+      <div class="headline_text_one">
+
+        <h1>DATA SCIENCE/MACHINE LEARNING</h1>
+        <h2>1 years of experience</h2>
+
       </div>
     </div>
   </div>
@@ -366,7 +389,7 @@
 
 <div class="rbPanel_container">
 
-  <div class="rbPanel rbPanel_five relative_container">
+  <div class="rbPanel rbPanel_six relative_container">
     <div class="headline_text_two relative_container">
 
       <navbar></navbar>
@@ -374,7 +397,7 @@
       <div class="headline_message">
 
         <div class="videoDiv">
-          <div id="videoBlock">
+          <div class="videoBlock">
 
             <video autoplay muted loop>
               <source src="../vids/ltq_intro_000.mp4" type="video/mp4">
@@ -388,29 +411,6 @@
                 <h1>STACK</h1>
                 <h1>DEVELOPER</h1>
 
-                <!-- <div class="linkBar">
-                  <ul class="links">
-                    <li>
-                      <a href="https://www.linkedin.com/in/brendan-carr-182/" target="nofollow">
-                        <i class="fa fa-linkedin"></i>
-                        LinkedIn
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://github.com/LoseTheQuit" target="nofollow">
-                        <i class="fa fa-github"></i>
-                        GitHub
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://twitter.com/losethequit?lang=en" target="nofollow">
-                        <i class="fa fa-twitter"></i>
-                        @losethequit
-                      </a>
-                    </li>
-                  </ul>
-                </div> -->
-
               </div>
 
             </div>
@@ -423,9 +423,9 @@
   </div>
 </div>
 
-<div class="rbPanel_six">
+<div class="rbPanel_seven">
   <div class="ft_container">
-    <div class="rbPanel ft_image">
+    <div class="rbPanel">
       <div class="ftPanel_one">
         <a href="https://www.linkedin.com/in/brendan-carr-182/" target="nofollow">
           <i class="fa fa-linkedin"></i>
@@ -440,7 +440,7 @@
   </div>
 
   <div class="ft_container">
-    <div class="rbPanel ft_image">
+    <div class="rbPanel">
       <div class="ftPanel_two">
         <a href="https://github.com/LoseTheQuit" target="nofollow">
           <i class="fa fa-github"></i>
@@ -455,7 +455,7 @@
   </div>
 
   <div class="ft_container">
-    <div class="rbPanel ft_image">
+    <div class="rbPanel">
       <div class="ftPanel_three">
 
         <a href="https://twitter.com/losethequit?lang=en" target="nofollow">
@@ -526,20 +526,33 @@
               display: "none"
             });
           }
-        }, `-=${timeLineInterval_SHORT}`) // SCENE TWO
-        .from('.rbPanel_four', timeLineInterval, {
+        }, `-=${timeLineInterval_SHORT}`)
+
+      // SCENE TWO
+      timeLine.from('.rbPanel_four', timeLineInterval, {
           opacity: 0,
-          y: -500,
+          y: 1000,
           ease: globalEase,
         })
+        .from('.rbPanel_five', timeLineInterval, {
+          opacity: 0,
+          y: -1000,
+          ease: globalEase,
+        }, `-=${timeLineInterval_SUPER_SHORT}`)
         .from('.headline_text_one', timeLineInterval, {
           opacity: 1,
           color: "#FDF438",
           ease: globalEase,
+        }, `+=${timeLineIntervalLong}`)
+        .to('.rbPanel_five', timeLineInterval, {
+          opacity: 1,
+          y: -1000,
+          height: 0,
+          ease: globalEase,
         })
         .to('.rbPanel_four', timeLineInterval, {
           opacity: 1,
-          y: -500,
+          y: 1000,
           height: 0,
           ease: globalEase,
           onComplete: () => {
@@ -548,24 +561,27 @@
               display: "none"
             });
 
+            $('.rbPanel_five').css({
+              display: "none"
+            });
+
+            $('.rbPanel_six').css({
+              background: "rgba(44, 45, 50, .90)"
+            });
             $('.navbar-trans').css({
               display: "contents"
             });
 
-            $('.rbPanel_five').css({
-              background: "rgba(44, 45, 50, .90)"
-            });
-
           }
-        }, `+=${timeLineIntervalLong}`)
-        .to('.rbPanel_five', timeLineInterval, {
+        }, `-=${timeLineInterval_SHORT}`)
+        .to('.rbPanel_six', timeLineInterval, {
           ease: globalEase,
           onComplete: () => {
 
             $('.headline_message').css({
               display: "flex"
             });
-            $('.rbPanel_six').css({
+            $('.rbPanel_seven').css({
               display: "flex"
             });
 
@@ -576,18 +592,10 @@
           color: "#000",
           ease: globalEase
         })
-        .to('.rbPanel_six', timeLineInterval, {
+        .to('.rbPanel_seven', timeLineInterval, {
           opacity: 1,
           ease: globalEase
         })
-
-
-      $('.ftPanel_one').on('click', () => {
-
-
-        console.log("HELLO WORLD");
-
-      })
 
 
       const iconDisappear = (str) => {
@@ -607,7 +615,7 @@
           })
       }
 
-      const iconAppear = (str, X) => {
+      const iconAppear = (str, length_of_time) => {
         timeLine
           .to(`${str} a`, timeLineInterval_SUPER_SHORT, {
             opacity: 1,
@@ -618,7 +626,7 @@
             display: "none",
             opacity: 0,
             fontSize: `${0}px`,
-            x: X,
+            x: length_of_time,
 
             ease: globalEase,
           })

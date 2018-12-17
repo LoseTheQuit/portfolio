@@ -4,12 +4,12 @@ console.log("outer rebrandController");
 
 angular
   .module("shell")
-  .controller("rebrandController", function($scope, shellService) {
+  .controller("rebrandController", function ($scope, shellService) {
     console.log("rebrandController initialized!");
-    $scope.trafficSpy = function(x) {
+    $scope.trafficSpy = function (x) {
       var dataToSend = {};
 
-      $.get("https://api.ipify.org?format=json", function(data, error) {
+      $.get("https://api.ipify.org?format=json", function (data, error) {
         dataToSend.site = "LTQ";
         dataToSend.ip = data.ip;
         dataToSend.referrer = document.referrer;
@@ -26,17 +26,21 @@ angular
         }
 
         // if (error === 'success') {
-        // if (error === 'success' && window.location.hostname !== 'localhost') {
-        if (error === "success") {
+        if (error === 'success' && window.location.hostname !== 'localhost') {
+
           console.log(`traffic-spy`);
           console.log(error);
 
-          shellService.trafficSpy(dataToSend, function(response) {
+          shellService.trafficSpy(dataToSend, function (response) {
             console.log(response);
           });
         }
+
       });
     };
 
+
     $scope.trafficSpy();
+
+
   });

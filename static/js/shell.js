@@ -17,15 +17,22 @@ const app = angular
       .primaryPalette("grey")
       .accentPalette("indigo");
 
-    $routeProvider.when("/home", {
-      templateUrl: "../templates/portfolio.html",
-      controller: "rebrandController"
-    });
+    // $routeProvider.when("/home", {
+    //   templateUrl: "../templates/portfolio.html",
+    //   controller: "rebrandController"
+    // });
 
-    $routeProvider.when("/rebrand", {
+    // $routeProvider.when("/rebrand", {
+    //   templateUrl: "../templates/rebrand.html",
+    //   controller: "rebrandController"
+    // });
+
+    $routeProvider.when("/home", {
       templateUrl: "../templates/rebrand.html",
       controller: "rebrandController"
     });
+
+
 
     $routeProvider.when("/resume", {
       templateUrl: "../templates/instagram.html",

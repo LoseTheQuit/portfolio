@@ -1,16 +1,28 @@
 <style>
   /* OLD GOLD:  ded1c1 */
+  /* background: rgba(222, 209, 193, 1); */
 
   /* NEW GOLD: e5c596 */
+  /* background: rgba(229, 197, 150, 1); */
 
   /* OLD GREY:  2d2b29 */
+  /* background: rgba(45, 43, 41, 1); */
 
   /* NEW GREY:  2c2d32 */
+  /* background: rgba(44, 45, 50, 1); */
+
   body {
     /* overflow-y: scroll; */
+    overflow: auto;
     margin: 0px;
     background: #fff;
-    /* background: #fff !important; */
+    overflow: hidden !important;
+  }
+
+  body,
+  html {
+    background-size: cover;
+    min-height: 100%;
   }
 
   .jumbotron_scene_one {
@@ -21,14 +33,10 @@
   }
 
   .rbPanel {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    display: inline-flex;
     width: 100%;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
   }
 
   .rbPanel_one {
@@ -44,28 +52,69 @@
   }
 
   .rbPanel_four {
-    background: #FDF438;
+    background: rgba(222, 209, 193, 1);
     height: 50vh;
   }
 
   .rbPanel_five {
+    display: none;
     background: #fff;
     height: 100%;
+    transition: 1s linear;
+
   }
+
+  .rbPanel_six {
+    /* background: rgba(44, 45, 50, .75); */
+    /* color: white; */
+    height: 50vh;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+
+    /* NEW STUFF */
+    flex-wrap: nowrap;
+    display: inline-flex;
+    width: 100%;
+    /* REALLY NEW STUFF */
+    position: absolute;
+  }
+
+  .rbPanel_six  a {
+    color: #505050;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif; 
+    display: inline-block;
+    flex-direction: column;
+    /* transition: transform 0.1s ease-in-out; */
+    font-size: 18px;
+  }
+ 
 
   .rbPanel_glaze {
+    width: 100%;
+    height: 50vh; 
+    display: block;
+    background: #fff;
+    background: url('https://cdn-images-1.medium.com/max/2000/1*OF0xEMkWBv-69zvmNs6RDQ.gif') no-repeat center center;
+  }
+  .rbPanel_donut{
+    width: 100%;
+    height:100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    background: rgba(229, 197, 150, .90);
+   }
+
+  .rbPanel_container {
+    width: 100%;
     height: 50vh;
     display: block;
-    background: #fff url('https://cdn-images-1.medium.com/max/2000/1*OF0xEMkWBv-69zvmNs6RDQ.gif') no-repeat center center;
-  }
-
-  /*
-  .rbPanel_six {
-    background: #4C26F5;
-    color: white;
-    height: 50vh;
-  }
-  */
+    background: #fff;
+   }
 
   .headline_text_one {
     align-items: center;
@@ -74,52 +123,98 @@
     opacity: 0;
   }
 
+  .headline_text_two {
+    /* color: #fff; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headline_text_two h1 {
+    color: #fff;
+
+
+  }
+
   .navbar-trans {
     display: none;
   }
 
-  .headline_text_two {
-    color: #fff;
-    display: contents;
-    flex-direction: column;
-    background: #fff url('https://cdn-images-1.medium.com/max/2000/1*OF0xEMkWBv-69zvmNs6RDQ.gif') no-repeat center center;
-    /* opacity: 0; */
-    /* display: inline-flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-  }
-
-  .parallax-window {
-    min-height: 400px;
-    background: transparent;
-  }
-
   .relative_container {
-    display: inline-block;
+    display: flex;
+  }
+
+  .three_panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 </style>
 
 <style>
+  .links {
+    display: contents;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin: 20px 0 0 0;
+    opacity: 1;
+    transform: translateY(-120px);
+    will-change: transform;
+  }
+
+  .links li {
+    display: inline-block;
+  }
+
+  .links li a {
+    color: #505050;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: transform 0.1s ease-in-out;
+  }
+
+  .links li a:hover {
+    transform: scale(1.2);
+  }
+
+
+  .fa {
+    transform: translateY(-1px);
+    display: inline-block;
+    color: #505055;
+    color: #fff;
+  }
+</style>
+
+<style>
+  /* NAV */
   /* OVER RIDES */
   /* OVER RIDES */
   /* OVER RIDES */
 
   .navbar a {
     color: #505050;
+    color: #fff !important;
+
     font-weight: 700;
   }
 
   .the-white-out {
     color: #505050 !important;
+    color: #fff !important;
+
   }
 
   .iceWhite {
     color: #505050 !important;
+    color: #fff !important;
   }
 
-  .navbar-global .navbar-toggle {
-    border-color: #505050;
-  }
 
   .navbar-global .navbar-toggle li {
     display: block;
@@ -127,11 +222,121 @@
 
   .navbar-global .navbar-toggle .icon-bar {
     background-color: #505050;
+    background-color: #fff;
+  }
+
+  .nav>li>a:focus,
+  .nav>li>a:hover {
+    color: rgba(0, 0, 0, .50) !important;
+    /* background-color: rgba(0, 0, 0, .50); */
   }
 
   .dropdown-header {
-    color: #505050;
+    color: #fff;
   }
+
+  @media (max-width: 767px) {
+    .dropdown-header {
+      color: #505050;
+    }
+
+    .dropdown-menu li>a {
+      color: #505050;
+    }
+  } 
+</style>
+
+<style>
+  .ft_image {
+    /* background: url('https://tracsoft.com/wp-content/uploads/2016/06/html-accessible-websites.png') no-repeat center center; */
+  }
+.ft_container{
+    /* background: #00A3E0; */
+    background: #000;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .ftPanel_one {
+    /* background: #00A3E0; */
+    background: rgba(0, 163, 224, .75);
+    background: rgba(198, 173, 159, .75);
+    /* background: rgba(198, 173, 159, 1); */
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .ftPanel_two {
+    /* background: #0A63C9; */
+    background: rgba(10, 99, 201, .75);
+    background: rgba(161, 135, 119, .75);
+    /* background: rgba(161, 135, 119, 1); */
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        flex-direction: column;
+  }
+
+  .ftPanel_three {
+    /* background: #0B36E0; */
+    background: rgba(11, 54, 224, .75);
+    background: rgba(139, 109, 95, .75);
+    /* background: rgba(139, 109, 95, 1); */
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headline_message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headline_message h1 {
+    text-align: center;
+  }
+ 
+ 
+</style>
+
+<style>
+
+  .videoDiv {
+     width: 100%; height: 50vh; position: relative;
+  }
+
+.videoBlock {
+  width: 100%; height: 100%;  display: flex;  justify-content: center; align-items: center;
+}
+.video_message {width: 100%; height:100%; position: absolute; top: 0; left: 0;} 
+ 
+.video_headline {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.flash_icon { 
+   flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  display: none;
+}
 </style>
 
 <div class="jumbotron_scene_one">
@@ -140,46 +345,143 @@
   <div class="rbPanel rbPanel_three"></div>
 </div>
 
+
 <div class="rbPanel rbPanel_four">
-  <div class="headline_text_one">
-    <div>
-      <h1>REAL</h1>
+  <div class="rbPanel_glaze">
+    <div class="rbPanel_donut">
+      <div class="headline_text_one">
+        <div>
+          <h1>SLANT</h1>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="rbPanel_glaze">
+<div class="rbPanel_container">
+
   <div class="rbPanel rbPanel_five relative_container">
-    <div class="headline_text_two">
+    <div class="headline_text_two relative_container">
+
       <navbar></navbar>
-      <!--
-      <div class="col-md-3">BRENDAN CARR</div>
-      <div class="col-md-9">FULL STACK WEB DEVELOPER</div>
-      <div class="col-md-12">GOOD</div>
-      -->
 
+      <div class="headline_message">
 
+        <div class="videoDiv">
+          <div id="videoBlock">
+
+            <video autoplay muted loop>
+              <source src="../vids/ltq_intro_000.mp4" type="video/mp4">
+              </source>
+            </video>
+
+            <div class="video_message">
+              <div class="video_headline">
+
+                <h1>MEA(r)N</h1>
+                <h1>STACK</h1>
+                <h1>DEVELOPER</h1>
+
+                <!-- <div class="linkBar">
+                  <ul class="links">
+                    <li>
+                      <a href="https://www.linkedin.com/in/brendan-carr-182/" target="nofollow">
+                        <i class="fa fa-linkedin"></i>
+                        LinkedIn
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/LoseTheQuit" target="nofollow">
+                        <i class="fa fa-github"></i>
+                        GitHub
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/losethequit?lang=en" target="nofollow">
+                        <i class="fa fa-twitter"></i>
+                        @losethequit
+                      </a>
+                    </li>
+                  </ul>
+                </div> -->
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rbPanel_six">
+  <div class="ft_container">
+    <div class="rbPanel ft_image">
+      <div class="ftPanel_one">
+        <!-- <h1>test</h1> -->
+        <!-- <i class="fa fa-linkedin"></i> -->
+
+        <a href="https://www.linkedin.com/in/brendan-carr-182/" target="nofollow">
+          <i class="fa fa-linkedin"></i>
+          LinkedIn
+        </a>
+        <i class="fa fa-linkedin flash_icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ft_container">
+    <div class="rbPanel ft_image">
+      <div class="ftPanel_two">
+        <a href="https://github.com/LoseTheQuit" target="nofollow">
+          <i class="fa fa-github"></i>
+          GitHub
+        </a>
+        <i class="fa fa-github flash_icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ft_container">
+    <div class="rbPanel ft_image">
+      <div class="ftPanel_three">
+        <a href="https://twitter.com/losethequit?lang=en" target="nofollow">
+          <i class="fa fa-twitter"></i>
+          @losethequit
+        </a>
+        <i class="fa fa-twitter flash_icon"></i>
+      </div>
     </div>
   </div>
 
-  <script src="../js/universal/parallax.min.js"></script>
-  <script>
+</div>
+
+<script src="../js/universal/parallax.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+
     const init = () => {
-      const timeLine = new TimelineMax({
-        onUpdate: updateSlider
-      });
+
+      const globalEase = Expo.easeIn;
       const timeLineInterval_SUPER_SHORT = .25;
       const timeLineInterval_SHORT = .5;
       const timeLineInterval = .75;
       const timeLineIntervalLong = 1.5;
-      const
-        timeLineInterval_SUPER_Long = 2;
-      const globalEase = Expo.easeIn; // SCENE ONE
+      const timeLineInterval_SUPER_Long = 2;
+
+      const timeLine = new TimelineMax({
+        onUpdate: () => {}
+      });
+
+      // SCENE ONE
       timeLine.from('.rbPanel_one', timeLineInterval, {
           opacity: 0,
           y: -500,
           ease: globalEase,
-        }).from('.rbPanel_two', timeLineInterval, {
+        })
+        .from('.rbPanel_two', timeLineInterval, {
           opacity: 0,
           y: -500,
           ease: globalEase,
@@ -188,18 +490,18 @@
             opacity: 0,
             y: -500,
             ease: globalEase,
-          },
-          `-=${timeLineInterval_SHORT}`).to('.rbPanel_one', timeLineInterval, {
+          }, `-=${timeLineInterval_SHORT}`)
+        .to('.rbPanel_one', timeLineInterval, {
           opacity: 0,
           y: 500,
           ease: globalEase,
         }, `-=${timeLineInterval_SUPER_SHORT}`)
         .to('.rbPanel_two', timeLineInterval, {
-            opacity: 0,
-            y: 500,
-            ease: globalEase,
-          },
-          `-=${timeLineInterval_SHORT}`).to('.rbPanel_three', timeLineInterval, {
+          opacity: 0,
+          y: 500,
+          ease: globalEase,
+        }, `-=${timeLineInterval_SHORT}`)
+        .to('.rbPanel_three', timeLineInterval, {
           opacity: 0,
           y: 500,
           ease: globalEase,
@@ -213,45 +515,120 @@
           opacity: 0,
           y: -500,
           ease: globalEase,
-        }).from('.headline_text_one', timeLineInterval, {
+        })
+        .from('.headline_text_one', timeLineInterval, {
           opacity: 1,
           color: "#FDF438",
           ease: globalEase,
-        }).to('.rbPanel_four', timeLineInterval, {
-            opacity: 1,
-            y: -500,
-            height: 0,
-            ease: globalEase,
-            onComplete: () => {
-              $('.rbPanel_four').css({
-                display: "none"
-              });
+        })
+        .to('.rbPanel_four', timeLineInterval, {
+          opacity: 1,
+          y: -500,
+          height: 0,
+          ease: globalEase,
+          onComplete: () => {
 
-              $('.navbar-trans').css({
-                display: "contents"
-                // display: "inline-block"
-              });
+            $('.rbPanel_four').css({
+              display: "none"
+            });
 
-              $('.rbPanel_five').css({
-                background: "rgba(255, 255, 255, .95)"
-              });
-            }
-          },
-          `+=${timeLineIntervalLong}`).to('.rbPanel_five', timeLineInterval, {
-            ease: globalEase,
-            onComplete: () => {
-              $('body').css({
-                background: "#4C26F5"
-              });
-            }
-          },
-          `-=${timeLineInterval}`).to('.headline_text_two', timeLineInterval, {
+            $('.navbar-trans').css({
+              display: "contents"
+            });
+
+            $('.rbPanel_five').css({
+              // background: "rgba(229, 197, 150, .90)"
+              background: "rgba(44, 45, 50, .90)"
+            });
+
+          }
+        }, `+=${timeLineIntervalLong}`)
+        .to('.rbPanel_five', timeLineInterval, {
+          ease: globalEase,
+          onComplete: () => {
+
+            $('.headline_message').css({
+              display: "flex"
+            });
+            $('.rbPanel_six').css({
+              display: "flex"
+            });
+
+          }
+        }, `-=${timeLineInterval}`)
+        .to('.headline_text_two', timeLineInterval, {
           opacity: 1,
           color: "#000",
           ease: globalEase
         })
+        .to('.rbPanel_six', timeLineInterval, {
+          opacity: 1,
+          ease: globalEase
+        })
 
-      function updateSlider() {}
+
+      $('.ftPanel_one').on('click', () => {
+
+
+        console.log("HELLO WORLD");
+
+      })
+
+
+      const iconDisappear = (str) => {
+        timeLine
+          .to(`${str} a`, timeLineInterval_SUPER_SHORT, {
+            opacity: 0,
+            x: -500,
+            ease: globalEase,
+          }, `-=${timeLineInterval_SHORT / 5}`)
+          .to(`${str} .flash_icon`, timeLineInterval_SUPER_SHORT / 5, {
+            display: "inline-block",
+            opacity: 1,
+            fontSize: `${$(str).height() /2}px`,
+            x: 0,
+            y: -20,
+            ease: globalEase,
+          })
+      }
+
+      const iconAppear = str => {
+        timeLine
+          .to('${str} a', timeLineInterval_SUPER_SHORT, {
+            opacity: 1,
+            x: 0,
+            ease: globalEase,
+          }, `-=${timeLineInterval_SHORT }`)
+          .to('${str} .flash_icon', timeLineInterval_SUPER_SHORT, {
+            display: "none",
+            opacity: 0,
+            fontSize: `${0}px`,
+            x: -500,
+
+            ease: globalEase,
+          })
+      }
+      $(".ftPanel_one").hover(
+        () => iconDisappear('.ftPanel_one'),
+        () => {
+          timeLine
+            .to('.ftPanel_one a', timeLineInterval_SUPER_SHORT, {
+              opacity: 1,
+              x: 0,
+              ease: globalEase,
+            }, `-=${timeLineInterval_SHORT }`)
+            .to('.ftPanel_one .flash_icon', timeLineInterval_SUPER_SHORT, {
+              display: "none",
+              opacity: 0,
+              fontSize: `${0}px`,
+              x: -500,
+
+              ease: globalEase,
+            })
+        }
+      );
+
     };
     init();
-  </script>
+  });
+</script>

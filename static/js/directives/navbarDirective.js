@@ -7,7 +7,6 @@ angular.module("shell")
         return {
             templateUrl: '../components/navbar.html',
             controller: 'shellController',
-
             replace: false
         }
 

@@ -39,30 +39,7 @@
      word-wrap: break-word;
  }
 
- @media (min-width: 768px) {
 
-     h1,
-     .h1 {
-         font-size: 46px;
-         font-size: 3rem;
-         word-wrap: normal;
-     }
- }
-
- @media (min-width: 992px) {
-
-     h1,
-     .h1 {
-         font-size: 60px;
-         font-size: 3.750rem;
-         margin: 0 0 47px;
-     }
-
-     h1.short,
-     .h1.short {
-         margin: 0 0 30px;
-     }
- }
 
  h2,
  .h2 {
@@ -714,9 +691,8 @@
  }
 
  .brand {
-     display: inline-block;
      width: 140px;
-     height: 24px;
+     /* height: 24px; */
      white-space: nowrap;
      overflow: hidden;
      -webkit-transform: translateX(0);
@@ -725,6 +701,11 @@
      -webkit-transition: -webkit-transform .3s;
      transition: transform .3s;
      transition: transform .3s, -webkit-transform .3s;
+     display: inline-block;
+     display: inline-flex;
+     justify-content: center;
+     align-content: center;
+
  }
 
  .brand svg {
@@ -756,9 +737,8 @@
 
  @media (min-width: 768px) {
      .brand {
-         float: left;
-         width: 205px;
          height: 37px;
+         height: 50px;
      }
 
      .brand.open {
@@ -807,8 +787,10 @@
      z-index: 0;
      padding: 20px;
      overflow-y: auto;
-     /* -webkit-transform: translate3d(100%,0,0);
-    transform: translate3d(100%,0,0); */
+     /* 
+     -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0); 
+    */
      font-weight: 700;
      background: #000;
      -webkit-transition: visibility .5s;
@@ -817,8 +799,10 @@
  }
 
  .open .nav-extended {
-     /* -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0); */
+     /* 
+     -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0); 
+    */
      visibility: visible;
      -webkit-overflow-scrolling: touch;
  }

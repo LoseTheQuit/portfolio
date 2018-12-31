@@ -11,7 +11,7 @@ const app = angular
     "ngCookies",
     "ngLodash"
   ])
-  .config(function ($routeProvider, $mdThemingProvider, $mdAriaProvider) {
+  .config(function($routeProvider, $mdThemingProvider, $mdAriaProvider) {
     $mdThemingProvider
       .theme("default")
       .primaryPalette("grey")
@@ -28,11 +28,14 @@ const app = angular
     // });
 
     $routeProvider.when("/home", {
-      templateUrl: "../templates/rebrand.html",
+      templateUrl: "../templates/tf.html",
       controller: "rebrandController"
     });
 
-
+    // $routeProvider.when("/home", {
+    //   templateUrl: "../templates/rebrand.html",
+    //   controller: "rebrandController"
+    // });
 
     $routeProvider.when("/resume", {
       templateUrl: "../templates/instagram.html",

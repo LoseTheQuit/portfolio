@@ -1,71 +1,103 @@
-let x_vals = [];
-let y_vals = [];
-
-let m, b;
-
-const learningRate = 0.2;
-const optimizer = tf.train.sgd(learningRate);
-
-function setup() {
-  createCanvas(640, 360);
-  m = tf.variable(tf.scalar(random(1)));
-  b = tf.variable(tf.scalar(random(1)));
-}
-
-function mousePressed() {
-  let x = map(mouseX, 0, width, 0, 1);
-  let y = map(mouseY, 0, height, 1, 0);
-
-  x_vals.push(x);
-  y_vals.push(y);
-}
-
-function predict(_x) {
-  // y = mx + b
-  const tfxs = tf.tensor1d(_x);
-  const ys = tfxs.mul(m).add(b);
-  return ys;
-}
-
-function loss(pred, label) {
-  return pred
-    .sub(label)
-    .square()
-    .mean();
-}
-
-function draw() {
-  background(255);
-  stroke(0);
-  strokeWeight(8);
-
-  for (let i = 0; i < x_vals.length; i++) {
-    let px = map(x_vals[i], 0, 1, 0, width);
-    let py = map(y_vals[i], 0, 1, height, 0);
-    point(px, py);
-  }
-
-  if (x_vals.length > 0) {
-    tf.tidy(() => {
-      const __ys = tf.tensor1d(y_vals);
-      optimizer.minimize(() => loss(predict(x_vals), __ys));
-
-      let lineX = [0, 1];
-      let ys = predict(lineX);
-      // ys.print();
-
-      let x1 = map(lineX[0], 0, 1, 0, width);
-      let x2 = map(lineX[1], 0, 1, 0, width);
-
-      let lineY = ys.dataSync();
-
-      // console.log(lineY);
-      let y1 = map(lineY[0], 0, 1, height, 0);
-      let y2 = map(lineY[1], 0, 1, height, 0);
-      //
-      line(x1, y1, x2, y2);
-    });
-
-    tf.tidy(() => {});
-  }
-}
+// const learningRate = 0.1;
+// // THIS IS THE MODEL
+// const model = tf.sequential();
+//
+// // CREATE THE HIDDEN
+// const hidden = tf.layers.dense({
+//   units: 4,
+//   inputShape: [2],
+//   activation: "sigmoid"
+// });
+// // ADD THE LAYER
+// model.add(hidden);
+//
+// // CREATER AN OPTIZER
+// const output = tf.layers.dense({
+//   units: 1,
+//   // units: 3,
+//   activation: "sigmoid"
+// });
+//
+// model.add(output);
+//
+// // CREATE A STOCHASTIC GRADIENT DESCENT OPTIMIZER
+// const sgd_optimizer = tf.train.sgd(learningRate);
+//
+// // COMPLILE MODEL
+// model.compile({
+//   optimizer: sgd_optimizer,
+//   loss: "meanSquaredError"
+// });
+//
+// // const xs_inputs = tf.tensor2d([
+// //   [0.25, 0.92],
+// //   [0.52, 0.62],
+// //   [0.25, 0.52],
+// //   [0.64, 0.94],
+// //   [0.34, 0.22]
+// // ]);
+// //
+// // const ys_outputs = tf.tensor2d([
+// //   [0.25, 0.92, 0.03],
+// //   [0.52, 0.62, 0.03],
+// //   [0.25, 0.52, 0.03],
+// //   [0.64, 0.94, 0.03],
+// //   [0.34, 0.22, 0.03]
+// // ]);
+//
+// const xs_inputs = tf.tensor2d([
+//   // SMOOTH
+//   [0, 0],
+//   [0.5, 0.5],
+//   [1, 1]
+//   // SMOOTH
+// ]);
+//
+// const ys_outputs = tf.tensor2d([
+//   // SMOOTH
+//   [1],
+//   [0.5],
+//   [0]
+//   // SMOOTH
+// ]);
+// var startTime = performance.now();
+//
+// async function train() {
+//   const config = {
+//     shuffle: true,
+//     // epochs: 2
+//     epochs: 10,
+//     callbacks: {
+//       onEpochEnd: function(epoch, log) {
+//         console.log(`Epoch ${epoch}: loss = ${log.loss}`);
+//       }
+//     }
+//   };
+//
+//   for (let x = 0; x < 1000; x++) {
+//     const response = await model.fit(xs_inputs, ys_outputs, config);
+//     // console.log(`INDEX ${x}`);
+//     // console.log(response.history.loss[0]);
+//   }
+// }
+//
+// // 1000/5
+// // Tensor
+// //     [[0.9621034],
+// //      [0.4909495],
+// //      [0.0672191]]
+// // 1000/2
+// // Tensor
+// //     [[0.9095705],
+// //      [0.4766962],
+// //      [0.1204459]]
+//
+// train().then(() => {
+//   const outputs = model.predict(xs_inputs);
+//   outputs.print();
+//   console.log("Training Complete!");
+//   var endTime = performance.now();
+//   console.log(
+//     `Call to doSomething took ${(endTime - startTime) / 1000} seconds.`
+//   );
+// });

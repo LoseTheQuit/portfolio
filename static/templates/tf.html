@@ -1,13 +1,22 @@
 <style>
   .background {
-
-    /* height: 100%; */
-    height: 60%;
+    height: 100%;
+    /* height: 60%; */
     width: 100%;
     background: #fff;
-
   }
 </style>
-<!-- <div class="background">
-  <h2>Hello World</h2>
-</div> -->
+<div class="background">
+
+  <h1>PREDICT</h1>
+
+  <h5>{{xor.first}}</h5>
+  <h5>{{xor.second}}</h5>
+  <input type="number" ng-model="xor.first">
+  <input type="number" ng-model="xor.second">
+  <br>
+  <button class="ghost_button">Train</button>
+
+  <br>
+  <button class="glass_button" ng-click="evaluate(xor.first, xor.second)">Test</button>
+</div>
